@@ -1,0 +1,27 @@
+# 基础科学计算与图处理
+numpy>=1.24
+scipy>=1.10
+networkx>=2.8
+
+# MinHash / LSH 召回
+datasketch>=1.5.9
+
+# 机器学习与聚类（含 HDBSCAN 依赖）
+scikit-learn>=1.3
+hdbscan>=0.8.33
+
+# 深度学习 / 图神经网络（VCoME 编码器）
+
+
+# 进度条、配置与日志
+tqdm>=4.66
+PyYAML>=6.0
+rich>=13.7
+
+# HTML 报告与代码高亮
+Jinja2>=3.1
+Pygments>=2.16
+
+# 辅助工具（可选，但通常会用到）
+# orjson>=3.9
+# ujson>=5.8

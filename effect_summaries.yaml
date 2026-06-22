@@ -1,0 +1,929 @@
+- fqname: __UNKNOWN__
+  match:
+    type: default
+    pattern: '*'
+  effects:
+    reads:
+    - HEAP[*]
+    writes:
+    - HEAP[*]
+    flags:
+      unknown: true
+      impure: true
+      exception_may_raise: true
+      nondeterministic: true
+      io_file: false
+      io_net: false
+      db: false
+      rng: false
+      time: false
+      env: false
+  notes: Fallback summary for unknown or unmodelled calls (conservative, down-weighted)
+- fqname: builtins.print
+  match:
+    type: fqname
+    pattern: builtins.print
+  effects:
+    reads: []
+    writes:
+    - FILE[stdout]
+    flags:
+      io_file: true
+      io_net: false
+      db: false
+      rng: false
+      time: false
+      env: false
+      exception_may_raise: false
+      blocking: false
+      nondeterministic: false
+      impure: true
+  notes: Writes to stdout (may be redirected)
+  since: '3.0'
+- fqname: builtins.input
+  match:
+    type: fqname
+    pattern: builtins.input
+  effects:
+    reads:
+    - FILE[stdin]
+    writes: []
+    flags:
+      io_file: true
+      io_net: false
+      db: false
+      rng: false
+      time: false
+      env: false
+      exception_may_raise: false
+      blocking: true
+      nondeterministic: false
+      impure: true
+  notes: Reads from stdin, blocking
+  since: '3.0'
+- fqname: builtins.open
+  match:
+    type: fqname
+    pattern: builtins.open
+  effects:
+    reads:
+    - OS_META
+    writes:
+    - FILE[path]
+    flags:
+      io_file: true
+      exception_may_raise: true
+      blocking: false
+      nondeterministic: false
+      impure: true
+      io_net: false
+      db: false
+      rng: false
+      time: false
+      env: false
+  notes: Opens file; may raise IOError/OSError
+  since: '3.0'
+- fqname: os.remove
+  match:
+    type: fqname
+    pattern: os.remove
+  effects:
+    reads: []
+    writes:
+    - FILE[path]
+    - OS_META
+    flags:
+      io_file: true
+      exception_may_raise: true
+      impure: true
+      io_net: false
+      db: false
+      rng: false
+      time: false
+      env: false
+  notes: Deletes file and updates directory metadata
+  since: '3.0'
+- fqname: os.rename
+  match:
+    type: fqname
+    pattern: os.rename
+  effects:
+    reads: []
+    writes:
+    - OS_META
+    - FILE[path]
+    flags:
+      io_file: true
+      exception_may_raise: true
+      impure: true
+      io_net: false
+      db: false
+      rng: false
+      time: false
+      env: false
+- fqname: os.makedirs
+  match:
+    type: fqname
+    pattern: os.makedirs
+  effects:
+    reads: []
+    writes:
+    - OS_META
+    - FILE[path]
+    flags:
+      io_file: true
+      exception_may_raise: true
+      impure: true
+      io_net: false
+      db: false
+      rng: false
+      time: false
+      env: false
+- fqname: os.rmdir
+  match:
+    type: fqname
+    pattern: os.rmdir
+  effects:
+    reads: []
+    writes:
+    - OS_META
+    - FILE[path]
+    flags:
+      io_file: true
+      exception_may_raise: true
+      impure: true
+      io_net: false
+      db: false
+      rng: false
+      time: false
+      env: false
+- fqname: os.listdir
+  match:
+    type: fqname
+    pattern: os.listdir
+  effects:
+    reads:
+    - OS_META
+    - FILE[path]
+    writes: []
+    flags:
+      io_file: true
+      exception_may_raise: true
+      impure: true
+      io_net: false
+      db: false
+      rng: false
+      time: false
+      env: false
+- fqname: os.environ.get
+  match:
+    type: regex
+    pattern: ^os\.environ(\.|\.__class__\.)?get$
+  effects:
+    reads:
+    - ENV
+    writes: []
+    flags:
+      env: true
+      impure: true
+      exception_may_raise: false
+      io_file: false
+      io_net: false
+      db: false
+      rng: false
+      time: false
+- fqname: os.environ.__setitem__
+  match:
+    type: regex
+    pattern: ^os\.environ\.__setitem__$
+  effects:
+    reads: []
+    writes:
+    - ENV
+    flags:
+      env: true
+      impure: true
+      exception_may_raise: false
+      io_file: false
+      io_net: false
+      db: false
+      rng: false
+      time: false
+- fqname: sys.exit
+  match:
+    type: fqname
+    pattern: sys.exit
+  effects:
+    reads: []
+    writes:
+    - PROC
+    flags:
+      exception_may_raise: true
+      impure: true
+      io_file: false
+      io_net: false
+      db: false
+      rng: false
+      time: false
+      env: false
+  notes: Raises SystemExit; early termination
+- fqname: time.time
+  match:
+    type: fqname
+    pattern: time.time
+  effects:
+    reads:
+    - TIME
+    writes: []
+    flags:
+      time: true
+      nondeterministic: true
+      impure: true
+      io_file: false
+      io_net: false
+      db: false
+      rng: false
+      env: false
+- fqname: time.sleep
+  match:
+    type: fqname
+    pattern: time.sleep
+  effects:
+    reads:
+    - TIME
+    writes: []
+    flags:
+      time: true
+      blocking: true
+      impure: true
+      io_file: false
+      io_net: false
+      db: false
+      rng: false
+      env: false
+- fqname: datetime.datetime.now
+  match:
+    type: regex
+    pattern: ^datetime\.(datetime|date)\.(now|today)$
+  effects:
+    reads:
+    - TIME
+    writes: []
+    flags:
+      time: true
+      nondeterministic: true
+      impure: true
+      io_file: false
+      io_net: false
+      db: false
+      rng: false
+      env: false
+- fqname: random.random
+  match:
+    type: fqname
+    pattern: random.random
+  effects:
+    reads:
+    - RNG
+    writes: []
+    flags:
+      rng: true
+      nondeterministic: true
+      impure: true
+      io_file: false
+      io_net: false
+      db: false
+      time: false
+      env: false
+- fqname: random.randint
+  match:
+    type: fqname
+    pattern: random.randint
+  effects:
+    reads:
+    - RNG
+    writes: []
+    flags:
+      rng: true
+      nondeterministic: true
+      impure: true
+      io_file: false
+      io_net: false
+      db: false
+      time: false
+      env: false
+- fqname: numpy.random.randn
+  match:
+    type: fqname
+    pattern: numpy.random.randn
+  effects:
+    reads:
+    - RNG
+    writes: []
+    flags:
+      rng: true
+      nondeterministic: true
+      impure: true
+      io_file: false
+      io_net: false
+      db: false
+      time: false
+      env: false
+- fqname: json.dump
+  match:
+    type: fqname
+    pattern: json.dump
+  effects:
+    reads: []
+    writes:
+    - FILE[path]
+    flags:
+      io_file: true
+      exception_may_raise: true
+      impure: true
+      io_net: false
+      db: false
+      rng: false
+      time: false
+      env: false
+- fqname: json.load
+  match:
+    type: fqname
+    pattern: json.load
+  effects:
+    reads:
+    - FILE[path]
+    writes: []
+    flags:
+      io_file: true
+      exception_may_raise: true
+      impure: true
+      io_net: false
+      db: false
+      rng: false
+      time: false
+      env: false
+- fqname: pickle.dump
+  match:
+    type: fqname
+    pattern: pickle.dump
+  effects:
+    reads: []
+    writes:
+    - FILE[path]
+    flags:
+      io_file: true
+      exception_may_raise: true
+      impure: true
+      io_net: false
+      db: false
+      rng: false
+      time: false
+      env: false
+- fqname: pickle.load
+  match:
+    type: fqname
+    pattern: pickle.load
+  effects:
+    reads:
+    - FILE[path]
+    writes: []
+    flags:
+      io_file: true
+      exception_may_raise: true
+      impure: true
+      io_net: false
+      db: false
+      rng: false
+      time: false
+      env: false
+- fqname: csv.writer.writerow
+  match:
+    type: regex
+    pattern: ^csv\.writer(ow)?\.writerow(s)?$
+  effects:
+    reads: []
+    writes:
+    - FILE[path]
+    flags:
+      io_file: true
+      exception_may_raise: true
+      impure: true
+      io_net: false
+      db: false
+      rng: false
+      time: false
+      env: false
+- fqname: csv.reader
+  match:
+    type: fqname
+    pattern: csv.reader
+  effects:
+    reads:
+    - FILE[path]
+    writes: []
+    flags:
+      io_file: true
+      exception_may_raise: true
+      impure: true
+      io_net: false
+      db: false
+      rng: false
+      time: false
+      env: false
+- fqname: shutil.copyfile
+  match:
+    type: fqname
+    pattern: shutil.copyfile
+  effects:
+    reads:
+    - FILE[path]
+    writes:
+    - FILE[path]
+    flags:
+      io_file: true
+      exception_may_raise: true
+      impure: true
+      io_net: false
+      db: false
+      rng: false
+      time: false
+      env: false
+  notes: Also affects directory OS metadata in practice
+- fqname: shutil.move
+  match:
+    type: fqname
+    pattern: shutil.move
+  effects:
+    reads:
+    - FILE[path]
+    writes:
+    - FILE[path]
+    - OS_META
+    flags:
+      io_file: true
+      exception_may_raise: true
+      impure: true
+      io_net: false
+      db: false
+      rng: false
+      time: false
+      env: false
+- fqname: socket.socket.send
+  match:
+    type: regex
+    pattern: ^socket\.socket\.(send|sendall)$
+  effects:
+    reads: []
+    writes:
+    - NET
+    flags:
+      io_net: true
+      exception_may_raise: true
+      impure: true
+      io_file: false
+      db: false
+      rng: false
+      time: false
+      env: false
+- fqname: socket.socket.recv
+  match:
+    type: regex
+    pattern: ^socket\.socket\.(recv|recvfrom)$
+  effects:
+    reads:
+    - NET
+    writes: []
+    flags:
+      io_net: true
+      exception_may_raise: true
+      impure: true
+      io_file: false
+      db: false
+      rng: false
+      time: false
+      env: false
+- fqname: requests.get
+  match:
+    type: fqname
+    pattern: requests.get
+  effects:
+    reads:
+    - NET
+    writes: []
+    flags:
+      io_net: true
+      nondeterministic: true
+      exception_may_raise: true
+      impure: true
+      io_file: false
+      db: false
+      rng: false
+      time: false
+      env: false
+- fqname: requests.post
+  match:
+    type: fqname
+    pattern: requests.post
+  effects:
+    reads: []
+    writes:
+    - NET
+    flags:
+      io_net: true
+      nondeterministic: true
+      exception_may_raise: true
+      impure: true
+      io_file: false
+      db: false
+      rng: false
+      time: false
+      env: false
+- fqname: sqlite3.connect
+  match:
+    type: fqname
+    pattern: sqlite3.connect
+  effects:
+    reads:
+    - FILE[path]
+    writes:
+    - FILE[path]
+    flags:
+      db: true
+      io_file: true
+      exception_may_raise: true
+      impure: true
+      io_net: false
+      rng: false
+      time: false
+      env: false
+- fqname: sqlite3.Connection.execute
+  match:
+    type: regex
+    pattern: ^sqlite3\.(Connection|Cursor)\.(execute|executemany|executescript)$
+  effects:
+    reads:
+    - DB
+    writes:
+    - DB
+    flags:
+      db: true
+      exception_may_raise: true
+      impure: true
+      io_file: false
+      io_net: false
+      rng: false
+      time: false
+      env: false
+- fqname: subprocess.run
+  match:
+    type: fqname
+    pattern: subprocess.run
+  effects:
+    reads:
+    - PROC
+    - FILE[stdin]
+    - ENV
+    writes:
+    - PROC
+    - FILE[stdout]
+    - FILE[stderr]
+    flags:
+      exception_may_raise: true
+      blocking: true
+      impure: true
+      io_file: true
+      io_net: false
+      db: false
+      rng: false
+      time: false
+      env: true
+- fqname: hashlib.sha256.update
+  match:
+    type: regex
+    pattern: ^hashlib\.(sha1|sha224|sha256|sha384|sha512)\(\)\.update$
+  effects:
+    reads:
+    - HEAP
+    writes:
+    - HEAP
+    flags:
+      impure: true
+      exception_may_raise: false
+      io_file: false
+      io_net: false
+      db: false
+      rng: false
+      time: false
+      env: false
+- fqname: pathlib.Path.read_text
+  match:
+    type: regex
+    pattern: ^pathlib\.Path\.(read_text|read_bytes)$
+  effects:
+    reads:
+    - FILE[path]
+    writes: []
+    flags:
+      io_file: true
+      exception_may_raise: true
+      impure: true
+      io_net: false
+      db: false
+      rng: false
+      time: false
+      env: false
+- fqname: pathlib.Path.write_text
+  match:
+    type: regex
+    pattern: ^pathlib\.Path\.(write_text|write_bytes)$
+  effects:
+    reads: []
+    writes:
+    - FILE[path]
+    flags:
+      io_file: true
+      exception_may_raise: true
+      impure: true
+      io_net: false
+      db: false
+      rng: false
+      time: false
+      env: false
+- fqname: printf
+  match:
+    type: fqname
+    pattern: printf
+  effects:
+    reads: []
+    writes:
+    - FILE[stdout]
+    flags:
+      io_file: true
+      impure: true
+      exception_may_raise: false
+      nondeterministic: false
+  notes: C stdio output to stdout
+  since: null
+- fqname: fprintf
+  match:
+    type: fqname
+    pattern: fprintf
+  effects:
+    reads: []
+    writes:
+    - FILE[*]
+    flags:
+      io_file: true
+      impure: true
+      exception_may_raise: false
+      nondeterministic: false
+  notes: C stdio formatted output to FILE*
+  since: null
+- fqname: scanf
+  match:
+    type: fqname
+    pattern: scanf
+  effects:
+    reads:
+    - FILE[stdin]
+    writes: []
+    flags:
+      io_file: true
+      impure: true
+  notes: C stdio input from stdin
+  since: null
+- fqname: fopen
+  match:
+    type: fqname
+    pattern: fopen
+  effects:
+    reads: []
+    writes:
+    - FILE[*]
+    flags:
+      io_file: true
+      impure: true
+  notes: Open file handle
+  since: null
+- fqname: fread
+  match:
+    type: fqname
+    pattern: fread
+  effects:
+    reads:
+    - FILE[*]
+    writes: []
+    flags:
+      io_file: true
+      impure: true
+  notes: Binary read from file
+  since: null
+- fqname: fwrite
+  match:
+    type: fqname
+    pattern: fwrite
+  effects:
+    reads: []
+    writes:
+    - FILE[*]
+    flags:
+      io_file: true
+      impure: true
+  notes: Binary write to file
+  since: null
+- fqname: malloc
+  match:
+    type: fqname
+    pattern: malloc
+  effects:
+    reads: []
+    writes:
+    - HEAP[*]
+    flags:
+      impure: true
+  notes: Heap allocation
+  since: null
+- fqname: free
+  match:
+    type: fqname
+    pattern: free
+  effects:
+    reads:
+    - HEAP[*]
+    writes:
+    - HEAP[*]
+    flags:
+      impure: true
+  notes: Heap deallocation
+  since: null
+- fqname: rand
+  match:
+    type: fqname
+    pattern: rand
+  effects:
+    reads:
+    - RNG[*]:R
+    writes:
+    - RNG[*]:W
+    flags:
+      rng: true
+      nondeterministic: true
+      impure: true
+  notes: Pseudo-random number generator
+  since: null
+- fqname: time
+  match:
+    type: fqname
+    pattern: time
+  effects:
+    reads: []
+    writes: []
+    flags:
+      time: true
+      impure: true
+  notes: Current time
+  since: null
+- fqname: send
+  match:
+    type: fqname
+    pattern: send
+  effects:
+    reads: []
+    writes:
+    - NET[*]
+    flags:
+      io_net: true
+      impure: true
+  notes: Send data on a socket
+  since: null
+- fqname: recv
+  match:
+    type: fqname
+    pattern: recv
+  effects:
+    reads:
+    - NET[*]
+    writes: []
+    flags:
+      io_net: true
+      impure: true
+  notes: Receive data from a socket
+  since: null
+- fqname: java.io.PrintStream.println
+  match:
+    type: regex
+    pattern: ^(System\.out\.println|java\.io\.PrintStream\.println)$
+  effects:
+    reads: []
+    writes:
+    - FILE[stdout]
+    flags:
+      io_file: true
+      impure: true
+  notes: Java console output
+  since: null
+- fqname: java.io.BufferedReader.readLine
+  match:
+    type: fqname
+    pattern: java.io.BufferedReader.readLine
+  effects:
+    reads:
+    - FILE[*]
+    writes: []
+    flags:
+      io_file: true
+      impure: true
+  notes: Java textual input from reader
+  since: null
+- fqname: java.io.FileInputStream.read
+  match:
+    type: fqname
+    pattern: java.io.FileInputStream.read
+  effects:
+    reads:
+    - FILE[*]
+    writes: []
+    flags:
+      io_file: true
+      impure: true
+  notes: Java byte input from file
+  since: null
+- fqname: java.io.FileOutputStream.write
+  match:
+    type: fqname
+    pattern: java.io.FileOutputStream.write
+  effects:
+    reads: []
+    writes:
+    - FILE[*]
+    flags:
+      io_file: true
+      impure: true
+  notes: Java byte output to file
+  since: null
+- fqname: java.net.Socket.getInputStream
+  match:
+    type: fqname
+    pattern: java.net.Socket.getInputStream
+  effects:
+    reads:
+    - NET[*]
+    writes: []
+    flags:
+      io_net: true
+      impure: true
+  notes: Java network input
+  since: null
+- fqname: java.net.Socket.getOutputStream
+  match:
+    type: fqname
+    pattern: java.net.Socket.getOutputStream
+  effects:
+    reads: []
+    writes:
+    - NET[*]
+    flags:
+      io_net: true
+      impure: true
+  notes: Java network output
+  since: null
+- fqname: java.util.Random.nextInt
+  match:
+    type: fqname
+    pattern: java.util.Random.nextInt
+  effects:
+    reads:
+    - RNG[*]:R
+    writes:
+    - RNG[*]:W
+    flags:
+      rng: true
+      nondeterministic: true
+      impure: true
+  notes: Java pseudo-random integer
+  since: null
+- fqname: java.lang.System.currentTimeMillis
+  match:
+    type: fqname
+    pattern: java.lang.System.currentTimeMillis
+  effects:
+    reads: []
+    writes: []
+    flags:
+      time: true
+      impure: true
+  notes: Wall-clock time in milliseconds
+  since: null
+- fqname: java.lang.Math.random
+  match:
+    type: fqname
+    pattern: java.lang.Math.random
+  effects:
+    reads:
+    - RNG[*]:R
+    writes:
+    - RNG[*]:W
+    flags:
+      rng: true
+  notes: Java Math.random; treated as RNG source

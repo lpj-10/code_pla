@@ -1,0 +1,18 @@
+{
+  "params": {
+    "json_root": "data/artifacts/json_mv",
+    "lang": "auto",
+    "max_funcs": 0,
+    "min_cluster_size": 8,
+    "epsilon": 0.35,
+    "use_align": false,
+    "has_hdbscan": true
+  },
+  "num_functions": 25,
+  "num_clusters": 0,
+  "distance_matrix_shape": [
+    25,
+    25
+  ],
+  "clusters": []
+}

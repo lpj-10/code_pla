@@ -1,0 +1,2145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Code Plagiarism – Pairwise Similarity Report</title>
+<style>
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f5f7;
+}
+header {
+  padding: 16px 32px;
+  background: #111827;
+  color: #f9fafb;
+}
+header h1 {
+  margin: 0;
+  font-size: 20px;
+}
+header .meta {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #9ca3af;
+}
+main {
+  padding: 16px 24px 32px 24px;
+}
+table.summary {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 24px;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.12);
+  border-radius: 6px;
+  overflow: hidden;
+}
+table.summary th,
+table.summary td {
+  padding: 8px 10px;
+  font-size: 13px;
+  border-bottom: 1px solid #e5e7eb;
+}
+table.summary th {
+  text-align: left;
+  background: #f3f4f6;
+}
+table.summary tr:last-child td {
+  border-bottom: none;
+}
+.badge {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 999px;
+  font-size: 11px;
+  line-height: 1.3;
+}
+.badge-high {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+.badge-med {
+  background: #fef3c7;
+  color: #92400e;
+}
+.badge-low {
+  background: #e0f2fe;
+  color: #075985;
+}
+section.pair {
+  margin-bottom: 24px;
+  padding: 16px;
+  background: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+}
+section.pair h2 {
+  margin: 0 0 8px 0;
+  font-size: 15px;
+}
+.pair-meta {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+.pair-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 1.2fr) minmax(260px, 1.4fr) minmax(260px, 1.4fr);
+  gap: 10px;
+  align-items: flex-start;
+}
+.func-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 12px;
+}
+.func-table th,
+.func-table td {
+  padding: 4px 6px;
+  border-bottom: 1px solid #e5e7eb;
+}
+.func-table th {
+  background: #f9fafb;
+  text-align: left;
+}
+.func-row {
+  cursor: pointer;
+}
+.func-row:hover {
+  background: #eff6ff;
+}
+.func-row.selected {
+  background: #dbeafe;
+}
+.code-pane {
+  background: #111827;
+  color: #e5e7eb;
+  padding: 8px 0;
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 11px;
+  overflow: auto;
+  max-height: 480px;
+}
+.code-pane-header {
+  padding: 0 10px 4px 10px;
+  font-size: 11px;
+  color: #9ca3af;
+}
+pre.code {
+  margin: 0;
+  padding: 0 10px 6px 10px;
+}
+.ln {
+  display: block;
+  white-space: pre;
+}
+.ln .no {
+  display: inline-block;
+  min-width: 36px;
+  margin-right: 6px;
+  color: #6b7280;
+}
+.ln.hl {
+  background: #facc15;
+  color: #111827;
+}
+.ln.hl .no {
+  color: #4b5563;
+}
+.ln.hl-weak {
+  background: #fde68a;
+}
+
+/* Simple token‑level syntax highlighting */
+.tok-kw {
+  color: #93c5fd;
+  font-weight: 500;
+}
+.tok-str {
+  color: #a7f3d0;
+}
+.tok-comment {
+  color: #9ca3af;
+  font-style: italic;
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Code Plagiarism – Pairwise Similarity Report</h1>
+  <div class="meta">
+    Program‑level pairs: 28 &nbsp;&nbsp;|&nbsp;&nbsp;
+    Greedy matching threshold: 0.50
+  </div>
+</header>
+<main>
+
+<table class="summary">
+<thead><tr><th>#</th><th>Program A</th><th>Program B</th><th>Similarity</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>data/submissions_simple/fact_student_b_recursive.py</td><td>data/submissions_simple/fact_student_a.py</td><td>1.000</td><td><span class="badge badge-high">high</span></td></tr>
+<tr><td>2</td><td>data/submissions_simple/fib_student_d_recursive.py</td><td>data/submissions_simple/fib_student_b_small_edits.py</td><td>1.000</td><td><span class="badge badge-high">high</span></td></tr>
+<tr><td>3</td><td>data/submissions_simple/fib_student_d_recursive.py</td><td>data/submissions_simple/fib_student_a.py</td><td>1.000</td><td><span class="badge badge-high">high</span></td></tr>
+<tr><td>4</td><td>data/submissions_simple/fib_student_b_small_edits.py</td><td>data/submissions_simple/fib_student_a.py</td><td>1.000</td><td><span class="badge badge-high">high</span></td></tr>
+<tr><td>5</td><td>data/submissions_simple/fib_student_c_restructured.py</td><td>data/submissions_simple/word_freq_student_b_small_edits.py</td><td>0.976</td><td><span class="badge badge-high">high</span></td></tr>
+<tr><td>6</td><td>data/submissions_simple/word_freq_student_a.py</td><td>data/submissions_simple/fib_student_c_restructured.py</td><td>0.975</td><td><span class="badge badge-high">high</span></td></tr>
+<tr><td>7</td><td>data/submissions_simple/fact_student_b_recursive.py</td><td>data/submissions_simple/fib_student_c_restructured.py</td><td>0.975</td><td><span class="badge badge-high">high</span></td></tr>
+<tr><td>8</td><td>data/submissions_simple/fact_student_a.py</td><td>data/submissions_simple/fib_student_c_restructured.py</td><td>0.974</td><td><span class="badge badge-high">high</span></td></tr>
+<tr><td>9</td><td>data/submissions_simple/fib_student_b_small_edits.py</td><td>data/submissions_simple/fib_student_c_restructured.py</td><td>0.974</td><td><span class="badge badge-high">high</span></td></tr>
+<tr><td>10</td><td>data/submissions_simple/fib_student_a.py</td><td>data/submissions_simple/fib_student_c_restructured.py</td><td>0.974</td><td><span class="badge badge-high">high</span></td></tr>
+<tr><td>11</td><td>data/submissions_simple/fib_student_d_recursive.py</td><td>data/submissions_simple/fib_student_c_restructured.py</td><td>0.973</td><td><span class="badge badge-high">high</span></td></tr>
+<tr><td>12</td><td>data/submissions_simple/fact_student_b_recursive.py</td><td>data/submissions_simple/fib_student_b_small_edits.py</td><td>0.965</td><td><span class="badge badge-high">high</span></td></tr>
+<tr><td>13</td><td>data/submissions_simple/fact_student_b_recursive.py</td><td>data/submissions_simple/fib_student_a.py</td><td>0.965</td><td><span class="badge badge-high">high</span></td></tr>
+<tr><td>14</td><td>data/submissions_simple/fib_student_b_small_edits.py</td><td>data/submissions_simple/fact_student_a.py</td><td>0.965</td><td><span class="badge badge-high">high</span></td></tr>
+<tr><td>15</td><td>data/submissions_simple/fib_student_a.py</td><td>data/submissions_simple/fact_student_a.py</td><td>0.965</td><td><span class="badge badge-high">high</span></td></tr>
+<tr><td>16</td><td>data/submissions_simple/fib_student_b_small_edits.py</td><td>data/submissions_simple/word_freq_student_b_small_edits.py</td><td>0.965</td><td><span class="badge badge-high">high</span></td></tr>
+<tr><td>17</td><td>data/submissions_simple/fib_student_a.py</td><td>data/submissions_simple/word_freq_student_b_small_edits.py</td><td>0.965</td><td><span class="badge badge-high">high</span></td></tr>
+<tr><td>18</td><td>data/submissions_simple/fib_student_d_recursive.py</td><td>data/submissions_simple/word_freq_student_b_small_edits.py</td><td>0.965</td><td><span class="badge badge-high">high</span></td></tr>
+<tr><td>19</td><td>data/submissions_simple/fact_student_b_recursive.py</td><td>data/submissions_simple/word_freq_student_b_small_edits.py</td><td>0.963</td><td><span class="badge badge-high">high</span></td></tr>
+<tr><td>20</td><td>data/submissions_simple/word_freq_student_a.py</td><td>data/submissions_simple/word_freq_student_b_small_edits.py</td><td>0.963</td><td><span class="badge badge-high">high</span></td></tr>
+<tr><td>21</td><td>data/submissions_simple/fact_student_a.py</td><td>data/submissions_simple/word_freq_student_b_small_edits.py</td><td>0.963</td><td><span class="badge badge-high">high</span></td></tr>
+<tr><td>22</td><td>data/submissions_simple/fact_student_b_recursive.py</td><td>data/submissions_simple/word_freq_student_a.py</td><td>0.962</td><td><span class="badge badge-high">high</span></td></tr>
+<tr><td>23</td><td>data/submissions_simple/word_freq_student_a.py</td><td>data/submissions_simple/fact_student_a.py</td><td>0.962</td><td><span class="badge badge-high">high</span></td></tr>
+<tr><td>24</td><td>data/submissions_simple/fib_student_b_small_edits.py</td><td>data/submissions_simple/word_freq_student_a.py</td><td>0.961</td><td><span class="badge badge-high">high</span></td></tr>
+<tr><td>25</td><td>data/submissions_simple/word_freq_student_a.py</td><td>data/submissions_simple/fib_student_a.py</td><td>0.961</td><td><span class="badge badge-high">high</span></td></tr>
+<tr><td>26</td><td>data/submissions_simple/fact_student_b_recursive.py</td><td>data/submissions_simple/fib_student_d_recursive.py</td><td>0.961</td><td><span class="badge badge-high">high</span></td></tr>
+<tr><td>27</td><td>data/submissions_simple/fib_student_d_recursive.py</td><td>data/submissions_simple/fact_student_a.py</td><td>0.961</td><td><span class="badge badge-high">high</span></td></tr>
+<tr><td>28</td><td>data/submissions_simple/fib_student_d_recursive.py</td><td>data/submissions_simple/word_freq_student_a.py</td><td>0.960</td><td><span class="badge badge-high">high</span></td></tr>
+</tbody></table>
+<section class="pair" id="pair-1" data-pair-id="1">
+<h2>Pair 1: data/submissions_simple/fact_student_b_recursive.py &nbsp;&nbsp;vs&nbsp;&nbsp; data/submissions_simple/fact_student_a.py</h2>
+<div class="pair-meta">Aggregated similarity: <strong>1.0000</strong> &nbsp;&nbsp;(threshold = 0.50)</div>
+<div class="pair-grid">
+<div class="pair-cell matches">
+<table class="func-table">
+<thead><tr><th>#</th><th>Function A</th><th>Lines A</th><th>Function B</th><th>Lines B</th><th>Score</th></tr></thead>
+<tbody>
+<tr class="func-row" data-pair-id="1" data-match-idx="1" data-a-start="1" data-a-end="8" data-b-start="1" data-b-end="9"><td>1</td><td>fact_recursive</td><td>1–8</td><td>fact</td><td>1–9</td><td>0.950</td></tr>
+<tr class="func-row" data-pair-id="1" data-match-idx="2" data-a-start="9" data-a-end="15" data-b-start="10" data-b-end="16"><td>2</td><td>main</td><td>9–15</td><td>main</td><td>10–16</td><td>0.800</td></tr>
+<tr class="func-row" data-pair-id="1" data-match-idx="3" data-a-start="1" data-a-end="8" data-b-start="10" data-b-end="16"><td>3</td><td>fact_recursive</td><td>1–8</td><td>main</td><td>10–16</td><td>0.689</td></tr>
+<tr class="func-row" data-pair-id="1" data-match-idx="4" data-a-start="9" data-a-end="15" data-b-start="1" data-b-end="9"><td>4</td><td>main</td><td>9–15</td><td>fact</td><td>1–9</td><td>0.689</td></tr>
+</tbody></table>
+</div>
+<div class="pair-cell code-a">
+<div class="code-pane" data-prog-role="a" data-pair-id="1">
+<div class="code-pane-header">A: data/submissions_simple/fact_student_b_recursive.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fact_recursive(n):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">if</span> n &lt; 0:</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         <span class="tok-kw">raise</span> ValueError(<span <span class="tok-kw">class</span>="tok-str">"negative <span class="tok-kw">not</span> allowed"</span>)</span>
+<span class="ln" data-line="4"><span class="no">   4</span>     <span class="tok-kw">if</span> n <span class="tok-kw">in</span> (0, 1):</span>
+<span class="ln" data-line="5"><span class="no">   5</span>         <span class="tok-kw">return</span> 1</span>
+<span class="ln" data-line="6"><span class="no">   6</span>     <span class="tok-kw">return</span> n * fact_recursive(n - 1)</span>
+<span class="ln" data-line="7"><span class="no">   7</span> </span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="10"><span class="no">  10</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="11"><span class="no">  11</span>         print(i, fact_recursive(i))</span>
+<span class="ln" data-line="12"><span class="no">  12</span> </span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="15"><span class="no">  15</span>     main()</span>
+</pre>
+</div>
+</div>
+<div class="pair-cell code-b">
+<div class="code-pane" data-prog-role="b" data-pair-id="1">
+<div class="code-pane-header">B: data/submissions_simple/fact_student_a.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fact(n):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">if</span> n &lt; 0:</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         <span class="tok-kw">raise</span> ValueError(<span <span class="tok-kw">class</span>="tok-str">"negative <span class="tok-kw">not</span> allowed"</span>)</span>
+<span class="ln" data-line="4"><span class="no">   4</span>     result = 1</span>
+<span class="ln" data-line="5"><span class="no">   5</span>     <span class="tok-kw">for</span> k <span class="tok-kw">in</span> range(2, n + 1):</span>
+<span class="ln" data-line="6"><span class="no">   6</span>         result *= k</span>
+<span class="ln" data-line="7"><span class="no">   7</span>     <span class="tok-kw">return</span> result</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> </span>
+<span class="ln" data-line="10"><span class="no">  10</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="11"><span class="no">  11</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         print(i, fact(i))</span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="16"><span class="no">  16</span>     main()</span>
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section class="pair" id="pair-2" data-pair-id="2">
+<h2>Pair 2: data/submissions_simple/fib_student_d_recursive.py &nbsp;&nbsp;vs&nbsp;&nbsp; data/submissions_simple/fib_student_b_small_edits.py</h2>
+<div class="pair-meta">Aggregated similarity: <strong>1.0000</strong> &nbsp;&nbsp;(threshold = 0.50)</div>
+<div class="pair-grid">
+<div class="pair-cell matches">
+<table class="func-table">
+<thead><tr><th>#</th><th>Function A</th><th>Lines A</th><th>Function B</th><th>Lines B</th><th>Score</th></tr></thead>
+<tbody>
+<tr class="func-row" data-pair-id="2" data-match-idx="1" data-a-start="1" data-a-end="9" data-b-start="1" data-b-end="16"><td>1</td><td>fib_recursive</td><td>1–9</td><td>fibonacci</td><td>1–16</td><td>0.818</td></tr>
+<tr class="func-row" data-pair-id="2" data-match-idx="2" data-a-start="10" data-a-end="16" data-b-start="17" data-b-end="24"><td>2</td><td>main</td><td>10–16</td><td>main</td><td>17–24</td><td>0.800</td></tr>
+</tbody></table>
+</div>
+<div class="pair-cell code-a">
+<div class="code-pane" data-prog-role="a" data-pair-id="2">
+<div class="code-pane-header">A: data/submissions_simple/fib_student_d_recursive.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fib_recursive(n, memo=<span class="tok-kw">None</span>):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">if</span> memo <span class="tok-kw">is</span> <span class="tok-kw">None</span>:</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         memo = {0: 0, 1: 1}</span>
+<span class="ln" data-line="4"><span class="no">   4</span>     <span class="tok-kw">if</span> n <span class="tok-kw">in</span> memo:</span>
+<span class="ln" data-line="5"><span class="no">   5</span>         <span class="tok-kw">return</span> memo[n]</span>
+<span class="ln" data-line="6"><span class="no">   6</span>     memo[n] = fib_recursive(n - 1, memo) + fib_recursive(n - 2, memo)</span>
+<span class="ln" data-line="7"><span class="no">   7</span>     <span class="tok-kw">return</span> memo[n]</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> </span>
+<span class="ln" data-line="10"><span class="no">  10</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="11"><span class="no">  11</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         print(i, fib_recursive(i))</span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="16"><span class="no">  16</span>     main()</span>
+</pre>
+</div>
+</div>
+<div class="pair-cell code-b">
+<div class="code-pane" data-prog-role="b" data-pair-id="2">
+<div class="code-pane-header">B: data/submissions_simple/fib_student_b_small_edits.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fibonacci(num):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">if</span> num &lt;= 0:</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         <span class="tok-kw">return</span> 0</span>
+<span class="ln" data-line="4"><span class="no">   4</span>     <span class="tok-kw">if</span> num == 1:</span>
+<span class="ln" data-line="5"><span class="no">   5</span>         <span class="tok-kw">return</span> 1</span>
+<span class="ln" data-line="6"><span class="no">   6</span> </span>
+<span class="ln" data-line="7"><span class="no">   7</span>     prev = 0</span>
+<span class="ln" data-line="8"><span class="no">   8</span>     curr = 1</span>
+<span class="ln" data-line="9"><span class="no">   9</span> </span>
+<span class="ln" data-line="10"><span class="no">  10</span>     <span class="tok-kw">for</span> _ <span class="tok-kw">in</span> range(2, num + 1):</span>
+<span class="ln" data-line="11"><span class="no">  11</span>         nxt = prev + curr</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         prev = curr</span>
+<span class="ln" data-line="13"><span class="no">  13</span>         curr = nxt</span>
+<span class="ln" data-line="14"><span class="no">  14</span>     <span class="tok-kw">return</span> curr</span>
+<span class="ln" data-line="15"><span class="no">  15</span> </span>
+<span class="ln" data-line="16"><span class="no">  16</span> </span>
+<span class="ln" data-line="17"><span class="no">  17</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="18"><span class="no">  18</span> </span>
+<span class="ln" data-line="19"><span class="no">  19</span>     <span class="tok-kw">for</span> k <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="20"><span class="no">  20</span>         print(k, fibonacci(k))</span>
+<span class="ln" data-line="21"><span class="no">  21</span> </span>
+<span class="ln" data-line="22"><span class="no">  22</span> </span>
+<span class="ln" data-line="23"><span class="no">  23</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="24"><span class="no">  24</span>     main()</span>
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section class="pair" id="pair-3" data-pair-id="3">
+<h2>Pair 3: data/submissions_simple/fib_student_d_recursive.py &nbsp;&nbsp;vs&nbsp;&nbsp; data/submissions_simple/fib_student_a.py</h2>
+<div class="pair-meta">Aggregated similarity: <strong>1.0000</strong> &nbsp;&nbsp;(threshold = 0.50)</div>
+<div class="pair-grid">
+<div class="pair-cell matches">
+<table class="func-table">
+<thead><tr><th>#</th><th>Function A</th><th>Lines A</th><th>Function B</th><th>Lines B</th><th>Score</th></tr></thead>
+<tbody>
+<tr class="func-row" data-pair-id="3" data-match-idx="1" data-a-start="1" data-a-end="9" data-b-start="1" data-b-end="15"><td>1</td><td>fib_recursive</td><td>1–9</td><td>fib</td><td>1–15</td><td>0.914</td></tr>
+<tr class="func-row" data-pair-id="3" data-match-idx="2" data-a-start="10" data-a-end="16" data-b-start="16" data-b-end="22"><td>2</td><td>main</td><td>10–16</td><td>main</td><td>16–22</td><td>0.800</td></tr>
+</tbody></table>
+</div>
+<div class="pair-cell code-a">
+<div class="code-pane" data-prog-role="a" data-pair-id="3">
+<div class="code-pane-header">A: data/submissions_simple/fib_student_d_recursive.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fib_recursive(n, memo=<span class="tok-kw">None</span>):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">if</span> memo <span class="tok-kw">is</span> <span class="tok-kw">None</span>:</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         memo = {0: 0, 1: 1}</span>
+<span class="ln" data-line="4"><span class="no">   4</span>     <span class="tok-kw">if</span> n <span class="tok-kw">in</span> memo:</span>
+<span class="ln" data-line="5"><span class="no">   5</span>         <span class="tok-kw">return</span> memo[n]</span>
+<span class="ln" data-line="6"><span class="no">   6</span>     memo[n] = fib_recursive(n - 1, memo) + fib_recursive(n - 2, memo)</span>
+<span class="ln" data-line="7"><span class="no">   7</span>     <span class="tok-kw">return</span> memo[n]</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> </span>
+<span class="ln" data-line="10"><span class="no">  10</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="11"><span class="no">  11</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         print(i, fib_recursive(i))</span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="16"><span class="no">  16</span>     main()</span>
+</pre>
+</div>
+</div>
+<div class="pair-cell code-b">
+<div class="code-pane" data-prog-role="b" data-pair-id="3">
+<div class="code-pane-header">B: data/submissions_simple/fib_student_a.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fib(n):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span <span class="tok-kw">class</span>="tok-str">""</span><span <span class="tok-kw">class</span>="tok-str">"Compute nth Fibonacci number using iterative DP."</span><span <span class="tok-kw">class</span>="tok-str">""</span></span>
+<span class="ln" data-line="3"><span class="no">   3</span>     <span class="tok-kw">if</span> n &lt;= 0:</span>
+<span class="ln" data-line="4"><span class="no">   4</span>         <span class="tok-kw">return</span> 0</span>
+<span class="ln" data-line="5"><span class="no">   5</span>     <span class="tok-kw">if</span> n == 1:</span>
+<span class="ln" data-line="6"><span class="no">   6</span>         <span class="tok-kw">return</span> 1</span>
+<span class="ln" data-line="7"><span class="no">   7</span>     a = 0</span>
+<span class="ln" data-line="8"><span class="no">   8</span>     b = 1</span>
+<span class="ln" data-line="9"><span class="no">   9</span>     <span class="tok-kw">for</span> _ <span class="tok-kw">in</span> range(2, n + 1):</span>
+<span class="ln" data-line="10"><span class="no">  10</span>         c = a + b</span>
+<span class="ln" data-line="11"><span class="no">  11</span>         a = b</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         b = c</span>
+<span class="ln" data-line="13"><span class="no">  13</span>     <span class="tok-kw">return</span> b</span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> </span>
+<span class="ln" data-line="16"><span class="no">  16</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="17"><span class="no">  17</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="18"><span class="no">  18</span>         print(i, fib(i))</span>
+<span class="ln" data-line="19"><span class="no">  19</span> </span>
+<span class="ln" data-line="20"><span class="no">  20</span> </span>
+<span class="ln" data-line="21"><span class="no">  21</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="22"><span class="no">  22</span>     main()</span>
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section class="pair" id="pair-4" data-pair-id="4">
+<h2>Pair 4: data/submissions_simple/fib_student_b_small_edits.py &nbsp;&nbsp;vs&nbsp;&nbsp; data/submissions_simple/fib_student_a.py</h2>
+<div class="pair-meta">Aggregated similarity: <strong>1.0000</strong> &nbsp;&nbsp;(threshold = 0.50)</div>
+<div class="pair-grid">
+<div class="pair-cell matches">
+<table class="func-table">
+<thead><tr><th>#</th><th>Function A</th><th>Lines A</th><th>Function B</th><th>Lines B</th><th>Score</th></tr></thead>
+<tbody>
+<tr class="func-row" data-pair-id="4" data-match-idx="1" data-a-start="1" data-a-end="16" data-b-start="1" data-b-end="15"><td>1</td><td>fibonacci</td><td>1–16</td><td>fib</td><td>1–15</td><td>0.950</td></tr>
+<tr class="func-row" data-pair-id="4" data-match-idx="2" data-a-start="17" data-a-end="24" data-b-start="16" data-b-end="22"><td>2</td><td>main</td><td>17–24</td><td>main</td><td>16–22</td><td>0.800</td></tr>
+</tbody></table>
+</div>
+<div class="pair-cell code-a">
+<div class="code-pane" data-prog-role="a" data-pair-id="4">
+<div class="code-pane-header">A: data/submissions_simple/fib_student_b_small_edits.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fibonacci(num):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">if</span> num &lt;= 0:</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         <span class="tok-kw">return</span> 0</span>
+<span class="ln" data-line="4"><span class="no">   4</span>     <span class="tok-kw">if</span> num == 1:</span>
+<span class="ln" data-line="5"><span class="no">   5</span>         <span class="tok-kw">return</span> 1</span>
+<span class="ln" data-line="6"><span class="no">   6</span> </span>
+<span class="ln" data-line="7"><span class="no">   7</span>     prev = 0</span>
+<span class="ln" data-line="8"><span class="no">   8</span>     curr = 1</span>
+<span class="ln" data-line="9"><span class="no">   9</span> </span>
+<span class="ln" data-line="10"><span class="no">  10</span>     <span class="tok-kw">for</span> _ <span class="tok-kw">in</span> range(2, num + 1):</span>
+<span class="ln" data-line="11"><span class="no">  11</span>         nxt = prev + curr</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         prev = curr</span>
+<span class="ln" data-line="13"><span class="no">  13</span>         curr = nxt</span>
+<span class="ln" data-line="14"><span class="no">  14</span>     <span class="tok-kw">return</span> curr</span>
+<span class="ln" data-line="15"><span class="no">  15</span> </span>
+<span class="ln" data-line="16"><span class="no">  16</span> </span>
+<span class="ln" data-line="17"><span class="no">  17</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="18"><span class="no">  18</span> </span>
+<span class="ln" data-line="19"><span class="no">  19</span>     <span class="tok-kw">for</span> k <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="20"><span class="no">  20</span>         print(k, fibonacci(k))</span>
+<span class="ln" data-line="21"><span class="no">  21</span> </span>
+<span class="ln" data-line="22"><span class="no">  22</span> </span>
+<span class="ln" data-line="23"><span class="no">  23</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="24"><span class="no">  24</span>     main()</span>
+</pre>
+</div>
+</div>
+<div class="pair-cell code-b">
+<div class="code-pane" data-prog-role="b" data-pair-id="4">
+<div class="code-pane-header">B: data/submissions_simple/fib_student_a.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fib(n):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span <span class="tok-kw">class</span>="tok-str">""</span><span <span class="tok-kw">class</span>="tok-str">"Compute nth Fibonacci number using iterative DP."</span><span <span class="tok-kw">class</span>="tok-str">""</span></span>
+<span class="ln" data-line="3"><span class="no">   3</span>     <span class="tok-kw">if</span> n &lt;= 0:</span>
+<span class="ln" data-line="4"><span class="no">   4</span>         <span class="tok-kw">return</span> 0</span>
+<span class="ln" data-line="5"><span class="no">   5</span>     <span class="tok-kw">if</span> n == 1:</span>
+<span class="ln" data-line="6"><span class="no">   6</span>         <span class="tok-kw">return</span> 1</span>
+<span class="ln" data-line="7"><span class="no">   7</span>     a = 0</span>
+<span class="ln" data-line="8"><span class="no">   8</span>     b = 1</span>
+<span class="ln" data-line="9"><span class="no">   9</span>     <span class="tok-kw">for</span> _ <span class="tok-kw">in</span> range(2, n + 1):</span>
+<span class="ln" data-line="10"><span class="no">  10</span>         c = a + b</span>
+<span class="ln" data-line="11"><span class="no">  11</span>         a = b</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         b = c</span>
+<span class="ln" data-line="13"><span class="no">  13</span>     <span class="tok-kw">return</span> b</span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> </span>
+<span class="ln" data-line="16"><span class="no">  16</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="17"><span class="no">  17</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="18"><span class="no">  18</span>         print(i, fib(i))</span>
+<span class="ln" data-line="19"><span class="no">  19</span> </span>
+<span class="ln" data-line="20"><span class="no">  20</span> </span>
+<span class="ln" data-line="21"><span class="no">  21</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="22"><span class="no">  22</span>     main()</span>
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section class="pair" id="pair-5" data-pair-id="5">
+<h2>Pair 5: data/submissions_simple/fib_student_c_restructured.py &nbsp;&nbsp;vs&nbsp;&nbsp; data/submissions_simple/word_freq_student_b_small_edits.py</h2>
+<div class="pair-meta">Aggregated similarity: <strong>0.9760</strong> &nbsp;&nbsp;(threshold = 0.50)</div>
+<div class="pair-grid">
+<div class="pair-cell matches">
+<table class="func-table">
+<thead><tr><th>#</th><th>Function A</th><th>Lines A</th><th>Function B</th><th>Lines B</th><th>Score</th></tr></thead>
+<tbody>
+<tr class="func-row" data-pair-id="5" data-match-idx="1" data-a-start="19" data-a-end="26" data-b-start="9" data-b-end="16"><td>1</td><td>main</td><td>19–26</td><td>main</td><td>9–16</td><td>0.800</td></tr>
+<tr class="func-row" data-pair-id="5" data-match-idx="2" data-a-start="19" data-a-end="26" data-b-start="4" data-b-end="8"><td>2</td><td>main</td><td>19–26</td><td>collect_words</td><td>4–8</td><td>0.694</td></tr>
+</tbody></table>
+</div>
+<div class="pair-cell code-a">
+<div class="code-pane" data-prog-role="a" data-pair-id="5">
+<div class="code-pane-header">A: data/submissions_simple/fib_student_c_restructured.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">class</span> FibSolver:</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">def</span> __init__(self):</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         self.cache = {0: 0, 1: 1}</span>
+<span class="ln" data-line="4"><span class="no">   4</span> </span>
+<span class="ln" data-line="5"><span class="no">   5</span>     <span class="tok-kw">def</span> fib(self, n):</span>
+<span class="ln" data-line="6"><span class="no">   6</span>         <span class="tok-kw">if</span> n <span class="tok-kw">in</span> self.cache:</span>
+<span class="ln" data-line="7"><span class="no">   7</span>             <span class="tok-kw">return</span> self.cache[n]</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span>         a = self.cache[0]</span>
+<span class="ln" data-line="10"><span class="no">  10</span>         b = self.cache[1]</span>
+<span class="ln" data-line="11"><span class="no">  11</span>         k = 2</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         <span class="tok-kw">while</span> k &lt;= n:</span>
+<span class="ln" data-line="13"><span class="no">  13</span>             a, b = b, a + b</span>
+<span class="ln" data-line="14"><span class="no">  14</span>             self.cache[k] = b</span>
+<span class="ln" data-line="15"><span class="no">  15</span>             k += 1</span>
+<span class="ln" data-line="16"><span class="no">  16</span>         <span class="tok-kw">return</span> self.cache[n]</span>
+<span class="ln" data-line="17"><span class="no">  17</span> </span>
+<span class="ln" data-line="18"><span class="no">  18</span> </span>
+<span class="ln" data-line="19"><span class="no">  19</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="20"><span class="no">  20</span>     solver = FibSolver()</span>
+<span class="ln" data-line="21"><span class="no">  21</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="22"><span class="no">  22</span>         print(i, solver.fib(i))</span>
+<span class="ln" data-line="23"><span class="no">  23</span> </span>
+<span class="ln" data-line="24"><span class="no">  24</span> </span>
+<span class="ln" data-line="25"><span class="no">  25</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="26"><span class="no">  26</span>     main()</span>
+</pre>
+</div>
+</div>
+<div class="pair-cell code-b">
+<div class="code-pane" data-prog-role="b" data-pair-id="5">
+<div class="code-pane-header">B: data/submissions_simple/word_freq_student_b_small_edits.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">import</span> sys</span>
+<span class="ln" data-line="2"><span class="no">   2</span> <span class="tok-kw">from</span> collections <span class="tok-kw">import</span> Counter</span>
+<span class="ln" data-line="3"><span class="no">   3</span> </span>
+<span class="ln" data-line="4"><span class="no">   4</span> <span class="tok-kw">def</span> collect_words():</span>
+<span class="ln" data-line="5"><span class="no">   5</span>     text = sys.stdin.read()</span>
+<span class="ln" data-line="6"><span class="no">   6</span>     tokens = text.split()</span>
+<span class="ln" data-line="7"><span class="no">   7</span>     <span class="tok-kw">return</span> [t.lower() <span class="tok-kw">for</span> t <span class="tok-kw">in</span> tokens]</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="10"><span class="no">  10</span>     freq = Counter(collect_words())</span>
+<span class="ln" data-line="11"><span class="no">  11</span>     <span class="tok-kw">for</span> w <span class="tok-kw">in</span> sorted(freq):</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         print(w, freq[w])</span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="16"><span class="no">  16</span>     main()</span>
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section class="pair" id="pair-6" data-pair-id="6">
+<h2>Pair 6: data/submissions_simple/word_freq_student_a.py &nbsp;&nbsp;vs&nbsp;&nbsp; data/submissions_simple/fib_student_c_restructured.py</h2>
+<div class="pair-meta">Aggregated similarity: <strong>0.9754</strong> &nbsp;&nbsp;(threshold = 0.50)</div>
+<div class="pair-grid">
+<div class="pair-cell matches">
+<table class="func-table">
+<thead><tr><th>#</th><th>Function A</th><th>Lines A</th><th>Function B</th><th>Lines B</th><th>Score</th></tr></thead>
+<tbody>
+<tr class="func-row" data-pair-id="6" data-match-idx="1" data-a-start="9" data-a-end="16" data-b-start="19" data-b-end="26"><td>1</td><td>main</td><td>9–16</td><td>main</td><td>19–26</td><td>0.800</td></tr>
+<tr class="func-row" data-pair-id="6" data-match-idx="2" data-a-start="4" data-a-end="8" data-b-start="19" data-b-end="26"><td>2</td><td>read_words</td><td>4–8</td><td>main</td><td>19–26</td><td>0.694</td></tr>
+</tbody></table>
+</div>
+<div class="pair-cell code-a">
+<div class="code-pane" data-prog-role="a" data-pair-id="6">
+<div class="code-pane-header">A: data/submissions_simple/word_freq_student_a.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">import</span> sys</span>
+<span class="ln" data-line="2"><span class="no">   2</span> <span class="tok-kw">from</span> collections <span class="tok-kw">import</span> Counter</span>
+<span class="ln" data-line="3"><span class="no">   3</span> </span>
+<span class="ln" data-line="4"><span class="no">   4</span> <span class="tok-kw">def</span> read_words():</span>
+<span class="ln" data-line="5"><span class="no">   5</span>     data = sys.stdin.read()</span>
+<span class="ln" data-line="6"><span class="no">   6</span>     <span class="tok-kw">for</span> token <span class="tok-kw">in</span> data.split():</span>
+<span class="ln" data-line="7"><span class="no">   7</span>         <span class="tok-kw">yield</span> token.lower()</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="10"><span class="no">  10</span>     counts = Counter(read_words())</span>
+<span class="ln" data-line="11"><span class="no">  11</span>     <span class="tok-kw">for</span> word, cnt <span class="tok-kw">in</span> sorted(counts.items()):</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         print(word, cnt)</span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="16"><span class="no">  16</span>     main()</span>
+</pre>
+</div>
+</div>
+<div class="pair-cell code-b">
+<div class="code-pane" data-prog-role="b" data-pair-id="6">
+<div class="code-pane-header">B: data/submissions_simple/fib_student_c_restructured.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">class</span> FibSolver:</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">def</span> __init__(self):</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         self.cache = {0: 0, 1: 1}</span>
+<span class="ln" data-line="4"><span class="no">   4</span> </span>
+<span class="ln" data-line="5"><span class="no">   5</span>     <span class="tok-kw">def</span> fib(self, n):</span>
+<span class="ln" data-line="6"><span class="no">   6</span>         <span class="tok-kw">if</span> n <span class="tok-kw">in</span> self.cache:</span>
+<span class="ln" data-line="7"><span class="no">   7</span>             <span class="tok-kw">return</span> self.cache[n]</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span>         a = self.cache[0]</span>
+<span class="ln" data-line="10"><span class="no">  10</span>         b = self.cache[1]</span>
+<span class="ln" data-line="11"><span class="no">  11</span>         k = 2</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         <span class="tok-kw">while</span> k &lt;= n:</span>
+<span class="ln" data-line="13"><span class="no">  13</span>             a, b = b, a + b</span>
+<span class="ln" data-line="14"><span class="no">  14</span>             self.cache[k] = b</span>
+<span class="ln" data-line="15"><span class="no">  15</span>             k += 1</span>
+<span class="ln" data-line="16"><span class="no">  16</span>         <span class="tok-kw">return</span> self.cache[n]</span>
+<span class="ln" data-line="17"><span class="no">  17</span> </span>
+<span class="ln" data-line="18"><span class="no">  18</span> </span>
+<span class="ln" data-line="19"><span class="no">  19</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="20"><span class="no">  20</span>     solver = FibSolver()</span>
+<span class="ln" data-line="21"><span class="no">  21</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="22"><span class="no">  22</span>         print(i, solver.fib(i))</span>
+<span class="ln" data-line="23"><span class="no">  23</span> </span>
+<span class="ln" data-line="24"><span class="no">  24</span> </span>
+<span class="ln" data-line="25"><span class="no">  25</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="26"><span class="no">  26</span>     main()</span>
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section class="pair" id="pair-7" data-pair-id="7">
+<h2>Pair 7: data/submissions_simple/fact_student_b_recursive.py &nbsp;&nbsp;vs&nbsp;&nbsp; data/submissions_simple/fib_student_c_restructured.py</h2>
+<div class="pair-meta">Aggregated similarity: <strong>0.9748</strong> &nbsp;&nbsp;(threshold = 0.50)</div>
+<div class="pair-grid">
+<div class="pair-cell matches">
+<table class="func-table">
+<thead><tr><th>#</th><th>Function A</th><th>Lines A</th><th>Function B</th><th>Lines B</th><th>Score</th></tr></thead>
+<tbody>
+<tr class="func-row" data-pair-id="7" data-match-idx="1" data-a-start="9" data-a-end="15" data-b-start="19" data-b-end="26"><td>1</td><td>main</td><td>9–15</td><td>main</td><td>19–26</td><td>0.800</td></tr>
+<tr class="func-row" data-pair-id="7" data-match-idx="2" data-a-start="1" data-a-end="8" data-b-start="19" data-b-end="26"><td>2</td><td>fact_recursive</td><td>1–8</td><td>main</td><td>19–26</td><td>0.694</td></tr>
+</tbody></table>
+</div>
+<div class="pair-cell code-a">
+<div class="code-pane" data-prog-role="a" data-pair-id="7">
+<div class="code-pane-header">A: data/submissions_simple/fact_student_b_recursive.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fact_recursive(n):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">if</span> n &lt; 0:</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         <span class="tok-kw">raise</span> ValueError(<span <span class="tok-kw">class</span>="tok-str">"negative <span class="tok-kw">not</span> allowed"</span>)</span>
+<span class="ln" data-line="4"><span class="no">   4</span>     <span class="tok-kw">if</span> n <span class="tok-kw">in</span> (0, 1):</span>
+<span class="ln" data-line="5"><span class="no">   5</span>         <span class="tok-kw">return</span> 1</span>
+<span class="ln" data-line="6"><span class="no">   6</span>     <span class="tok-kw">return</span> n * fact_recursive(n - 1)</span>
+<span class="ln" data-line="7"><span class="no">   7</span> </span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="10"><span class="no">  10</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="11"><span class="no">  11</span>         print(i, fact_recursive(i))</span>
+<span class="ln" data-line="12"><span class="no">  12</span> </span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="15"><span class="no">  15</span>     main()</span>
+</pre>
+</div>
+</div>
+<div class="pair-cell code-b">
+<div class="code-pane" data-prog-role="b" data-pair-id="7">
+<div class="code-pane-header">B: data/submissions_simple/fib_student_c_restructured.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">class</span> FibSolver:</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">def</span> __init__(self):</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         self.cache = {0: 0, 1: 1}</span>
+<span class="ln" data-line="4"><span class="no">   4</span> </span>
+<span class="ln" data-line="5"><span class="no">   5</span>     <span class="tok-kw">def</span> fib(self, n):</span>
+<span class="ln" data-line="6"><span class="no">   6</span>         <span class="tok-kw">if</span> n <span class="tok-kw">in</span> self.cache:</span>
+<span class="ln" data-line="7"><span class="no">   7</span>             <span class="tok-kw">return</span> self.cache[n]</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span>         a = self.cache[0]</span>
+<span class="ln" data-line="10"><span class="no">  10</span>         b = self.cache[1]</span>
+<span class="ln" data-line="11"><span class="no">  11</span>         k = 2</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         <span class="tok-kw">while</span> k &lt;= n:</span>
+<span class="ln" data-line="13"><span class="no">  13</span>             a, b = b, a + b</span>
+<span class="ln" data-line="14"><span class="no">  14</span>             self.cache[k] = b</span>
+<span class="ln" data-line="15"><span class="no">  15</span>             k += 1</span>
+<span class="ln" data-line="16"><span class="no">  16</span>         <span class="tok-kw">return</span> self.cache[n]</span>
+<span class="ln" data-line="17"><span class="no">  17</span> </span>
+<span class="ln" data-line="18"><span class="no">  18</span> </span>
+<span class="ln" data-line="19"><span class="no">  19</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="20"><span class="no">  20</span>     solver = FibSolver()</span>
+<span class="ln" data-line="21"><span class="no">  21</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="22"><span class="no">  22</span>         print(i, solver.fib(i))</span>
+<span class="ln" data-line="23"><span class="no">  23</span> </span>
+<span class="ln" data-line="24"><span class="no">  24</span> </span>
+<span class="ln" data-line="25"><span class="no">  25</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="26"><span class="no">  26</span>     main()</span>
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section class="pair" id="pair-8" data-pair-id="8">
+<h2>Pair 8: data/submissions_simple/fact_student_a.py &nbsp;&nbsp;vs&nbsp;&nbsp; data/submissions_simple/fib_student_c_restructured.py</h2>
+<div class="pair-meta">Aggregated similarity: <strong>0.9744</strong> &nbsp;&nbsp;(threshold = 0.50)</div>
+<div class="pair-grid">
+<div class="pair-cell matches">
+<table class="func-table">
+<thead><tr><th>#</th><th>Function A</th><th>Lines A</th><th>Function B</th><th>Lines B</th><th>Score</th></tr></thead>
+<tbody>
+<tr class="func-row" data-pair-id="8" data-match-idx="1" data-a-start="10" data-a-end="16" data-b-start="19" data-b-end="26"><td>1</td><td>main</td><td>10–16</td><td>main</td><td>19–26</td><td>0.800</td></tr>
+<tr class="func-row" data-pair-id="8" data-match-idx="2" data-a-start="1" data-a-end="9" data-b-start="19" data-b-end="26"><td>2</td><td>fact</td><td>1–9</td><td>main</td><td>19–26</td><td>0.694</td></tr>
+</tbody></table>
+</div>
+<div class="pair-cell code-a">
+<div class="code-pane" data-prog-role="a" data-pair-id="8">
+<div class="code-pane-header">A: data/submissions_simple/fact_student_a.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fact(n):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">if</span> n &lt; 0:</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         <span class="tok-kw">raise</span> ValueError(<span <span class="tok-kw">class</span>="tok-str">"negative <span class="tok-kw">not</span> allowed"</span>)</span>
+<span class="ln" data-line="4"><span class="no">   4</span>     result = 1</span>
+<span class="ln" data-line="5"><span class="no">   5</span>     <span class="tok-kw">for</span> k <span class="tok-kw">in</span> range(2, n + 1):</span>
+<span class="ln" data-line="6"><span class="no">   6</span>         result *= k</span>
+<span class="ln" data-line="7"><span class="no">   7</span>     <span class="tok-kw">return</span> result</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> </span>
+<span class="ln" data-line="10"><span class="no">  10</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="11"><span class="no">  11</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         print(i, fact(i))</span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="16"><span class="no">  16</span>     main()</span>
+</pre>
+</div>
+</div>
+<div class="pair-cell code-b">
+<div class="code-pane" data-prog-role="b" data-pair-id="8">
+<div class="code-pane-header">B: data/submissions_simple/fib_student_c_restructured.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">class</span> FibSolver:</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">def</span> __init__(self):</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         self.cache = {0: 0, 1: 1}</span>
+<span class="ln" data-line="4"><span class="no">   4</span> </span>
+<span class="ln" data-line="5"><span class="no">   5</span>     <span class="tok-kw">def</span> fib(self, n):</span>
+<span class="ln" data-line="6"><span class="no">   6</span>         <span class="tok-kw">if</span> n <span class="tok-kw">in</span> self.cache:</span>
+<span class="ln" data-line="7"><span class="no">   7</span>             <span class="tok-kw">return</span> self.cache[n]</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span>         a = self.cache[0]</span>
+<span class="ln" data-line="10"><span class="no">  10</span>         b = self.cache[1]</span>
+<span class="ln" data-line="11"><span class="no">  11</span>         k = 2</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         <span class="tok-kw">while</span> k &lt;= n:</span>
+<span class="ln" data-line="13"><span class="no">  13</span>             a, b = b, a + b</span>
+<span class="ln" data-line="14"><span class="no">  14</span>             self.cache[k] = b</span>
+<span class="ln" data-line="15"><span class="no">  15</span>             k += 1</span>
+<span class="ln" data-line="16"><span class="no">  16</span>         <span class="tok-kw">return</span> self.cache[n]</span>
+<span class="ln" data-line="17"><span class="no">  17</span> </span>
+<span class="ln" data-line="18"><span class="no">  18</span> </span>
+<span class="ln" data-line="19"><span class="no">  19</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="20"><span class="no">  20</span>     solver = FibSolver()</span>
+<span class="ln" data-line="21"><span class="no">  21</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="22"><span class="no">  22</span>         print(i, solver.fib(i))</span>
+<span class="ln" data-line="23"><span class="no">  23</span> </span>
+<span class="ln" data-line="24"><span class="no">  24</span> </span>
+<span class="ln" data-line="25"><span class="no">  25</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="26"><span class="no">  26</span>     main()</span>
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section class="pair" id="pair-9" data-pair-id="9">
+<h2>Pair 9: data/submissions_simple/fib_student_b_small_edits.py &nbsp;&nbsp;vs&nbsp;&nbsp; data/submissions_simple/fib_student_c_restructured.py</h2>
+<div class="pair-meta">Aggregated similarity: <strong>0.9736</strong> &nbsp;&nbsp;(threshold = 0.50)</div>
+<div class="pair-grid">
+<div class="pair-cell matches">
+<table class="func-table">
+<thead><tr><th>#</th><th>Function A</th><th>Lines A</th><th>Function B</th><th>Lines B</th><th>Score</th></tr></thead>
+<tbody>
+<tr class="func-row" data-pair-id="9" data-match-idx="1" data-a-start="17" data-a-end="24" data-b-start="19" data-b-end="26"><td>1</td><td>main</td><td>17–24</td><td>main</td><td>19–26</td><td>0.800</td></tr>
+<tr class="func-row" data-pair-id="9" data-match-idx="2" data-a-start="1" data-a-end="16" data-b-start="19" data-b-end="26"><td>2</td><td>fibonacci</td><td>1–16</td><td>main</td><td>19–26</td><td>0.694</td></tr>
+</tbody></table>
+</div>
+<div class="pair-cell code-a">
+<div class="code-pane" data-prog-role="a" data-pair-id="9">
+<div class="code-pane-header">A: data/submissions_simple/fib_student_b_small_edits.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fibonacci(num):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">if</span> num &lt;= 0:</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         <span class="tok-kw">return</span> 0</span>
+<span class="ln" data-line="4"><span class="no">   4</span>     <span class="tok-kw">if</span> num == 1:</span>
+<span class="ln" data-line="5"><span class="no">   5</span>         <span class="tok-kw">return</span> 1</span>
+<span class="ln" data-line="6"><span class="no">   6</span> </span>
+<span class="ln" data-line="7"><span class="no">   7</span>     prev = 0</span>
+<span class="ln" data-line="8"><span class="no">   8</span>     curr = 1</span>
+<span class="ln" data-line="9"><span class="no">   9</span> </span>
+<span class="ln" data-line="10"><span class="no">  10</span>     <span class="tok-kw">for</span> _ <span class="tok-kw">in</span> range(2, num + 1):</span>
+<span class="ln" data-line="11"><span class="no">  11</span>         nxt = prev + curr</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         prev = curr</span>
+<span class="ln" data-line="13"><span class="no">  13</span>         curr = nxt</span>
+<span class="ln" data-line="14"><span class="no">  14</span>     <span class="tok-kw">return</span> curr</span>
+<span class="ln" data-line="15"><span class="no">  15</span> </span>
+<span class="ln" data-line="16"><span class="no">  16</span> </span>
+<span class="ln" data-line="17"><span class="no">  17</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="18"><span class="no">  18</span> </span>
+<span class="ln" data-line="19"><span class="no">  19</span>     <span class="tok-kw">for</span> k <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="20"><span class="no">  20</span>         print(k, fibonacci(k))</span>
+<span class="ln" data-line="21"><span class="no">  21</span> </span>
+<span class="ln" data-line="22"><span class="no">  22</span> </span>
+<span class="ln" data-line="23"><span class="no">  23</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="24"><span class="no">  24</span>     main()</span>
+</pre>
+</div>
+</div>
+<div class="pair-cell code-b">
+<div class="code-pane" data-prog-role="b" data-pair-id="9">
+<div class="code-pane-header">B: data/submissions_simple/fib_student_c_restructured.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">class</span> FibSolver:</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">def</span> __init__(self):</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         self.cache = {0: 0, 1: 1}</span>
+<span class="ln" data-line="4"><span class="no">   4</span> </span>
+<span class="ln" data-line="5"><span class="no">   5</span>     <span class="tok-kw">def</span> fib(self, n):</span>
+<span class="ln" data-line="6"><span class="no">   6</span>         <span class="tok-kw">if</span> n <span class="tok-kw">in</span> self.cache:</span>
+<span class="ln" data-line="7"><span class="no">   7</span>             <span class="tok-kw">return</span> self.cache[n]</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span>         a = self.cache[0]</span>
+<span class="ln" data-line="10"><span class="no">  10</span>         b = self.cache[1]</span>
+<span class="ln" data-line="11"><span class="no">  11</span>         k = 2</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         <span class="tok-kw">while</span> k &lt;= n:</span>
+<span class="ln" data-line="13"><span class="no">  13</span>             a, b = b, a + b</span>
+<span class="ln" data-line="14"><span class="no">  14</span>             self.cache[k] = b</span>
+<span class="ln" data-line="15"><span class="no">  15</span>             k += 1</span>
+<span class="ln" data-line="16"><span class="no">  16</span>         <span class="tok-kw">return</span> self.cache[n]</span>
+<span class="ln" data-line="17"><span class="no">  17</span> </span>
+<span class="ln" data-line="18"><span class="no">  18</span> </span>
+<span class="ln" data-line="19"><span class="no">  19</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="20"><span class="no">  20</span>     solver = FibSolver()</span>
+<span class="ln" data-line="21"><span class="no">  21</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="22"><span class="no">  22</span>         print(i, solver.fib(i))</span>
+<span class="ln" data-line="23"><span class="no">  23</span> </span>
+<span class="ln" data-line="24"><span class="no">  24</span> </span>
+<span class="ln" data-line="25"><span class="no">  25</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="26"><span class="no">  26</span>     main()</span>
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section class="pair" id="pair-10" data-pair-id="10">
+<h2>Pair 10: data/submissions_simple/fib_student_a.py &nbsp;&nbsp;vs&nbsp;&nbsp; data/submissions_simple/fib_student_c_restructured.py</h2>
+<div class="pair-meta">Aggregated similarity: <strong>0.9736</strong> &nbsp;&nbsp;(threshold = 0.50)</div>
+<div class="pair-grid">
+<div class="pair-cell matches">
+<table class="func-table">
+<thead><tr><th>#</th><th>Function A</th><th>Lines A</th><th>Function B</th><th>Lines B</th><th>Score</th></tr></thead>
+<tbody>
+<tr class="func-row" data-pair-id="10" data-match-idx="1" data-a-start="16" data-a-end="22" data-b-start="19" data-b-end="26"><td>1</td><td>main</td><td>16–22</td><td>main</td><td>19–26</td><td>0.800</td></tr>
+<tr class="func-row" data-pair-id="10" data-match-idx="2" data-a-start="1" data-a-end="15" data-b-start="19" data-b-end="26"><td>2</td><td>fib</td><td>1–15</td><td>main</td><td>19–26</td><td>0.694</td></tr>
+</tbody></table>
+</div>
+<div class="pair-cell code-a">
+<div class="code-pane" data-prog-role="a" data-pair-id="10">
+<div class="code-pane-header">A: data/submissions_simple/fib_student_a.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fib(n):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span <span class="tok-kw">class</span>="tok-str">""</span><span <span class="tok-kw">class</span>="tok-str">"Compute nth Fibonacci number using iterative DP."</span><span <span class="tok-kw">class</span>="tok-str">""</span></span>
+<span class="ln" data-line="3"><span class="no">   3</span>     <span class="tok-kw">if</span> n &lt;= 0:</span>
+<span class="ln" data-line="4"><span class="no">   4</span>         <span class="tok-kw">return</span> 0</span>
+<span class="ln" data-line="5"><span class="no">   5</span>     <span class="tok-kw">if</span> n == 1:</span>
+<span class="ln" data-line="6"><span class="no">   6</span>         <span class="tok-kw">return</span> 1</span>
+<span class="ln" data-line="7"><span class="no">   7</span>     a = 0</span>
+<span class="ln" data-line="8"><span class="no">   8</span>     b = 1</span>
+<span class="ln" data-line="9"><span class="no">   9</span>     <span class="tok-kw">for</span> _ <span class="tok-kw">in</span> range(2, n + 1):</span>
+<span class="ln" data-line="10"><span class="no">  10</span>         c = a + b</span>
+<span class="ln" data-line="11"><span class="no">  11</span>         a = b</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         b = c</span>
+<span class="ln" data-line="13"><span class="no">  13</span>     <span class="tok-kw">return</span> b</span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> </span>
+<span class="ln" data-line="16"><span class="no">  16</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="17"><span class="no">  17</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="18"><span class="no">  18</span>         print(i, fib(i))</span>
+<span class="ln" data-line="19"><span class="no">  19</span> </span>
+<span class="ln" data-line="20"><span class="no">  20</span> </span>
+<span class="ln" data-line="21"><span class="no">  21</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="22"><span class="no">  22</span>     main()</span>
+</pre>
+</div>
+</div>
+<div class="pair-cell code-b">
+<div class="code-pane" data-prog-role="b" data-pair-id="10">
+<div class="code-pane-header">B: data/submissions_simple/fib_student_c_restructured.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">class</span> FibSolver:</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">def</span> __init__(self):</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         self.cache = {0: 0, 1: 1}</span>
+<span class="ln" data-line="4"><span class="no">   4</span> </span>
+<span class="ln" data-line="5"><span class="no">   5</span>     <span class="tok-kw">def</span> fib(self, n):</span>
+<span class="ln" data-line="6"><span class="no">   6</span>         <span class="tok-kw">if</span> n <span class="tok-kw">in</span> self.cache:</span>
+<span class="ln" data-line="7"><span class="no">   7</span>             <span class="tok-kw">return</span> self.cache[n]</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span>         a = self.cache[0]</span>
+<span class="ln" data-line="10"><span class="no">  10</span>         b = self.cache[1]</span>
+<span class="ln" data-line="11"><span class="no">  11</span>         k = 2</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         <span class="tok-kw">while</span> k &lt;= n:</span>
+<span class="ln" data-line="13"><span class="no">  13</span>             a, b = b, a + b</span>
+<span class="ln" data-line="14"><span class="no">  14</span>             self.cache[k] = b</span>
+<span class="ln" data-line="15"><span class="no">  15</span>             k += 1</span>
+<span class="ln" data-line="16"><span class="no">  16</span>         <span class="tok-kw">return</span> self.cache[n]</span>
+<span class="ln" data-line="17"><span class="no">  17</span> </span>
+<span class="ln" data-line="18"><span class="no">  18</span> </span>
+<span class="ln" data-line="19"><span class="no">  19</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="20"><span class="no">  20</span>     solver = FibSolver()</span>
+<span class="ln" data-line="21"><span class="no">  21</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="22"><span class="no">  22</span>         print(i, solver.fib(i))</span>
+<span class="ln" data-line="23"><span class="no">  23</span> </span>
+<span class="ln" data-line="24"><span class="no">  24</span> </span>
+<span class="ln" data-line="25"><span class="no">  25</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="26"><span class="no">  26</span>     main()</span>
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section class="pair" id="pair-11" data-pair-id="11">
+<h2>Pair 11: data/submissions_simple/fib_student_d_recursive.py &nbsp;&nbsp;vs&nbsp;&nbsp; data/submissions_simple/fib_student_c_restructured.py</h2>
+<div class="pair-meta">Aggregated similarity: <strong>0.9732</strong> &nbsp;&nbsp;(threshold = 0.50)</div>
+<div class="pair-grid">
+<div class="pair-cell matches">
+<table class="func-table">
+<thead><tr><th>#</th><th>Function A</th><th>Lines A</th><th>Function B</th><th>Lines B</th><th>Score</th></tr></thead>
+<tbody>
+<tr class="func-row" data-pair-id="11" data-match-idx="1" data-a-start="10" data-a-end="16" data-b-start="19" data-b-end="26"><td>1</td><td>main</td><td>10–16</td><td>main</td><td>19–26</td><td>0.800</td></tr>
+<tr class="func-row" data-pair-id="11" data-match-idx="2" data-a-start="1" data-a-end="9" data-b-start="19" data-b-end="26"><td>2</td><td>fib_recursive</td><td>1–9</td><td>main</td><td>19–26</td><td>0.692</td></tr>
+</tbody></table>
+</div>
+<div class="pair-cell code-a">
+<div class="code-pane" data-prog-role="a" data-pair-id="11">
+<div class="code-pane-header">A: data/submissions_simple/fib_student_d_recursive.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fib_recursive(n, memo=<span class="tok-kw">None</span>):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">if</span> memo <span class="tok-kw">is</span> <span class="tok-kw">None</span>:</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         memo = {0: 0, 1: 1}</span>
+<span class="ln" data-line="4"><span class="no">   4</span>     <span class="tok-kw">if</span> n <span class="tok-kw">in</span> memo:</span>
+<span class="ln" data-line="5"><span class="no">   5</span>         <span class="tok-kw">return</span> memo[n]</span>
+<span class="ln" data-line="6"><span class="no">   6</span>     memo[n] = fib_recursive(n - 1, memo) + fib_recursive(n - 2, memo)</span>
+<span class="ln" data-line="7"><span class="no">   7</span>     <span class="tok-kw">return</span> memo[n]</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> </span>
+<span class="ln" data-line="10"><span class="no">  10</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="11"><span class="no">  11</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         print(i, fib_recursive(i))</span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="16"><span class="no">  16</span>     main()</span>
+</pre>
+</div>
+</div>
+<div class="pair-cell code-b">
+<div class="code-pane" data-prog-role="b" data-pair-id="11">
+<div class="code-pane-header">B: data/submissions_simple/fib_student_c_restructured.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">class</span> FibSolver:</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">def</span> __init__(self):</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         self.cache = {0: 0, 1: 1}</span>
+<span class="ln" data-line="4"><span class="no">   4</span> </span>
+<span class="ln" data-line="5"><span class="no">   5</span>     <span class="tok-kw">def</span> fib(self, n):</span>
+<span class="ln" data-line="6"><span class="no">   6</span>         <span class="tok-kw">if</span> n <span class="tok-kw">in</span> self.cache:</span>
+<span class="ln" data-line="7"><span class="no">   7</span>             <span class="tok-kw">return</span> self.cache[n]</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span>         a = self.cache[0]</span>
+<span class="ln" data-line="10"><span class="no">  10</span>         b = self.cache[1]</span>
+<span class="ln" data-line="11"><span class="no">  11</span>         k = 2</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         <span class="tok-kw">while</span> k &lt;= n:</span>
+<span class="ln" data-line="13"><span class="no">  13</span>             a, b = b, a + b</span>
+<span class="ln" data-line="14"><span class="no">  14</span>             self.cache[k] = b</span>
+<span class="ln" data-line="15"><span class="no">  15</span>             k += 1</span>
+<span class="ln" data-line="16"><span class="no">  16</span>         <span class="tok-kw">return</span> self.cache[n]</span>
+<span class="ln" data-line="17"><span class="no">  17</span> </span>
+<span class="ln" data-line="18"><span class="no">  18</span> </span>
+<span class="ln" data-line="19"><span class="no">  19</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="20"><span class="no">  20</span>     solver = FibSolver()</span>
+<span class="ln" data-line="21"><span class="no">  21</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="22"><span class="no">  22</span>         print(i, solver.fib(i))</span>
+<span class="ln" data-line="23"><span class="no">  23</span> </span>
+<span class="ln" data-line="24"><span class="no">  24</span> </span>
+<span class="ln" data-line="25"><span class="no">  25</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="26"><span class="no">  26</span>     main()</span>
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section class="pair" id="pair-12" data-pair-id="12">
+<h2>Pair 12: data/submissions_simple/fact_student_b_recursive.py &nbsp;&nbsp;vs&nbsp;&nbsp; data/submissions_simple/fib_student_b_small_edits.py</h2>
+<div class="pair-meta">Aggregated similarity: <strong>0.9655</strong> &nbsp;&nbsp;(threshold = 0.50)</div>
+<div class="pair-grid">
+<div class="pair-cell matches">
+<table class="func-table">
+<thead><tr><th>#</th><th>Function A</th><th>Lines A</th><th>Function B</th><th>Lines B</th><th>Score</th></tr></thead>
+<tbody>
+<tr class="func-row" data-pair-id="12" data-match-idx="1" data-a-start="9" data-a-end="15" data-b-start="17" data-b-end="24"><td>1</td><td>main</td><td>9–15</td><td>main</td><td>17–24</td><td>0.800</td></tr>
+<tr class="func-row" data-pair-id="12" data-match-idx="2" data-a-start="1" data-a-end="8" data-b-start="1" data-b-end="16"><td>2</td><td>fact_recursive</td><td>1–8</td><td>fibonacci</td><td>1–16</td><td>0.700</td></tr>
+<tr class="func-row" data-pair-id="12" data-match-idx="3" data-a-start="1" data-a-end="8" data-b-start="17" data-b-end="24"><td>3</td><td>fact_recursive</td><td>1–8</td><td>main</td><td>17–24</td><td>0.689</td></tr>
+</tbody></table>
+</div>
+<div class="pair-cell code-a">
+<div class="code-pane" data-prog-role="a" data-pair-id="12">
+<div class="code-pane-header">A: data/submissions_simple/fact_student_b_recursive.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fact_recursive(n):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">if</span> n &lt; 0:</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         <span class="tok-kw">raise</span> ValueError(<span <span class="tok-kw">class</span>="tok-str">"negative <span class="tok-kw">not</span> allowed"</span>)</span>
+<span class="ln" data-line="4"><span class="no">   4</span>     <span class="tok-kw">if</span> n <span class="tok-kw">in</span> (0, 1):</span>
+<span class="ln" data-line="5"><span class="no">   5</span>         <span class="tok-kw">return</span> 1</span>
+<span class="ln" data-line="6"><span class="no">   6</span>     <span class="tok-kw">return</span> n * fact_recursive(n - 1)</span>
+<span class="ln" data-line="7"><span class="no">   7</span> </span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="10"><span class="no">  10</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="11"><span class="no">  11</span>         print(i, fact_recursive(i))</span>
+<span class="ln" data-line="12"><span class="no">  12</span> </span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="15"><span class="no">  15</span>     main()</span>
+</pre>
+</div>
+</div>
+<div class="pair-cell code-b">
+<div class="code-pane" data-prog-role="b" data-pair-id="12">
+<div class="code-pane-header">B: data/submissions_simple/fib_student_b_small_edits.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fibonacci(num):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">if</span> num &lt;= 0:</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         <span class="tok-kw">return</span> 0</span>
+<span class="ln" data-line="4"><span class="no">   4</span>     <span class="tok-kw">if</span> num == 1:</span>
+<span class="ln" data-line="5"><span class="no">   5</span>         <span class="tok-kw">return</span> 1</span>
+<span class="ln" data-line="6"><span class="no">   6</span> </span>
+<span class="ln" data-line="7"><span class="no">   7</span>     prev = 0</span>
+<span class="ln" data-line="8"><span class="no">   8</span>     curr = 1</span>
+<span class="ln" data-line="9"><span class="no">   9</span> </span>
+<span class="ln" data-line="10"><span class="no">  10</span>     <span class="tok-kw">for</span> _ <span class="tok-kw">in</span> range(2, num + 1):</span>
+<span class="ln" data-line="11"><span class="no">  11</span>         nxt = prev + curr</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         prev = curr</span>
+<span class="ln" data-line="13"><span class="no">  13</span>         curr = nxt</span>
+<span class="ln" data-line="14"><span class="no">  14</span>     <span class="tok-kw">return</span> curr</span>
+<span class="ln" data-line="15"><span class="no">  15</span> </span>
+<span class="ln" data-line="16"><span class="no">  16</span> </span>
+<span class="ln" data-line="17"><span class="no">  17</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="18"><span class="no">  18</span> </span>
+<span class="ln" data-line="19"><span class="no">  19</span>     <span class="tok-kw">for</span> k <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="20"><span class="no">  20</span>         print(k, fibonacci(k))</span>
+<span class="ln" data-line="21"><span class="no">  21</span> </span>
+<span class="ln" data-line="22"><span class="no">  22</span> </span>
+<span class="ln" data-line="23"><span class="no">  23</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="24"><span class="no">  24</span>     main()</span>
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section class="pair" id="pair-13" data-pair-id="13">
+<h2>Pair 13: data/submissions_simple/fact_student_b_recursive.py &nbsp;&nbsp;vs&nbsp;&nbsp; data/submissions_simple/fib_student_a.py</h2>
+<div class="pair-meta">Aggregated similarity: <strong>0.9655</strong> &nbsp;&nbsp;(threshold = 0.50)</div>
+<div class="pair-grid">
+<div class="pair-cell matches">
+<table class="func-table">
+<thead><tr><th>#</th><th>Function A</th><th>Lines A</th><th>Function B</th><th>Lines B</th><th>Score</th></tr></thead>
+<tbody>
+<tr class="func-row" data-pair-id="13" data-match-idx="1" data-a-start="9" data-a-end="15" data-b-start="16" data-b-end="22"><td>1</td><td>main</td><td>9–15</td><td>main</td><td>16–22</td><td>0.800</td></tr>
+<tr class="func-row" data-pair-id="13" data-match-idx="2" data-a-start="1" data-a-end="8" data-b-start="1" data-b-end="15"><td>2</td><td>fact_recursive</td><td>1–8</td><td>fib</td><td>1–15</td><td>0.700</td></tr>
+<tr class="func-row" data-pair-id="13" data-match-idx="3" data-a-start="1" data-a-end="8" data-b-start="16" data-b-end="22"><td>3</td><td>fact_recursive</td><td>1–8</td><td>main</td><td>16–22</td><td>0.689</td></tr>
+</tbody></table>
+</div>
+<div class="pair-cell code-a">
+<div class="code-pane" data-prog-role="a" data-pair-id="13">
+<div class="code-pane-header">A: data/submissions_simple/fact_student_b_recursive.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fact_recursive(n):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">if</span> n &lt; 0:</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         <span class="tok-kw">raise</span> ValueError(<span <span class="tok-kw">class</span>="tok-str">"negative <span class="tok-kw">not</span> allowed"</span>)</span>
+<span class="ln" data-line="4"><span class="no">   4</span>     <span class="tok-kw">if</span> n <span class="tok-kw">in</span> (0, 1):</span>
+<span class="ln" data-line="5"><span class="no">   5</span>         <span class="tok-kw">return</span> 1</span>
+<span class="ln" data-line="6"><span class="no">   6</span>     <span class="tok-kw">return</span> n * fact_recursive(n - 1)</span>
+<span class="ln" data-line="7"><span class="no">   7</span> </span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="10"><span class="no">  10</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="11"><span class="no">  11</span>         print(i, fact_recursive(i))</span>
+<span class="ln" data-line="12"><span class="no">  12</span> </span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="15"><span class="no">  15</span>     main()</span>
+</pre>
+</div>
+</div>
+<div class="pair-cell code-b">
+<div class="code-pane" data-prog-role="b" data-pair-id="13">
+<div class="code-pane-header">B: data/submissions_simple/fib_student_a.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fib(n):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span <span class="tok-kw">class</span>="tok-str">""</span><span <span class="tok-kw">class</span>="tok-str">"Compute nth Fibonacci number using iterative DP."</span><span <span class="tok-kw">class</span>="tok-str">""</span></span>
+<span class="ln" data-line="3"><span class="no">   3</span>     <span class="tok-kw">if</span> n &lt;= 0:</span>
+<span class="ln" data-line="4"><span class="no">   4</span>         <span class="tok-kw">return</span> 0</span>
+<span class="ln" data-line="5"><span class="no">   5</span>     <span class="tok-kw">if</span> n == 1:</span>
+<span class="ln" data-line="6"><span class="no">   6</span>         <span class="tok-kw">return</span> 1</span>
+<span class="ln" data-line="7"><span class="no">   7</span>     a = 0</span>
+<span class="ln" data-line="8"><span class="no">   8</span>     b = 1</span>
+<span class="ln" data-line="9"><span class="no">   9</span>     <span class="tok-kw">for</span> _ <span class="tok-kw">in</span> range(2, n + 1):</span>
+<span class="ln" data-line="10"><span class="no">  10</span>         c = a + b</span>
+<span class="ln" data-line="11"><span class="no">  11</span>         a = b</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         b = c</span>
+<span class="ln" data-line="13"><span class="no">  13</span>     <span class="tok-kw">return</span> b</span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> </span>
+<span class="ln" data-line="16"><span class="no">  16</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="17"><span class="no">  17</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="18"><span class="no">  18</span>         print(i, fib(i))</span>
+<span class="ln" data-line="19"><span class="no">  19</span> </span>
+<span class="ln" data-line="20"><span class="no">  20</span> </span>
+<span class="ln" data-line="21"><span class="no">  21</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="22"><span class="no">  22</span>     main()</span>
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section class="pair" id="pair-14" data-pair-id="14">
+<h2>Pair 14: data/submissions_simple/fib_student_b_small_edits.py &nbsp;&nbsp;vs&nbsp;&nbsp; data/submissions_simple/fact_student_a.py</h2>
+<div class="pair-meta">Aggregated similarity: <strong>0.9653</strong> &nbsp;&nbsp;(threshold = 0.50)</div>
+<div class="pair-grid">
+<div class="pair-cell matches">
+<table class="func-table">
+<thead><tr><th>#</th><th>Function A</th><th>Lines A</th><th>Function B</th><th>Lines B</th><th>Score</th></tr></thead>
+<tbody>
+<tr class="func-row" data-pair-id="14" data-match-idx="1" data-a-start="17" data-a-end="24" data-b-start="10" data-b-end="16"><td>1</td><td>main</td><td>17–24</td><td>main</td><td>10–16</td><td>0.800</td></tr>
+<tr class="func-row" data-pair-id="14" data-match-idx="2" data-a-start="1" data-a-end="16" data-b-start="1" data-b-end="9"><td>2</td><td>fibonacci</td><td>1–16</td><td>fact</td><td>1–9</td><td>0.700</td></tr>
+<tr class="func-row" data-pair-id="14" data-match-idx="3" data-a-start="17" data-a-end="24" data-b-start="1" data-b-end="9"><td>3</td><td>main</td><td>17–24</td><td>fact</td><td>1–9</td><td>0.689</td></tr>
+</tbody></table>
+</div>
+<div class="pair-cell code-a">
+<div class="code-pane" data-prog-role="a" data-pair-id="14">
+<div class="code-pane-header">A: data/submissions_simple/fib_student_b_small_edits.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fibonacci(num):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">if</span> num &lt;= 0:</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         <span class="tok-kw">return</span> 0</span>
+<span class="ln" data-line="4"><span class="no">   4</span>     <span class="tok-kw">if</span> num == 1:</span>
+<span class="ln" data-line="5"><span class="no">   5</span>         <span class="tok-kw">return</span> 1</span>
+<span class="ln" data-line="6"><span class="no">   6</span> </span>
+<span class="ln" data-line="7"><span class="no">   7</span>     prev = 0</span>
+<span class="ln" data-line="8"><span class="no">   8</span>     curr = 1</span>
+<span class="ln" data-line="9"><span class="no">   9</span> </span>
+<span class="ln" data-line="10"><span class="no">  10</span>     <span class="tok-kw">for</span> _ <span class="tok-kw">in</span> range(2, num + 1):</span>
+<span class="ln" data-line="11"><span class="no">  11</span>         nxt = prev + curr</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         prev = curr</span>
+<span class="ln" data-line="13"><span class="no">  13</span>         curr = nxt</span>
+<span class="ln" data-line="14"><span class="no">  14</span>     <span class="tok-kw">return</span> curr</span>
+<span class="ln" data-line="15"><span class="no">  15</span> </span>
+<span class="ln" data-line="16"><span class="no">  16</span> </span>
+<span class="ln" data-line="17"><span class="no">  17</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="18"><span class="no">  18</span> </span>
+<span class="ln" data-line="19"><span class="no">  19</span>     <span class="tok-kw">for</span> k <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="20"><span class="no">  20</span>         print(k, fibonacci(k))</span>
+<span class="ln" data-line="21"><span class="no">  21</span> </span>
+<span class="ln" data-line="22"><span class="no">  22</span> </span>
+<span class="ln" data-line="23"><span class="no">  23</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="24"><span class="no">  24</span>     main()</span>
+</pre>
+</div>
+</div>
+<div class="pair-cell code-b">
+<div class="code-pane" data-prog-role="b" data-pair-id="14">
+<div class="code-pane-header">B: data/submissions_simple/fact_student_a.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fact(n):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">if</span> n &lt; 0:</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         <span class="tok-kw">raise</span> ValueError(<span <span class="tok-kw">class</span>="tok-str">"negative <span class="tok-kw">not</span> allowed"</span>)</span>
+<span class="ln" data-line="4"><span class="no">   4</span>     result = 1</span>
+<span class="ln" data-line="5"><span class="no">   5</span>     <span class="tok-kw">for</span> k <span class="tok-kw">in</span> range(2, n + 1):</span>
+<span class="ln" data-line="6"><span class="no">   6</span>         result *= k</span>
+<span class="ln" data-line="7"><span class="no">   7</span>     <span class="tok-kw">return</span> result</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> </span>
+<span class="ln" data-line="10"><span class="no">  10</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="11"><span class="no">  11</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         print(i, fact(i))</span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="16"><span class="no">  16</span>     main()</span>
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section class="pair" id="pair-15" data-pair-id="15">
+<h2>Pair 15: data/submissions_simple/fib_student_a.py &nbsp;&nbsp;vs&nbsp;&nbsp; data/submissions_simple/fact_student_a.py</h2>
+<div class="pair-meta">Aggregated similarity: <strong>0.9653</strong> &nbsp;&nbsp;(threshold = 0.50)</div>
+<div class="pair-grid">
+<div class="pair-cell matches">
+<table class="func-table">
+<thead><tr><th>#</th><th>Function A</th><th>Lines A</th><th>Function B</th><th>Lines B</th><th>Score</th></tr></thead>
+<tbody>
+<tr class="func-row" data-pair-id="15" data-match-idx="1" data-a-start="16" data-a-end="22" data-b-start="10" data-b-end="16"><td>1</td><td>main</td><td>16–22</td><td>main</td><td>10–16</td><td>0.800</td></tr>
+<tr class="func-row" data-pair-id="15" data-match-idx="2" data-a-start="1" data-a-end="15" data-b-start="1" data-b-end="9"><td>2</td><td>fib</td><td>1–15</td><td>fact</td><td>1–9</td><td>0.700</td></tr>
+<tr class="func-row" data-pair-id="15" data-match-idx="3" data-a-start="16" data-a-end="22" data-b-start="1" data-b-end="9"><td>3</td><td>main</td><td>16–22</td><td>fact</td><td>1–9</td><td>0.689</td></tr>
+</tbody></table>
+</div>
+<div class="pair-cell code-a">
+<div class="code-pane" data-prog-role="a" data-pair-id="15">
+<div class="code-pane-header">A: data/submissions_simple/fib_student_a.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fib(n):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span <span class="tok-kw">class</span>="tok-str">""</span><span <span class="tok-kw">class</span>="tok-str">"Compute nth Fibonacci number using iterative DP."</span><span <span class="tok-kw">class</span>="tok-str">""</span></span>
+<span class="ln" data-line="3"><span class="no">   3</span>     <span class="tok-kw">if</span> n &lt;= 0:</span>
+<span class="ln" data-line="4"><span class="no">   4</span>         <span class="tok-kw">return</span> 0</span>
+<span class="ln" data-line="5"><span class="no">   5</span>     <span class="tok-kw">if</span> n == 1:</span>
+<span class="ln" data-line="6"><span class="no">   6</span>         <span class="tok-kw">return</span> 1</span>
+<span class="ln" data-line="7"><span class="no">   7</span>     a = 0</span>
+<span class="ln" data-line="8"><span class="no">   8</span>     b = 1</span>
+<span class="ln" data-line="9"><span class="no">   9</span>     <span class="tok-kw">for</span> _ <span class="tok-kw">in</span> range(2, n + 1):</span>
+<span class="ln" data-line="10"><span class="no">  10</span>         c = a + b</span>
+<span class="ln" data-line="11"><span class="no">  11</span>         a = b</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         b = c</span>
+<span class="ln" data-line="13"><span class="no">  13</span>     <span class="tok-kw">return</span> b</span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> </span>
+<span class="ln" data-line="16"><span class="no">  16</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="17"><span class="no">  17</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="18"><span class="no">  18</span>         print(i, fib(i))</span>
+<span class="ln" data-line="19"><span class="no">  19</span> </span>
+<span class="ln" data-line="20"><span class="no">  20</span> </span>
+<span class="ln" data-line="21"><span class="no">  21</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="22"><span class="no">  22</span>     main()</span>
+</pre>
+</div>
+</div>
+<div class="pair-cell code-b">
+<div class="code-pane" data-prog-role="b" data-pair-id="15">
+<div class="code-pane-header">B: data/submissions_simple/fact_student_a.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fact(n):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">if</span> n &lt; 0:</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         <span class="tok-kw">raise</span> ValueError(<span <span class="tok-kw">class</span>="tok-str">"negative <span class="tok-kw">not</span> allowed"</span>)</span>
+<span class="ln" data-line="4"><span class="no">   4</span>     result = 1</span>
+<span class="ln" data-line="5"><span class="no">   5</span>     <span class="tok-kw">for</span> k <span class="tok-kw">in</span> range(2, n + 1):</span>
+<span class="ln" data-line="6"><span class="no">   6</span>         result *= k</span>
+<span class="ln" data-line="7"><span class="no">   7</span>     <span class="tok-kw">return</span> result</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> </span>
+<span class="ln" data-line="10"><span class="no">  10</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="11"><span class="no">  11</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         print(i, fact(i))</span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="16"><span class="no">  16</span>     main()</span>
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section class="pair" id="pair-16" data-pair-id="16">
+<h2>Pair 16: data/submissions_simple/fib_student_b_small_edits.py &nbsp;&nbsp;vs&nbsp;&nbsp; data/submissions_simple/word_freq_student_b_small_edits.py</h2>
+<div class="pair-meta">Aggregated similarity: <strong>0.9649</strong> &nbsp;&nbsp;(threshold = 0.50)</div>
+<div class="pair-grid">
+<div class="pair-cell matches">
+<table class="func-table">
+<thead><tr><th>#</th><th>Function A</th><th>Lines A</th><th>Function B</th><th>Lines B</th><th>Score</th></tr></thead>
+<tbody>
+<tr class="func-row" data-pair-id="16" data-match-idx="1" data-a-start="17" data-a-end="24" data-b-start="9" data-b-end="16"><td>1</td><td>main</td><td>17–24</td><td>main</td><td>9–16</td><td>0.800</td></tr>
+<tr class="func-row" data-pair-id="16" data-match-idx="2" data-a-start="1" data-a-end="16" data-b-start="9" data-b-end="16"><td>2</td><td>fibonacci</td><td>1–16</td><td>main</td><td>9–16</td><td>0.694</td></tr>
+<tr class="func-row" data-pair-id="16" data-match-idx="3" data-a-start="17" data-a-end="24" data-b-start="4" data-b-end="8"><td>3</td><td>main</td><td>17–24</td><td>collect_words</td><td>4–8</td><td>0.689</td></tr>
+</tbody></table>
+</div>
+<div class="pair-cell code-a">
+<div class="code-pane" data-prog-role="a" data-pair-id="16">
+<div class="code-pane-header">A: data/submissions_simple/fib_student_b_small_edits.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fibonacci(num):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">if</span> num &lt;= 0:</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         <span class="tok-kw">return</span> 0</span>
+<span class="ln" data-line="4"><span class="no">   4</span>     <span class="tok-kw">if</span> num == 1:</span>
+<span class="ln" data-line="5"><span class="no">   5</span>         <span class="tok-kw">return</span> 1</span>
+<span class="ln" data-line="6"><span class="no">   6</span> </span>
+<span class="ln" data-line="7"><span class="no">   7</span>     prev = 0</span>
+<span class="ln" data-line="8"><span class="no">   8</span>     curr = 1</span>
+<span class="ln" data-line="9"><span class="no">   9</span> </span>
+<span class="ln" data-line="10"><span class="no">  10</span>     <span class="tok-kw">for</span> _ <span class="tok-kw">in</span> range(2, num + 1):</span>
+<span class="ln" data-line="11"><span class="no">  11</span>         nxt = prev + curr</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         prev = curr</span>
+<span class="ln" data-line="13"><span class="no">  13</span>         curr = nxt</span>
+<span class="ln" data-line="14"><span class="no">  14</span>     <span class="tok-kw">return</span> curr</span>
+<span class="ln" data-line="15"><span class="no">  15</span> </span>
+<span class="ln" data-line="16"><span class="no">  16</span> </span>
+<span class="ln" data-line="17"><span class="no">  17</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="18"><span class="no">  18</span> </span>
+<span class="ln" data-line="19"><span class="no">  19</span>     <span class="tok-kw">for</span> k <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="20"><span class="no">  20</span>         print(k, fibonacci(k))</span>
+<span class="ln" data-line="21"><span class="no">  21</span> </span>
+<span class="ln" data-line="22"><span class="no">  22</span> </span>
+<span class="ln" data-line="23"><span class="no">  23</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="24"><span class="no">  24</span>     main()</span>
+</pre>
+</div>
+</div>
+<div class="pair-cell code-b">
+<div class="code-pane" data-prog-role="b" data-pair-id="16">
+<div class="code-pane-header">B: data/submissions_simple/word_freq_student_b_small_edits.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">import</span> sys</span>
+<span class="ln" data-line="2"><span class="no">   2</span> <span class="tok-kw">from</span> collections <span class="tok-kw">import</span> Counter</span>
+<span class="ln" data-line="3"><span class="no">   3</span> </span>
+<span class="ln" data-line="4"><span class="no">   4</span> <span class="tok-kw">def</span> collect_words():</span>
+<span class="ln" data-line="5"><span class="no">   5</span>     text = sys.stdin.read()</span>
+<span class="ln" data-line="6"><span class="no">   6</span>     tokens = text.split()</span>
+<span class="ln" data-line="7"><span class="no">   7</span>     <span class="tok-kw">return</span> [t.lower() <span class="tok-kw">for</span> t <span class="tok-kw">in</span> tokens]</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="10"><span class="no">  10</span>     freq = Counter(collect_words())</span>
+<span class="ln" data-line="11"><span class="no">  11</span>     <span class="tok-kw">for</span> w <span class="tok-kw">in</span> sorted(freq):</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         print(w, freq[w])</span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="16"><span class="no">  16</span>     main()</span>
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section class="pair" id="pair-17" data-pair-id="17">
+<h2>Pair 17: data/submissions_simple/fib_student_a.py &nbsp;&nbsp;vs&nbsp;&nbsp; data/submissions_simple/word_freq_student_b_small_edits.py</h2>
+<div class="pair-meta">Aggregated similarity: <strong>0.9649</strong> &nbsp;&nbsp;(threshold = 0.50)</div>
+<div class="pair-grid">
+<div class="pair-cell matches">
+<table class="func-table">
+<thead><tr><th>#</th><th>Function A</th><th>Lines A</th><th>Function B</th><th>Lines B</th><th>Score</th></tr></thead>
+<tbody>
+<tr class="func-row" data-pair-id="17" data-match-idx="1" data-a-start="16" data-a-end="22" data-b-start="9" data-b-end="16"><td>1</td><td>main</td><td>16–22</td><td>main</td><td>9–16</td><td>0.800</td></tr>
+<tr class="func-row" data-pair-id="17" data-match-idx="2" data-a-start="1" data-a-end="15" data-b-start="9" data-b-end="16"><td>2</td><td>fib</td><td>1–15</td><td>main</td><td>9–16</td><td>0.694</td></tr>
+<tr class="func-row" data-pair-id="17" data-match-idx="3" data-a-start="16" data-a-end="22" data-b-start="4" data-b-end="8"><td>3</td><td>main</td><td>16–22</td><td>collect_words</td><td>4–8</td><td>0.689</td></tr>
+</tbody></table>
+</div>
+<div class="pair-cell code-a">
+<div class="code-pane" data-prog-role="a" data-pair-id="17">
+<div class="code-pane-header">A: data/submissions_simple/fib_student_a.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fib(n):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span <span class="tok-kw">class</span>="tok-str">""</span><span <span class="tok-kw">class</span>="tok-str">"Compute nth Fibonacci number using iterative DP."</span><span <span class="tok-kw">class</span>="tok-str">""</span></span>
+<span class="ln" data-line="3"><span class="no">   3</span>     <span class="tok-kw">if</span> n &lt;= 0:</span>
+<span class="ln" data-line="4"><span class="no">   4</span>         <span class="tok-kw">return</span> 0</span>
+<span class="ln" data-line="5"><span class="no">   5</span>     <span class="tok-kw">if</span> n == 1:</span>
+<span class="ln" data-line="6"><span class="no">   6</span>         <span class="tok-kw">return</span> 1</span>
+<span class="ln" data-line="7"><span class="no">   7</span>     a = 0</span>
+<span class="ln" data-line="8"><span class="no">   8</span>     b = 1</span>
+<span class="ln" data-line="9"><span class="no">   9</span>     <span class="tok-kw">for</span> _ <span class="tok-kw">in</span> range(2, n + 1):</span>
+<span class="ln" data-line="10"><span class="no">  10</span>         c = a + b</span>
+<span class="ln" data-line="11"><span class="no">  11</span>         a = b</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         b = c</span>
+<span class="ln" data-line="13"><span class="no">  13</span>     <span class="tok-kw">return</span> b</span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> </span>
+<span class="ln" data-line="16"><span class="no">  16</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="17"><span class="no">  17</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="18"><span class="no">  18</span>         print(i, fib(i))</span>
+<span class="ln" data-line="19"><span class="no">  19</span> </span>
+<span class="ln" data-line="20"><span class="no">  20</span> </span>
+<span class="ln" data-line="21"><span class="no">  21</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="22"><span class="no">  22</span>     main()</span>
+</pre>
+</div>
+</div>
+<div class="pair-cell code-b">
+<div class="code-pane" data-prog-role="b" data-pair-id="17">
+<div class="code-pane-header">B: data/submissions_simple/word_freq_student_b_small_edits.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">import</span> sys</span>
+<span class="ln" data-line="2"><span class="no">   2</span> <span class="tok-kw">from</span> collections <span class="tok-kw">import</span> Counter</span>
+<span class="ln" data-line="3"><span class="no">   3</span> </span>
+<span class="ln" data-line="4"><span class="no">   4</span> <span class="tok-kw">def</span> collect_words():</span>
+<span class="ln" data-line="5"><span class="no">   5</span>     text = sys.stdin.read()</span>
+<span class="ln" data-line="6"><span class="no">   6</span>     tokens = text.split()</span>
+<span class="ln" data-line="7"><span class="no">   7</span>     <span class="tok-kw">return</span> [t.lower() <span class="tok-kw">for</span> t <span class="tok-kw">in</span> tokens]</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="10"><span class="no">  10</span>     freq = Counter(collect_words())</span>
+<span class="ln" data-line="11"><span class="no">  11</span>     <span class="tok-kw">for</span> w <span class="tok-kw">in</span> sorted(freq):</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         print(w, freq[w])</span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="16"><span class="no">  16</span>     main()</span>
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section class="pair" id="pair-18" data-pair-id="18">
+<h2>Pair 18: data/submissions_simple/fib_student_d_recursive.py &nbsp;&nbsp;vs&nbsp;&nbsp; data/submissions_simple/word_freq_student_b_small_edits.py</h2>
+<div class="pair-meta">Aggregated similarity: <strong>0.9647</strong> &nbsp;&nbsp;(threshold = 0.50)</div>
+<div class="pair-grid">
+<div class="pair-cell matches">
+<table class="func-table">
+<thead><tr><th>#</th><th>Function A</th><th>Lines A</th><th>Function B</th><th>Lines B</th><th>Score</th></tr></thead>
+<tbody>
+<tr class="func-row" data-pair-id="18" data-match-idx="1" data-a-start="10" data-a-end="16" data-b-start="9" data-b-end="16"><td>1</td><td>main</td><td>10–16</td><td>main</td><td>9–16</td><td>0.800</td></tr>
+<tr class="func-row" data-pair-id="18" data-match-idx="2" data-a-start="1" data-a-end="9" data-b-start="9" data-b-end="16"><td>2</td><td>fib_recursive</td><td>1–9</td><td>main</td><td>9–16</td><td>0.692</td></tr>
+<tr class="func-row" data-pair-id="18" data-match-idx="3" data-a-start="10" data-a-end="16" data-b-start="4" data-b-end="8"><td>3</td><td>main</td><td>10–16</td><td>collect_words</td><td>4–8</td><td>0.689</td></tr>
+</tbody></table>
+</div>
+<div class="pair-cell code-a">
+<div class="code-pane" data-prog-role="a" data-pair-id="18">
+<div class="code-pane-header">A: data/submissions_simple/fib_student_d_recursive.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fib_recursive(n, memo=<span class="tok-kw">None</span>):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">if</span> memo <span class="tok-kw">is</span> <span class="tok-kw">None</span>:</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         memo = {0: 0, 1: 1}</span>
+<span class="ln" data-line="4"><span class="no">   4</span>     <span class="tok-kw">if</span> n <span class="tok-kw">in</span> memo:</span>
+<span class="ln" data-line="5"><span class="no">   5</span>         <span class="tok-kw">return</span> memo[n]</span>
+<span class="ln" data-line="6"><span class="no">   6</span>     memo[n] = fib_recursive(n - 1, memo) + fib_recursive(n - 2, memo)</span>
+<span class="ln" data-line="7"><span class="no">   7</span>     <span class="tok-kw">return</span> memo[n]</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> </span>
+<span class="ln" data-line="10"><span class="no">  10</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="11"><span class="no">  11</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         print(i, fib_recursive(i))</span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="16"><span class="no">  16</span>     main()</span>
+</pre>
+</div>
+</div>
+<div class="pair-cell code-b">
+<div class="code-pane" data-prog-role="b" data-pair-id="18">
+<div class="code-pane-header">B: data/submissions_simple/word_freq_student_b_small_edits.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">import</span> sys</span>
+<span class="ln" data-line="2"><span class="no">   2</span> <span class="tok-kw">from</span> collections <span class="tok-kw">import</span> Counter</span>
+<span class="ln" data-line="3"><span class="no">   3</span> </span>
+<span class="ln" data-line="4"><span class="no">   4</span> <span class="tok-kw">def</span> collect_words():</span>
+<span class="ln" data-line="5"><span class="no">   5</span>     text = sys.stdin.read()</span>
+<span class="ln" data-line="6"><span class="no">   6</span>     tokens = text.split()</span>
+<span class="ln" data-line="7"><span class="no">   7</span>     <span class="tok-kw">return</span> [t.lower() <span class="tok-kw">for</span> t <span class="tok-kw">in</span> tokens]</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="10"><span class="no">  10</span>     freq = Counter(collect_words())</span>
+<span class="ln" data-line="11"><span class="no">  11</span>     <span class="tok-kw">for</span> w <span class="tok-kw">in</span> sorted(freq):</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         print(w, freq[w])</span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="16"><span class="no">  16</span>     main()</span>
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section class="pair" id="pair-19" data-pair-id="19">
+<h2>Pair 19: data/submissions_simple/fact_student_b_recursive.py &nbsp;&nbsp;vs&nbsp;&nbsp; data/submissions_simple/word_freq_student_b_small_edits.py</h2>
+<div class="pair-meta">Aggregated similarity: <strong>0.9634</strong> &nbsp;&nbsp;(threshold = 0.50)</div>
+<div class="pair-grid">
+<div class="pair-cell matches">
+<table class="func-table">
+<thead><tr><th>#</th><th>Function A</th><th>Lines A</th><th>Function B</th><th>Lines B</th><th>Score</th></tr></thead>
+<tbody>
+<tr class="func-row" data-pair-id="19" data-match-idx="1" data-a-start="9" data-a-end="15" data-b-start="9" data-b-end="16"><td>1</td><td>main</td><td>9–15</td><td>main</td><td>9–16</td><td>0.800</td></tr>
+<tr class="func-row" data-pair-id="19" data-match-idx="2" data-a-start="1" data-a-end="8" data-b-start="4" data-b-end="8"><td>2</td><td>fact_recursive</td><td>1–8</td><td>collect_words</td><td>4–8</td><td>0.700</td></tr>
+<tr class="func-row" data-pair-id="19" data-match-idx="3" data-a-start="1" data-a-end="8" data-b-start="9" data-b-end="16"><td>3</td><td>fact_recursive</td><td>1–8</td><td>main</td><td>9–16</td><td>0.694</td></tr>
+<tr class="func-row" data-pair-id="19" data-match-idx="4" data-a-start="9" data-a-end="15" data-b-start="4" data-b-end="8"><td>4</td><td>main</td><td>9–15</td><td>collect_words</td><td>4–8</td><td>0.689</td></tr>
+</tbody></table>
+</div>
+<div class="pair-cell code-a">
+<div class="code-pane" data-prog-role="a" data-pair-id="19">
+<div class="code-pane-header">A: data/submissions_simple/fact_student_b_recursive.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fact_recursive(n):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">if</span> n &lt; 0:</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         <span class="tok-kw">raise</span> ValueError(<span <span class="tok-kw">class</span>="tok-str">"negative <span class="tok-kw">not</span> allowed"</span>)</span>
+<span class="ln" data-line="4"><span class="no">   4</span>     <span class="tok-kw">if</span> n <span class="tok-kw">in</span> (0, 1):</span>
+<span class="ln" data-line="5"><span class="no">   5</span>         <span class="tok-kw">return</span> 1</span>
+<span class="ln" data-line="6"><span class="no">   6</span>     <span class="tok-kw">return</span> n * fact_recursive(n - 1)</span>
+<span class="ln" data-line="7"><span class="no">   7</span> </span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="10"><span class="no">  10</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="11"><span class="no">  11</span>         print(i, fact_recursive(i))</span>
+<span class="ln" data-line="12"><span class="no">  12</span> </span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="15"><span class="no">  15</span>     main()</span>
+</pre>
+</div>
+</div>
+<div class="pair-cell code-b">
+<div class="code-pane" data-prog-role="b" data-pair-id="19">
+<div class="code-pane-header">B: data/submissions_simple/word_freq_student_b_small_edits.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">import</span> sys</span>
+<span class="ln" data-line="2"><span class="no">   2</span> <span class="tok-kw">from</span> collections <span class="tok-kw">import</span> Counter</span>
+<span class="ln" data-line="3"><span class="no">   3</span> </span>
+<span class="ln" data-line="4"><span class="no">   4</span> <span class="tok-kw">def</span> collect_words():</span>
+<span class="ln" data-line="5"><span class="no">   5</span>     text = sys.stdin.read()</span>
+<span class="ln" data-line="6"><span class="no">   6</span>     tokens = text.split()</span>
+<span class="ln" data-line="7"><span class="no">   7</span>     <span class="tok-kw">return</span> [t.lower() <span class="tok-kw">for</span> t <span class="tok-kw">in</span> tokens]</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="10"><span class="no">  10</span>     freq = Counter(collect_words())</span>
+<span class="ln" data-line="11"><span class="no">  11</span>     <span class="tok-kw">for</span> w <span class="tok-kw">in</span> sorted(freq):</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         print(w, freq[w])</span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="16"><span class="no">  16</span>     main()</span>
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section class="pair" id="pair-20" data-pair-id="20">
+<h2>Pair 20: data/submissions_simple/word_freq_student_a.py &nbsp;&nbsp;vs&nbsp;&nbsp; data/submissions_simple/word_freq_student_b_small_edits.py</h2>
+<div class="pair-meta">Aggregated similarity: <strong>0.9633</strong> &nbsp;&nbsp;(threshold = 0.50)</div>
+<div class="pair-grid">
+<div class="pair-cell matches">
+<table class="func-table">
+<thead><tr><th>#</th><th>Function A</th><th>Lines A</th><th>Function B</th><th>Lines B</th><th>Score</th></tr></thead>
+<tbody>
+<tr class="func-row" data-pair-id="20" data-match-idx="1" data-a-start="9" data-a-end="16" data-b-start="9" data-b-end="16"><td>1</td><td>main</td><td>9–16</td><td>main</td><td>9–16</td><td>0.800</td></tr>
+<tr class="func-row" data-pair-id="20" data-match-idx="2" data-a-start="4" data-a-end="8" data-b-start="4" data-b-end="8"><td>2</td><td>read_words</td><td>4–8</td><td>collect_words</td><td>4–8</td><td>0.700</td></tr>
+<tr class="func-row" data-pair-id="20" data-match-idx="3" data-a-start="4" data-a-end="8" data-b-start="9" data-b-end="16"><td>3</td><td>read_words</td><td>4–8</td><td>main</td><td>9–16</td><td>0.694</td></tr>
+<tr class="func-row" data-pair-id="20" data-match-idx="4" data-a-start="9" data-a-end="16" data-b-start="4" data-b-end="8"><td>4</td><td>main</td><td>9–16</td><td>collect_words</td><td>4–8</td><td>0.684</td></tr>
+</tbody></table>
+</div>
+<div class="pair-cell code-a">
+<div class="code-pane" data-prog-role="a" data-pair-id="20">
+<div class="code-pane-header">A: data/submissions_simple/word_freq_student_a.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">import</span> sys</span>
+<span class="ln" data-line="2"><span class="no">   2</span> <span class="tok-kw">from</span> collections <span class="tok-kw">import</span> Counter</span>
+<span class="ln" data-line="3"><span class="no">   3</span> </span>
+<span class="ln" data-line="4"><span class="no">   4</span> <span class="tok-kw">def</span> read_words():</span>
+<span class="ln" data-line="5"><span class="no">   5</span>     data = sys.stdin.read()</span>
+<span class="ln" data-line="6"><span class="no">   6</span>     <span class="tok-kw">for</span> token <span class="tok-kw">in</span> data.split():</span>
+<span class="ln" data-line="7"><span class="no">   7</span>         <span class="tok-kw">yield</span> token.lower()</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="10"><span class="no">  10</span>     counts = Counter(read_words())</span>
+<span class="ln" data-line="11"><span class="no">  11</span>     <span class="tok-kw">for</span> word, cnt <span class="tok-kw">in</span> sorted(counts.items()):</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         print(word, cnt)</span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="16"><span class="no">  16</span>     main()</span>
+</pre>
+</div>
+</div>
+<div class="pair-cell code-b">
+<div class="code-pane" data-prog-role="b" data-pair-id="20">
+<div class="code-pane-header">B: data/submissions_simple/word_freq_student_b_small_edits.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">import</span> sys</span>
+<span class="ln" data-line="2"><span class="no">   2</span> <span class="tok-kw">from</span> collections <span class="tok-kw">import</span> Counter</span>
+<span class="ln" data-line="3"><span class="no">   3</span> </span>
+<span class="ln" data-line="4"><span class="no">   4</span> <span class="tok-kw">def</span> collect_words():</span>
+<span class="ln" data-line="5"><span class="no">   5</span>     text = sys.stdin.read()</span>
+<span class="ln" data-line="6"><span class="no">   6</span>     tokens = text.split()</span>
+<span class="ln" data-line="7"><span class="no">   7</span>     <span class="tok-kw">return</span> [t.lower() <span class="tok-kw">for</span> t <span class="tok-kw">in</span> tokens]</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="10"><span class="no">  10</span>     freq = Counter(collect_words())</span>
+<span class="ln" data-line="11"><span class="no">  11</span>     <span class="tok-kw">for</span> w <span class="tok-kw">in</span> sorted(freq):</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         print(w, freq[w])</span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="16"><span class="no">  16</span>     main()</span>
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section class="pair" id="pair-21" data-pair-id="21">
+<h2>Pair 21: data/submissions_simple/fact_student_a.py &nbsp;&nbsp;vs&nbsp;&nbsp; data/submissions_simple/word_freq_student_b_small_edits.py</h2>
+<div class="pair-meta">Aggregated similarity: <strong>0.9631</strong> &nbsp;&nbsp;(threshold = 0.50)</div>
+<div class="pair-grid">
+<div class="pair-cell matches">
+<table class="func-table">
+<thead><tr><th>#</th><th>Function A</th><th>Lines A</th><th>Function B</th><th>Lines B</th><th>Score</th></tr></thead>
+<tbody>
+<tr class="func-row" data-pair-id="21" data-match-idx="1" data-a-start="10" data-a-end="16" data-b-start="9" data-b-end="16"><td>1</td><td>main</td><td>10–16</td><td>main</td><td>9–16</td><td>0.800</td></tr>
+<tr class="func-row" data-pair-id="21" data-match-idx="2" data-a-start="1" data-a-end="9" data-b-start="4" data-b-end="8"><td>2</td><td>fact</td><td>1–9</td><td>collect_words</td><td>4–8</td><td>0.700</td></tr>
+<tr class="func-row" data-pair-id="21" data-match-idx="3" data-a-start="1" data-a-end="9" data-b-start="9" data-b-end="16"><td>3</td><td>fact</td><td>1–9</td><td>main</td><td>9–16</td><td>0.694</td></tr>
+<tr class="func-row" data-pair-id="21" data-match-idx="4" data-a-start="10" data-a-end="16" data-b-start="4" data-b-end="8"><td>4</td><td>main</td><td>10–16</td><td>collect_words</td><td>4–8</td><td>0.689</td></tr>
+</tbody></table>
+</div>
+<div class="pair-cell code-a">
+<div class="code-pane" data-prog-role="a" data-pair-id="21">
+<div class="code-pane-header">A: data/submissions_simple/fact_student_a.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fact(n):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">if</span> n &lt; 0:</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         <span class="tok-kw">raise</span> ValueError(<span <span class="tok-kw">class</span>="tok-str">"negative <span class="tok-kw">not</span> allowed"</span>)</span>
+<span class="ln" data-line="4"><span class="no">   4</span>     result = 1</span>
+<span class="ln" data-line="5"><span class="no">   5</span>     <span class="tok-kw">for</span> k <span class="tok-kw">in</span> range(2, n + 1):</span>
+<span class="ln" data-line="6"><span class="no">   6</span>         result *= k</span>
+<span class="ln" data-line="7"><span class="no">   7</span>     <span class="tok-kw">return</span> result</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> </span>
+<span class="ln" data-line="10"><span class="no">  10</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="11"><span class="no">  11</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         print(i, fact(i))</span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="16"><span class="no">  16</span>     main()</span>
+</pre>
+</div>
+</div>
+<div class="pair-cell code-b">
+<div class="code-pane" data-prog-role="b" data-pair-id="21">
+<div class="code-pane-header">B: data/submissions_simple/word_freq_student_b_small_edits.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">import</span> sys</span>
+<span class="ln" data-line="2"><span class="no">   2</span> <span class="tok-kw">from</span> collections <span class="tok-kw">import</span> Counter</span>
+<span class="ln" data-line="3"><span class="no">   3</span> </span>
+<span class="ln" data-line="4"><span class="no">   4</span> <span class="tok-kw">def</span> collect_words():</span>
+<span class="ln" data-line="5"><span class="no">   5</span>     text = sys.stdin.read()</span>
+<span class="ln" data-line="6"><span class="no">   6</span>     tokens = text.split()</span>
+<span class="ln" data-line="7"><span class="no">   7</span>     <span class="tok-kw">return</span> [t.lower() <span class="tok-kw">for</span> t <span class="tok-kw">in</span> tokens]</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="10"><span class="no">  10</span>     freq = Counter(collect_words())</span>
+<span class="ln" data-line="11"><span class="no">  11</span>     <span class="tok-kw">for</span> w <span class="tok-kw">in</span> sorted(freq):</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         print(w, freq[w])</span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="16"><span class="no">  16</span>     main()</span>
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section class="pair" id="pair-22" data-pair-id="22">
+<h2>Pair 22: data/submissions_simple/fact_student_b_recursive.py &nbsp;&nbsp;vs&nbsp;&nbsp; data/submissions_simple/word_freq_student_a.py</h2>
+<div class="pair-meta">Aggregated similarity: <strong>0.9621</strong> &nbsp;&nbsp;(threshold = 0.50)</div>
+<div class="pair-grid">
+<div class="pair-cell matches">
+<table class="func-table">
+<thead><tr><th>#</th><th>Function A</th><th>Lines A</th><th>Function B</th><th>Lines B</th><th>Score</th></tr></thead>
+<tbody>
+<tr class="func-row" data-pair-id="22" data-match-idx="1" data-a-start="9" data-a-end="15" data-b-start="9" data-b-end="16"><td>1</td><td>main</td><td>9–15</td><td>main</td><td>9–16</td><td>0.800</td></tr>
+<tr class="func-row" data-pair-id="22" data-match-idx="2" data-a-start="1" data-a-end="8" data-b-start="4" data-b-end="8"><td>2</td><td>fact_recursive</td><td>1–8</td><td>read_words</td><td>4–8</td><td>0.700</td></tr>
+<tr class="func-row" data-pair-id="22" data-match-idx="3" data-a-start="9" data-a-end="15" data-b-start="4" data-b-end="8"><td>3</td><td>main</td><td>9–15</td><td>read_words</td><td>4–8</td><td>0.689</td></tr>
+<tr class="func-row" data-pair-id="22" data-match-idx="4" data-a-start="1" data-a-end="8" data-b-start="9" data-b-end="16"><td>4</td><td>fact_recursive</td><td>1–8</td><td>main</td><td>9–16</td><td>0.684</td></tr>
+</tbody></table>
+</div>
+<div class="pair-cell code-a">
+<div class="code-pane" data-prog-role="a" data-pair-id="22">
+<div class="code-pane-header">A: data/submissions_simple/fact_student_b_recursive.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fact_recursive(n):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">if</span> n &lt; 0:</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         <span class="tok-kw">raise</span> ValueError(<span <span class="tok-kw">class</span>="tok-str">"negative <span class="tok-kw">not</span> allowed"</span>)</span>
+<span class="ln" data-line="4"><span class="no">   4</span>     <span class="tok-kw">if</span> n <span class="tok-kw">in</span> (0, 1):</span>
+<span class="ln" data-line="5"><span class="no">   5</span>         <span class="tok-kw">return</span> 1</span>
+<span class="ln" data-line="6"><span class="no">   6</span>     <span class="tok-kw">return</span> n * fact_recursive(n - 1)</span>
+<span class="ln" data-line="7"><span class="no">   7</span> </span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="10"><span class="no">  10</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="11"><span class="no">  11</span>         print(i, fact_recursive(i))</span>
+<span class="ln" data-line="12"><span class="no">  12</span> </span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="15"><span class="no">  15</span>     main()</span>
+</pre>
+</div>
+</div>
+<div class="pair-cell code-b">
+<div class="code-pane" data-prog-role="b" data-pair-id="22">
+<div class="code-pane-header">B: data/submissions_simple/word_freq_student_a.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">import</span> sys</span>
+<span class="ln" data-line="2"><span class="no">   2</span> <span class="tok-kw">from</span> collections <span class="tok-kw">import</span> Counter</span>
+<span class="ln" data-line="3"><span class="no">   3</span> </span>
+<span class="ln" data-line="4"><span class="no">   4</span> <span class="tok-kw">def</span> read_words():</span>
+<span class="ln" data-line="5"><span class="no">   5</span>     data = sys.stdin.read()</span>
+<span class="ln" data-line="6"><span class="no">   6</span>     <span class="tok-kw">for</span> token <span class="tok-kw">in</span> data.split():</span>
+<span class="ln" data-line="7"><span class="no">   7</span>         <span class="tok-kw">yield</span> token.lower()</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="10"><span class="no">  10</span>     counts = Counter(read_words())</span>
+<span class="ln" data-line="11"><span class="no">  11</span>     <span class="tok-kw">for</span> word, cnt <span class="tok-kw">in</span> sorted(counts.items()):</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         print(word, cnt)</span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="16"><span class="no">  16</span>     main()</span>
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section class="pair" id="pair-23" data-pair-id="23">
+<h2>Pair 23: data/submissions_simple/word_freq_student_a.py &nbsp;&nbsp;vs&nbsp;&nbsp; data/submissions_simple/fact_student_a.py</h2>
+<div class="pair-meta">Aggregated similarity: <strong>0.9619</strong> &nbsp;&nbsp;(threshold = 0.50)</div>
+<div class="pair-grid">
+<div class="pair-cell matches">
+<table class="func-table">
+<thead><tr><th>#</th><th>Function A</th><th>Lines A</th><th>Function B</th><th>Lines B</th><th>Score</th></tr></thead>
+<tbody>
+<tr class="func-row" data-pair-id="23" data-match-idx="1" data-a-start="9" data-a-end="16" data-b-start="10" data-b-end="16"><td>1</td><td>main</td><td>9–16</td><td>main</td><td>10–16</td><td>0.800</td></tr>
+<tr class="func-row" data-pair-id="23" data-match-idx="2" data-a-start="4" data-a-end="8" data-b-start="1" data-b-end="9"><td>2</td><td>read_words</td><td>4–8</td><td>fact</td><td>1–9</td><td>0.700</td></tr>
+<tr class="func-row" data-pair-id="23" data-match-idx="3" data-a-start="4" data-a-end="8" data-b-start="10" data-b-end="16"><td>3</td><td>read_words</td><td>4–8</td><td>main</td><td>10–16</td><td>0.689</td></tr>
+<tr class="func-row" data-pair-id="23" data-match-idx="4" data-a-start="9" data-a-end="16" data-b-start="1" data-b-end="9"><td>4</td><td>main</td><td>9–16</td><td>fact</td><td>1–9</td><td>0.684</td></tr>
+</tbody></table>
+</div>
+<div class="pair-cell code-a">
+<div class="code-pane" data-prog-role="a" data-pair-id="23">
+<div class="code-pane-header">A: data/submissions_simple/word_freq_student_a.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">import</span> sys</span>
+<span class="ln" data-line="2"><span class="no">   2</span> <span class="tok-kw">from</span> collections <span class="tok-kw">import</span> Counter</span>
+<span class="ln" data-line="3"><span class="no">   3</span> </span>
+<span class="ln" data-line="4"><span class="no">   4</span> <span class="tok-kw">def</span> read_words():</span>
+<span class="ln" data-line="5"><span class="no">   5</span>     data = sys.stdin.read()</span>
+<span class="ln" data-line="6"><span class="no">   6</span>     <span class="tok-kw">for</span> token <span class="tok-kw">in</span> data.split():</span>
+<span class="ln" data-line="7"><span class="no">   7</span>         <span class="tok-kw">yield</span> token.lower()</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="10"><span class="no">  10</span>     counts = Counter(read_words())</span>
+<span class="ln" data-line="11"><span class="no">  11</span>     <span class="tok-kw">for</span> word, cnt <span class="tok-kw">in</span> sorted(counts.items()):</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         print(word, cnt)</span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="16"><span class="no">  16</span>     main()</span>
+</pre>
+</div>
+</div>
+<div class="pair-cell code-b">
+<div class="code-pane" data-prog-role="b" data-pair-id="23">
+<div class="code-pane-header">B: data/submissions_simple/fact_student_a.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fact(n):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">if</span> n &lt; 0:</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         <span class="tok-kw">raise</span> ValueError(<span <span class="tok-kw">class</span>="tok-str">"negative <span class="tok-kw">not</span> allowed"</span>)</span>
+<span class="ln" data-line="4"><span class="no">   4</span>     result = 1</span>
+<span class="ln" data-line="5"><span class="no">   5</span>     <span class="tok-kw">for</span> k <span class="tok-kw">in</span> range(2, n + 1):</span>
+<span class="ln" data-line="6"><span class="no">   6</span>         result *= k</span>
+<span class="ln" data-line="7"><span class="no">   7</span>     <span class="tok-kw">return</span> result</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> </span>
+<span class="ln" data-line="10"><span class="no">  10</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="11"><span class="no">  11</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         print(i, fact(i))</span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="16"><span class="no">  16</span>     main()</span>
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section class="pair" id="pair-24" data-pair-id="24">
+<h2>Pair 24: data/submissions_simple/fib_student_b_small_edits.py &nbsp;&nbsp;vs&nbsp;&nbsp; data/submissions_simple/word_freq_student_a.py</h2>
+<div class="pair-meta">Aggregated similarity: <strong>0.9614</strong> &nbsp;&nbsp;(threshold = 0.50)</div>
+<div class="pair-grid">
+<div class="pair-cell matches">
+<table class="func-table">
+<thead><tr><th>#</th><th>Function A</th><th>Lines A</th><th>Function B</th><th>Lines B</th><th>Score</th></tr></thead>
+<tbody>
+<tr class="func-row" data-pair-id="24" data-match-idx="1" data-a-start="17" data-a-end="24" data-b-start="9" data-b-end="16"><td>1</td><td>main</td><td>17–24</td><td>main</td><td>9–16</td><td>0.800</td></tr>
+<tr class="func-row" data-pair-id="24" data-match-idx="2" data-a-start="1" data-a-end="16" data-b-start="4" data-b-end="8"><td>2</td><td>fibonacci</td><td>1–16</td><td>read_words</td><td>4–8</td><td>0.700</td></tr>
+<tr class="func-row" data-pair-id="24" data-match-idx="3" data-a-start="17" data-a-end="24" data-b-start="4" data-b-end="8"><td>3</td><td>main</td><td>17–24</td><td>read_words</td><td>4–8</td><td>0.689</td></tr>
+<tr class="func-row" data-pair-id="24" data-match-idx="4" data-a-start="1" data-a-end="16" data-b-start="9" data-b-end="16"><td>4</td><td>fibonacci</td><td>1–16</td><td>main</td><td>9–16</td><td>0.684</td></tr>
+</tbody></table>
+</div>
+<div class="pair-cell code-a">
+<div class="code-pane" data-prog-role="a" data-pair-id="24">
+<div class="code-pane-header">A: data/submissions_simple/fib_student_b_small_edits.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fibonacci(num):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">if</span> num &lt;= 0:</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         <span class="tok-kw">return</span> 0</span>
+<span class="ln" data-line="4"><span class="no">   4</span>     <span class="tok-kw">if</span> num == 1:</span>
+<span class="ln" data-line="5"><span class="no">   5</span>         <span class="tok-kw">return</span> 1</span>
+<span class="ln" data-line="6"><span class="no">   6</span> </span>
+<span class="ln" data-line="7"><span class="no">   7</span>     prev = 0</span>
+<span class="ln" data-line="8"><span class="no">   8</span>     curr = 1</span>
+<span class="ln" data-line="9"><span class="no">   9</span> </span>
+<span class="ln" data-line="10"><span class="no">  10</span>     <span class="tok-kw">for</span> _ <span class="tok-kw">in</span> range(2, num + 1):</span>
+<span class="ln" data-line="11"><span class="no">  11</span>         nxt = prev + curr</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         prev = curr</span>
+<span class="ln" data-line="13"><span class="no">  13</span>         curr = nxt</span>
+<span class="ln" data-line="14"><span class="no">  14</span>     <span class="tok-kw">return</span> curr</span>
+<span class="ln" data-line="15"><span class="no">  15</span> </span>
+<span class="ln" data-line="16"><span class="no">  16</span> </span>
+<span class="ln" data-line="17"><span class="no">  17</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="18"><span class="no">  18</span> </span>
+<span class="ln" data-line="19"><span class="no">  19</span>     <span class="tok-kw">for</span> k <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="20"><span class="no">  20</span>         print(k, fibonacci(k))</span>
+<span class="ln" data-line="21"><span class="no">  21</span> </span>
+<span class="ln" data-line="22"><span class="no">  22</span> </span>
+<span class="ln" data-line="23"><span class="no">  23</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="24"><span class="no">  24</span>     main()</span>
+</pre>
+</div>
+</div>
+<div class="pair-cell code-b">
+<div class="code-pane" data-prog-role="b" data-pair-id="24">
+<div class="code-pane-header">B: data/submissions_simple/word_freq_student_a.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">import</span> sys</span>
+<span class="ln" data-line="2"><span class="no">   2</span> <span class="tok-kw">from</span> collections <span class="tok-kw">import</span> Counter</span>
+<span class="ln" data-line="3"><span class="no">   3</span> </span>
+<span class="ln" data-line="4"><span class="no">   4</span> <span class="tok-kw">def</span> read_words():</span>
+<span class="ln" data-line="5"><span class="no">   5</span>     data = sys.stdin.read()</span>
+<span class="ln" data-line="6"><span class="no">   6</span>     <span class="tok-kw">for</span> token <span class="tok-kw">in</span> data.split():</span>
+<span class="ln" data-line="7"><span class="no">   7</span>         <span class="tok-kw">yield</span> token.lower()</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="10"><span class="no">  10</span>     counts = Counter(read_words())</span>
+<span class="ln" data-line="11"><span class="no">  11</span>     <span class="tok-kw">for</span> word, cnt <span class="tok-kw">in</span> sorted(counts.items()):</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         print(word, cnt)</span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="16"><span class="no">  16</span>     main()</span>
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section class="pair" id="pair-25" data-pair-id="25">
+<h2>Pair 25: data/submissions_simple/word_freq_student_a.py &nbsp;&nbsp;vs&nbsp;&nbsp; data/submissions_simple/fib_student_a.py</h2>
+<div class="pair-meta">Aggregated similarity: <strong>0.9614</strong> &nbsp;&nbsp;(threshold = 0.50)</div>
+<div class="pair-grid">
+<div class="pair-cell matches">
+<table class="func-table">
+<thead><tr><th>#</th><th>Function A</th><th>Lines A</th><th>Function B</th><th>Lines B</th><th>Score</th></tr></thead>
+<tbody>
+<tr class="func-row" data-pair-id="25" data-match-idx="1" data-a-start="9" data-a-end="16" data-b-start="16" data-b-end="22"><td>1</td><td>main</td><td>9–16</td><td>main</td><td>16–22</td><td>0.800</td></tr>
+<tr class="func-row" data-pair-id="25" data-match-idx="2" data-a-start="4" data-a-end="8" data-b-start="1" data-b-end="15"><td>2</td><td>read_words</td><td>4–8</td><td>fib</td><td>1–15</td><td>0.700</td></tr>
+<tr class="func-row" data-pair-id="25" data-match-idx="3" data-a-start="4" data-a-end="8" data-b-start="16" data-b-end="22"><td>3</td><td>read_words</td><td>4–8</td><td>main</td><td>16–22</td><td>0.689</td></tr>
+<tr class="func-row" data-pair-id="25" data-match-idx="4" data-a-start="9" data-a-end="16" data-b-start="1" data-b-end="15"><td>4</td><td>main</td><td>9–16</td><td>fib</td><td>1–15</td><td>0.684</td></tr>
+</tbody></table>
+</div>
+<div class="pair-cell code-a">
+<div class="code-pane" data-prog-role="a" data-pair-id="25">
+<div class="code-pane-header">A: data/submissions_simple/word_freq_student_a.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">import</span> sys</span>
+<span class="ln" data-line="2"><span class="no">   2</span> <span class="tok-kw">from</span> collections <span class="tok-kw">import</span> Counter</span>
+<span class="ln" data-line="3"><span class="no">   3</span> </span>
+<span class="ln" data-line="4"><span class="no">   4</span> <span class="tok-kw">def</span> read_words():</span>
+<span class="ln" data-line="5"><span class="no">   5</span>     data = sys.stdin.read()</span>
+<span class="ln" data-line="6"><span class="no">   6</span>     <span class="tok-kw">for</span> token <span class="tok-kw">in</span> data.split():</span>
+<span class="ln" data-line="7"><span class="no">   7</span>         <span class="tok-kw">yield</span> token.lower()</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="10"><span class="no">  10</span>     counts = Counter(read_words())</span>
+<span class="ln" data-line="11"><span class="no">  11</span>     <span class="tok-kw">for</span> word, cnt <span class="tok-kw">in</span> sorted(counts.items()):</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         print(word, cnt)</span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="16"><span class="no">  16</span>     main()</span>
+</pre>
+</div>
+</div>
+<div class="pair-cell code-b">
+<div class="code-pane" data-prog-role="b" data-pair-id="25">
+<div class="code-pane-header">B: data/submissions_simple/fib_student_a.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fib(n):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span <span class="tok-kw">class</span>="tok-str">""</span><span <span class="tok-kw">class</span>="tok-str">"Compute nth Fibonacci number using iterative DP."</span><span <span class="tok-kw">class</span>="tok-str">""</span></span>
+<span class="ln" data-line="3"><span class="no">   3</span>     <span class="tok-kw">if</span> n &lt;= 0:</span>
+<span class="ln" data-line="4"><span class="no">   4</span>         <span class="tok-kw">return</span> 0</span>
+<span class="ln" data-line="5"><span class="no">   5</span>     <span class="tok-kw">if</span> n == 1:</span>
+<span class="ln" data-line="6"><span class="no">   6</span>         <span class="tok-kw">return</span> 1</span>
+<span class="ln" data-line="7"><span class="no">   7</span>     a = 0</span>
+<span class="ln" data-line="8"><span class="no">   8</span>     b = 1</span>
+<span class="ln" data-line="9"><span class="no">   9</span>     <span class="tok-kw">for</span> _ <span class="tok-kw">in</span> range(2, n + 1):</span>
+<span class="ln" data-line="10"><span class="no">  10</span>         c = a + b</span>
+<span class="ln" data-line="11"><span class="no">  11</span>         a = b</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         b = c</span>
+<span class="ln" data-line="13"><span class="no">  13</span>     <span class="tok-kw">return</span> b</span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> </span>
+<span class="ln" data-line="16"><span class="no">  16</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="17"><span class="no">  17</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="18"><span class="no">  18</span>         print(i, fib(i))</span>
+<span class="ln" data-line="19"><span class="no">  19</span> </span>
+<span class="ln" data-line="20"><span class="no">  20</span> </span>
+<span class="ln" data-line="21"><span class="no">  21</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="22"><span class="no">  22</span>     main()</span>
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section class="pair" id="pair-26" data-pair-id="26">
+<h2>Pair 26: data/submissions_simple/fact_student_b_recursive.py &nbsp;&nbsp;vs&nbsp;&nbsp; data/submissions_simple/fib_student_d_recursive.py</h2>
+<div class="pair-meta">Aggregated similarity: <strong>0.9607</strong> &nbsp;&nbsp;(threshold = 0.50)</div>
+<div class="pair-grid">
+<div class="pair-cell matches">
+<table class="func-table">
+<thead><tr><th>#</th><th>Function A</th><th>Lines A</th><th>Function B</th><th>Lines B</th><th>Score</th></tr></thead>
+<tbody>
+<tr class="func-row" data-pair-id="26" data-match-idx="1" data-a-start="9" data-a-end="15" data-b-start="10" data-b-end="16"><td>1</td><td>main</td><td>9–15</td><td>main</td><td>10–16</td><td>0.800</td></tr>
+<tr class="func-row" data-pair-id="26" data-match-idx="2" data-a-start="1" data-a-end="8" data-b-start="10" data-b-end="16"><td>2</td><td>fact_recursive</td><td>1–8</td><td>main</td><td>10–16</td><td>0.689</td></tr>
+<tr class="func-row" data-pair-id="26" data-match-idx="3" data-a-start="1" data-a-end="8" data-b-start="1" data-b-end="9"><td>3</td><td>fact_recursive</td><td>1–8</td><td>fib_recursive</td><td>1–9</td><td>0.674</td></tr>
+</tbody></table>
+</div>
+<div class="pair-cell code-a">
+<div class="code-pane" data-prog-role="a" data-pair-id="26">
+<div class="code-pane-header">A: data/submissions_simple/fact_student_b_recursive.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fact_recursive(n):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">if</span> n &lt; 0:</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         <span class="tok-kw">raise</span> ValueError(<span <span class="tok-kw">class</span>="tok-str">"negative <span class="tok-kw">not</span> allowed"</span>)</span>
+<span class="ln" data-line="4"><span class="no">   4</span>     <span class="tok-kw">if</span> n <span class="tok-kw">in</span> (0, 1):</span>
+<span class="ln" data-line="5"><span class="no">   5</span>         <span class="tok-kw">return</span> 1</span>
+<span class="ln" data-line="6"><span class="no">   6</span>     <span class="tok-kw">return</span> n * fact_recursive(n - 1)</span>
+<span class="ln" data-line="7"><span class="no">   7</span> </span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="10"><span class="no">  10</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="11"><span class="no">  11</span>         print(i, fact_recursive(i))</span>
+<span class="ln" data-line="12"><span class="no">  12</span> </span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="15"><span class="no">  15</span>     main()</span>
+</pre>
+</div>
+</div>
+<div class="pair-cell code-b">
+<div class="code-pane" data-prog-role="b" data-pair-id="26">
+<div class="code-pane-header">B: data/submissions_simple/fib_student_d_recursive.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fib_recursive(n, memo=<span class="tok-kw">None</span>):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">if</span> memo <span class="tok-kw">is</span> <span class="tok-kw">None</span>:</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         memo = {0: 0, 1: 1}</span>
+<span class="ln" data-line="4"><span class="no">   4</span>     <span class="tok-kw">if</span> n <span class="tok-kw">in</span> memo:</span>
+<span class="ln" data-line="5"><span class="no">   5</span>         <span class="tok-kw">return</span> memo[n]</span>
+<span class="ln" data-line="6"><span class="no">   6</span>     memo[n] = fib_recursive(n - 1, memo) + fib_recursive(n - 2, memo)</span>
+<span class="ln" data-line="7"><span class="no">   7</span>     <span class="tok-kw">return</span> memo[n]</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> </span>
+<span class="ln" data-line="10"><span class="no">  10</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="11"><span class="no">  11</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         print(i, fib_recursive(i))</span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="16"><span class="no">  16</span>     main()</span>
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section class="pair" id="pair-27" data-pair-id="27">
+<h2>Pair 27: data/submissions_simple/fib_student_d_recursive.py &nbsp;&nbsp;vs&nbsp;&nbsp; data/submissions_simple/fact_student_a.py</h2>
+<div class="pair-meta">Aggregated similarity: <strong>0.9605</strong> &nbsp;&nbsp;(threshold = 0.50)</div>
+<div class="pair-grid">
+<div class="pair-cell matches">
+<table class="func-table">
+<thead><tr><th>#</th><th>Function A</th><th>Lines A</th><th>Function B</th><th>Lines B</th><th>Score</th></tr></thead>
+<tbody>
+<tr class="func-row" data-pair-id="27" data-match-idx="1" data-a-start="10" data-a-end="16" data-b-start="10" data-b-end="16"><td>1</td><td>main</td><td>10–16</td><td>main</td><td>10–16</td><td>0.800</td></tr>
+<tr class="func-row" data-pair-id="27" data-match-idx="2" data-a-start="10" data-a-end="16" data-b-start="1" data-b-end="9"><td>2</td><td>main</td><td>10–16</td><td>fact</td><td>1–9</td><td>0.689</td></tr>
+<tr class="func-row" data-pair-id="27" data-match-idx="3" data-a-start="1" data-a-end="9" data-b-start="1" data-b-end="9"><td>3</td><td>fib_recursive</td><td>1–9</td><td>fact</td><td>1–9</td><td>0.674</td></tr>
+</tbody></table>
+</div>
+<div class="pair-cell code-a">
+<div class="code-pane" data-prog-role="a" data-pair-id="27">
+<div class="code-pane-header">A: data/submissions_simple/fib_student_d_recursive.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fib_recursive(n, memo=<span class="tok-kw">None</span>):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">if</span> memo <span class="tok-kw">is</span> <span class="tok-kw">None</span>:</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         memo = {0: 0, 1: 1}</span>
+<span class="ln" data-line="4"><span class="no">   4</span>     <span class="tok-kw">if</span> n <span class="tok-kw">in</span> memo:</span>
+<span class="ln" data-line="5"><span class="no">   5</span>         <span class="tok-kw">return</span> memo[n]</span>
+<span class="ln" data-line="6"><span class="no">   6</span>     memo[n] = fib_recursive(n - 1, memo) + fib_recursive(n - 2, memo)</span>
+<span class="ln" data-line="7"><span class="no">   7</span>     <span class="tok-kw">return</span> memo[n]</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> </span>
+<span class="ln" data-line="10"><span class="no">  10</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="11"><span class="no">  11</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         print(i, fib_recursive(i))</span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="16"><span class="no">  16</span>     main()</span>
+</pre>
+</div>
+</div>
+<div class="pair-cell code-b">
+<div class="code-pane" data-prog-role="b" data-pair-id="27">
+<div class="code-pane-header">B: data/submissions_simple/fact_student_a.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fact(n):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">if</span> n &lt; 0:</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         <span class="tok-kw">raise</span> ValueError(<span <span class="tok-kw">class</span>="tok-str">"negative <span class="tok-kw">not</span> allowed"</span>)</span>
+<span class="ln" data-line="4"><span class="no">   4</span>     result = 1</span>
+<span class="ln" data-line="5"><span class="no">   5</span>     <span class="tok-kw">for</span> k <span class="tok-kw">in</span> range(2, n + 1):</span>
+<span class="ln" data-line="6"><span class="no">   6</span>         result *= k</span>
+<span class="ln" data-line="7"><span class="no">   7</span>     <span class="tok-kw">return</span> result</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> </span>
+<span class="ln" data-line="10"><span class="no">  10</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="11"><span class="no">  11</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         print(i, fact(i))</span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="16"><span class="no">  16</span>     main()</span>
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section class="pair" id="pair-28" data-pair-id="28">
+<h2>Pair 28: data/submissions_simple/fib_student_d_recursive.py &nbsp;&nbsp;vs&nbsp;&nbsp; data/submissions_simple/word_freq_student_a.py</h2>
+<div class="pair-meta">Aggregated similarity: <strong>0.9600</strong> &nbsp;&nbsp;(threshold = 0.50)</div>
+<div class="pair-grid">
+<div class="pair-cell matches">
+<table class="func-table">
+<thead><tr><th>#</th><th>Function A</th><th>Lines A</th><th>Function B</th><th>Lines B</th><th>Score</th></tr></thead>
+<tbody>
+<tr class="func-row" data-pair-id="28" data-match-idx="1" data-a-start="10" data-a-end="16" data-b-start="9" data-b-end="16"><td>1</td><td>main</td><td>10–16</td><td>main</td><td>9–16</td><td>0.800</td></tr>
+<tr class="func-row" data-pair-id="28" data-match-idx="2" data-a-start="1" data-a-end="9" data-b-start="9" data-b-end="16"><td>2</td><td>fib_recursive</td><td>1–9</td><td>main</td><td>9–16</td><td>0.699</td></tr>
+<tr class="func-row" data-pair-id="28" data-match-idx="3" data-a-start="10" data-a-end="16" data-b-start="4" data-b-end="8"><td>3</td><td>main</td><td>10–16</td><td>read_words</td><td>4–8</td><td>0.689</td></tr>
+<tr class="func-row" data-pair-id="28" data-match-idx="4" data-a-start="1" data-a-end="9" data-b-start="4" data-b-end="8"><td>4</td><td>fib_recursive</td><td>1–9</td><td>read_words</td><td>4–8</td><td>0.674</td></tr>
+</tbody></table>
+</div>
+<div class="pair-cell code-a">
+<div class="code-pane" data-prog-role="a" data-pair-id="28">
+<div class="code-pane-header">A: data/submissions_simple/fib_student_d_recursive.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">def</span> fib_recursive(n, memo=<span class="tok-kw">None</span>):</span>
+<span class="ln" data-line="2"><span class="no">   2</span>     <span class="tok-kw">if</span> memo <span class="tok-kw">is</span> <span class="tok-kw">None</span>:</span>
+<span class="ln" data-line="3"><span class="no">   3</span>         memo = {0: 0, 1: 1}</span>
+<span class="ln" data-line="4"><span class="no">   4</span>     <span class="tok-kw">if</span> n <span class="tok-kw">in</span> memo:</span>
+<span class="ln" data-line="5"><span class="no">   5</span>         <span class="tok-kw">return</span> memo[n]</span>
+<span class="ln" data-line="6"><span class="no">   6</span>     memo[n] = fib_recursive(n - 1, memo) + fib_recursive(n - 2, memo)</span>
+<span class="ln" data-line="7"><span class="no">   7</span>     <span class="tok-kw">return</span> memo[n]</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> </span>
+<span class="ln" data-line="10"><span class="no">  10</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="11"><span class="no">  11</span>     <span class="tok-kw">for</span> i <span class="tok-kw">in</span> range(10):</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         print(i, fib_recursive(i))</span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="16"><span class="no">  16</span>     main()</span>
+</pre>
+</div>
+</div>
+<div class="pair-cell code-b">
+<div class="code-pane" data-prog-role="b" data-pair-id="28">
+<div class="code-pane-header">B: data/submissions_simple/word_freq_student_a.py</div>
+<pre class="code">
+<span class="ln" data-line="1"><span class="no">   1</span> <span class="tok-kw">import</span> sys</span>
+<span class="ln" data-line="2"><span class="no">   2</span> <span class="tok-kw">from</span> collections <span class="tok-kw">import</span> Counter</span>
+<span class="ln" data-line="3"><span class="no">   3</span> </span>
+<span class="ln" data-line="4"><span class="no">   4</span> <span class="tok-kw">def</span> read_words():</span>
+<span class="ln" data-line="5"><span class="no">   5</span>     data = sys.stdin.read()</span>
+<span class="ln" data-line="6"><span class="no">   6</span>     <span class="tok-kw">for</span> token <span class="tok-kw">in</span> data.split():</span>
+<span class="ln" data-line="7"><span class="no">   7</span>         <span class="tok-kw">yield</span> token.lower()</span>
+<span class="ln" data-line="8"><span class="no">   8</span> </span>
+<span class="ln" data-line="9"><span class="no">   9</span> <span class="tok-kw">def</span> main():</span>
+<span class="ln" data-line="10"><span class="no">  10</span>     counts = Counter(read_words())</span>
+<span class="ln" data-line="11"><span class="no">  11</span>     <span class="tok-kw">for</span> word, cnt <span class="tok-kw">in</span> sorted(counts.items()):</span>
+<span class="ln" data-line="12"><span class="no">  12</span>         print(word, cnt)</span>
+<span class="ln" data-line="13"><span class="no">  13</span> </span>
+<span class="ln" data-line="14"><span class="no">  14</span> </span>
+<span class="ln" data-line="15"><span class="no">  15</span> <span class="tok-kw">if</span> __name__ == <span <span class="tok-kw">class</span>="tok-str">"__main__"</span>:</span>
+<span class="ln" data-line="16"><span class="no">  16</span>     main()</span>
+</pre>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+<script>
+function clearHighlights(root) {
+  root.querySelectorAll('.ln.hl, .ln.hl-weak').forEach(function (el) {
+    el.classList.remove('hl');
+    el.classList.remove('hl-weak');
+  });
+}
+
+function markRange(pane, startLine, endLine, strong) {
+  if (!pane) return;
+  var lnList = pane.querySelectorAll('.ln');
+  var n = lnList.length;
+  var s = Math.max(1, startLine);
+  var e = Math.min(n, endLine);
+  for (var i = s; i <= e; i++) {
+    var el = pane.querySelector('.ln[data-line="' + i + '"]');
+    if (!el) continue;
+    if (strong) {
+      el.classList.add('hl');
+      el.classList.remove('hl-weak');
+    } else {
+      if (!el.classList.contains('hl')) {
+        el.classList.add('hl-weak');
+      }
+    }
+  }
+}
+
+function onFuncRowClick(ev) {
+  var row = ev.currentTarget;
+  var pairId = row.getAttribute('data-pair-id');
+  var aStart = parseInt(row.getAttribute('data-a-start'), 10) || 1;
+  var aEnd   = parseInt(row.getAttribute('data-a-end'), 10)   || aStart;
+  var bStart = parseInt(row.getAttribute('data-b-start'), 10) || 1;
+  var bEnd   = parseInt(row.getAttribute('data-b-end'), 10)   || bStart;
+
+  var pairSection = document.getElementById('pair-' + pairId);
+  if (!pairSection) return;
+
+  pairSection.querySelectorAll('.func-row.selected').forEach(function (tr) {
+    tr.classList.remove('selected');
+  });
+  row.classList.add('selected');
+
+  var paneA = pairSection.querySelector('.code-pane[data-prog-role="a"]');
+  var paneB = pairSection.querySelector('.code-pane[data-prog-role="b"]');
+  clearHighlights(paneA);
+  clearHighlights(paneB);
+
+  markRange(paneA, aStart, aEnd, true);
+  markRange(paneB, bStart, bEnd, true);
+
+  if (paneA) paneA.scrollTop = Math.max(0, (aStart - 5) * 14);
+  if (paneB) paneB.scrollTop = Math.max(0, (bStart - 5) * 14);
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.func-row').forEach(function (row) {
+    row.addEventListener('click', onFuncRowClick);
+  });
+});
+</script>
+</body>
+</html>

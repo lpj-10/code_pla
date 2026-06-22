@@ -1,0 +1,888 @@
+{
+  "file": "data/submissions_simple/fib_student_c_restructured.py",
+  "py_version": "3.11.11",
+  "functions": [
+    {
+      "id": "data/submissions_simple/fib_student_c_restructured.py::<module>@1",
+      "name": "<module>",
+      "first_lineno": 1,
+      "nodes": [
+        {
+          "nid": 0,
+          "kind": "BasicBlock",
+          "lineno": -1,
+          "reads": [
+            "__name__"
+          ],
+          "writes": [
+            "FibSolver",
+            "main"
+          ],
+          "calls": [],
+          "effects": {}
+        },
+        {
+          "nid": 1,
+          "kind": "BasicBlock",
+          "lineno": 26,
+          "reads": [
+            "main"
+          ],
+          "writes": [],
+          "calls": [
+            "main"
+          ],
+          "effects": {
+            "reads": [],
+            "writes": [
+              "HEAP[?]"
+            ],
+            "flags": {
+              "exception": true
+            }
+          }
+        },
+        {
+          "nid": 2,
+          "kind": "BasicBlock",
+          "lineno": 25,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {}
+        },
+        {
+          "nid": 3,
+          "kind": "BasicBlock",
+          "lineno": -1,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {}
+        },
+        {
+          "nid": 4,
+          "kind": "RES_HEAP_WRITE",
+          "lineno": 0,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {
+            "resource": "HEAP[?]",
+            "tag": "WRITE"
+          }
+        },
+        {
+          "nid": 5,
+          "kind": "RES_FLAG_EXCEPTION",
+          "lineno": 0,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {
+            "resource": "FLAG:exception",
+            "tag": "FLAG"
+          }
+        }
+      ],
+      "cfg": {
+        "edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "pdg": {
+        "data_edges": [
+          [
+            0,
+            1,
+            "main"
+          ]
+        ],
+        "control_edges": [
+          [
+            0,
+            1,
+            "CTRL_DEP"
+          ],
+          [
+            0,
+            2,
+            "CTRL_DEP"
+          ]
+        ],
+        "effect_edges": [
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            5
+          ]
+        ],
+        "effect_raw": [
+          [
+            1,
+            "HEAP[?]",
+            "WRITE"
+          ],
+          [
+            1,
+            "FLAG:exception",
+            "FLAG"
+          ]
+        ]
+      },
+      "dfg_edges": [],
+      "ast_edges": [],
+      "effect_signature": {
+        "counts": {
+          "R_STACK": 0,
+          "W_STACK": 0,
+          "R_GLOBAL": 0,
+          "W_GLOBAL": 0,
+          "R_HEAP": 0,
+          "W_HEAP": 1,
+          "FILE_IO": 0,
+          "NET_IO": 0,
+          "DB_IO": 0,
+          "ENV": 0,
+          "RNG": 0,
+          "TIME": 0,
+          "EXC": 1
+        },
+        "flags": []
+      },
+      "tokens_norm": [
+        "PUSH_NULL",
+        "LOAD_BUILD_CLASS",
+        "LOAD_CONST_OTHER",
+        "MAKE_FUNCTION",
+        "LOAD_CONST_STR_M",
+        "CALL_FUNC",
+        "STORE_NAME",
+        "LOAD_CONST_OTHER",
+        "MAKE_FUNCTION",
+        "STORE_NAME",
+        "LOAD_NAME",
+        "LOAD_CONST_STR_S",
+        "COMPARE_OP",
+        "POP_JUMP_FORWARD_IF_FALSE",
+        "PUSH_NULL",
+        "LOAD_NAME",
+        "CALL_FUNC",
+        "POP_TOP",
+        "LOAD_CONST_OTHER",
+        "RETURN_VALUE",
+        "LOAD_CONST_OTHER",
+        "RETURN_VALUE"
+      ],
+      "dbg_called_funcs": [
+        "main"
+      ],
+      "dbg_modules": [],
+      "dbg_op_category_counts": {
+        "BasicBlock": 4,
+        "RES_HEAP_WRITE": 1,
+        "RES_FLAG_EXCEPTION": 1
+      },
+      "called_funcs": [
+        "main"
+      ],
+      "modules": [],
+      "op_category_counts": {
+        "BasicBlock": 4,
+        "RES_HEAP_WRITE": 1,
+        "RES_FLAG_EXCEPTION": 1
+      }
+    },
+    {
+      "id": "data/submissions_simple/fib_student_c_restructured.py::FibSolver@1",
+      "name": "FibSolver",
+      "first_lineno": 1,
+      "nodes": [
+        {
+          "nid": 0,
+          "kind": "BasicBlock",
+          "lineno": 1,
+          "reads": [
+            "__name__"
+          ],
+          "writes": [
+            "__init__",
+            "__module__",
+            "__qualname__",
+            "fib"
+          ],
+          "calls": [],
+          "effects": {}
+        },
+        {
+          "nid": 1,
+          "kind": "BasicBlock",
+          "lineno": -1,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {}
+        }
+      ],
+      "cfg": {
+        "edges": []
+      },
+      "pdg": {
+        "data_edges": [],
+        "control_edges": [],
+        "effect_edges": [],
+        "effect_raw": []
+      },
+      "dfg_edges": [],
+      "ast_edges": [],
+      "effect_signature": {
+        "counts": {
+          "R_STACK": 0,
+          "W_STACK": 0,
+          "R_GLOBAL": 0,
+          "W_GLOBAL": 0,
+          "R_HEAP": 0,
+          "W_HEAP": 0,
+          "FILE_IO": 0,
+          "NET_IO": 0,
+          "DB_IO": 0,
+          "ENV": 0,
+          "RNG": 0,
+          "TIME": 0,
+          "EXC": 0
+        },
+        "flags": []
+      },
+      "tokens_norm": [
+        "LOAD_NAME",
+        "STORE_NAME",
+        "LOAD_CONST_STR_M",
+        "STORE_NAME",
+        "LOAD_CONST_OTHER",
+        "MAKE_FUNCTION",
+        "STORE_NAME",
+        "LOAD_CONST_OTHER",
+        "MAKE_FUNCTION",
+        "STORE_NAME",
+        "LOAD_CONST_OTHER",
+        "RETURN_VALUE"
+      ],
+      "dbg_called_funcs": [],
+      "dbg_modules": [],
+      "dbg_op_category_counts": {
+        "BasicBlock": 2
+      },
+      "called_funcs": [],
+      "modules": [],
+      "op_category_counts": {
+        "BasicBlock": 2
+      }
+    },
+    {
+      "id": "data/submissions_simple/fib_student_c_restructured.py::__init__@2",
+      "name": "__init__",
+      "first_lineno": 2,
+      "nodes": [
+        {
+          "nid": 0,
+          "kind": "BasicBlock",
+          "lineno": 2,
+          "reads": [
+            "self"
+          ],
+          "writes": [],
+          "calls": [],
+          "effects": {}
+        },
+        {
+          "nid": 1,
+          "kind": "BasicBlock",
+          "lineno": -1,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {}
+        }
+      ],
+      "cfg": {
+        "edges": []
+      },
+      "pdg": {
+        "data_edges": [],
+        "control_edges": [],
+        "effect_edges": [],
+        "effect_raw": []
+      },
+      "dfg_edges": [],
+      "ast_edges": [],
+      "effect_signature": {
+        "counts": {
+          "R_STACK": 0,
+          "W_STACK": 0,
+          "R_GLOBAL": 0,
+          "W_GLOBAL": 0,
+          "R_HEAP": 0,
+          "W_HEAP": 0,
+          "FILE_IO": 0,
+          "NET_IO": 0,
+          "DB_IO": 0,
+          "ENV": 0,
+          "RNG": 0,
+          "TIME": 0,
+          "EXC": 0
+        },
+        "flags": []
+      },
+      "tokens_norm": [
+        "LOAD_CONST_INT_SMALL",
+        "LOAD_CONST_INT_SMALL",
+        "LOAD_CONST_OTHER",
+        "BUILD_CONST_KEY_MAP",
+        "LOAD_FAST",
+        "STORE_ATTR",
+        "LOAD_CONST_OTHER",
+        "RETURN_VALUE"
+      ],
+      "dbg_called_funcs": [],
+      "dbg_modules": [],
+      "dbg_op_category_counts": {
+        "BasicBlock": 2
+      },
+      "called_funcs": [],
+      "modules": [],
+      "op_category_counts": {
+        "BasicBlock": 2
+      }
+    },
+    {
+      "id": "data/submissions_simple/fib_student_c_restructured.py::fib@5",
+      "name": "fib",
+      "first_lineno": 5,
+      "nodes": [
+        {
+          "nid": 0,
+          "kind": "BasicBlock",
+          "lineno": 5,
+          "reads": [
+            "n",
+            "self"
+          ],
+          "writes": [],
+          "calls": [],
+          "effects": {}
+        },
+        {
+          "nid": 1,
+          "kind": "BasicBlock",
+          "lineno": 7,
+          "reads": [
+            "n",
+            "self"
+          ],
+          "writes": [],
+          "calls": [],
+          "effects": {}
+        },
+        {
+          "nid": 2,
+          "kind": "BasicBlock",
+          "lineno": 9,
+          "reads": [
+            "k",
+            "n",
+            "self"
+          ],
+          "writes": [
+            "a",
+            "b",
+            "k"
+          ],
+          "calls": [],
+          "effects": {}
+        },
+        {
+          "nid": 3,
+          "kind": "BasicBlock",
+          "lineno": 13,
+          "reads": [
+            "a",
+            "b",
+            "k",
+            "n",
+            "self"
+          ],
+          "writes": [
+            "a",
+            "b",
+            "k"
+          ],
+          "calls": [],
+          "effects": {}
+        },
+        {
+          "nid": 4,
+          "kind": "BasicBlock",
+          "lineno": 16,
+          "reads": [
+            "n",
+            "self"
+          ],
+          "writes": [],
+          "calls": [],
+          "effects": {}
+        },
+        {
+          "nid": 5,
+          "kind": "BasicBlock",
+          "lineno": -1,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {}
+        }
+      ],
+      "cfg": {
+        "edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      },
+      "pdg": {
+        "data_edges": [
+          [
+            2,
+            3,
+            "a"
+          ],
+          [
+            2,
+            2,
+            "k"
+          ],
+          [
+            2,
+            3,
+            "k"
+          ],
+          [
+            3,
+            3,
+            "a"
+          ],
+          [
+            2,
+            3,
+            "b"
+          ],
+          [
+            3,
+            3,
+            "k"
+          ],
+          [
+            3,
+            3,
+            "b"
+          ]
+        ],
+        "control_edges": [
+          [
+            0,
+            1,
+            "CTRL_DEP"
+          ],
+          [
+            0,
+            4,
+            "CTRL_DEP"
+          ],
+          [
+            2,
+            3,
+            "CTRL_DEP"
+          ],
+          [
+            0,
+            2,
+            "CTRL_DEP"
+          ]
+        ],
+        "effect_edges": [],
+        "effect_raw": []
+      },
+      "dfg_edges": [],
+      "ast_edges": [],
+      "effect_signature": {
+        "counts": {
+          "R_STACK": 0,
+          "W_STACK": 0,
+          "R_GLOBAL": 0,
+          "W_GLOBAL": 0,
+          "R_HEAP": 0,
+          "W_HEAP": 0,
+          "FILE_IO": 0,
+          "NET_IO": 0,
+          "DB_IO": 0,
+          "ENV": 0,
+          "RNG": 0,
+          "TIME": 0,
+          "EXC": 0
+        },
+        "flags": []
+      },
+      "tokens_norm": [
+        "LOAD_FAST",
+        "LOAD_FAST",
+        "LOAD_ATTR",
+        "CONTAINS_OP",
+        "POP_JUMP_FORWARD_IF_FALSE",
+        "LOAD_FAST",
+        "LOAD_ATTR",
+        "LOAD_FAST",
+        "BINARY_SUBSCR",
+        "RETURN_VALUE",
+        "LOAD_FAST",
+        "LOAD_ATTR",
+        "LOAD_CONST_INT_SMALL",
+        "BINARY_SUBSCR",
+        "STORE_FAST",
+        "LOAD_FAST",
+        "LOAD_ATTR",
+        "LOAD_CONST_INT_SMALL",
+        "BINARY_SUBSCR",
+        "STORE_FAST",
+        "LOAD_CONST_INT_SMALL",
+        "STORE_FAST",
+        "LOAD_FAST",
+        "LOAD_FAST",
+        "COMPARE_OP",
+        "POP_JUMP_FORWARD_IF_FALSE",
+        "LOAD_FAST",
+        "LOAD_FAST",
+        "LOAD_FAST",
+        "BINARY_OP",
+        "STORE_FAST",
+        "STORE_FAST",
+        "LOAD_FAST",
+        "LOAD_FAST",
+        "LOAD_ATTR",
+        "LOAD_FAST",
+        "STORE_SUBSCR",
+        "LOAD_FAST",
+        "LOAD_CONST_INT_SMALL",
+        "BINARY_OP",
+        "STORE_FAST",
+        "LOAD_FAST",
+        "LOAD_FAST",
+        "COMPARE_OP",
+        "POP_JUMP_BACKWARD_IF_TRUE",
+        "LOAD_FAST",
+        "LOAD_ATTR",
+        "LOAD_FAST",
+        "BINARY_SUBSCR",
+        "RETURN_VALUE"
+      ],
+      "dbg_called_funcs": [],
+      "dbg_modules": [],
+      "dbg_op_category_counts": {
+        "BasicBlock": 6
+      },
+      "called_funcs": [],
+      "modules": [],
+      "op_category_counts": {
+        "BasicBlock": 6
+      }
+    },
+    {
+      "id": "data/submissions_simple/fib_student_c_restructured.py::main@19",
+      "name": "main",
+      "first_lineno": 19,
+      "nodes": [
+        {
+          "nid": 0,
+          "kind": "BasicBlock",
+          "lineno": 19,
+          "reads": [
+            "FibSolver",
+            "range"
+          ],
+          "writes": [
+            "solver"
+          ],
+          "calls": [
+            "FibSolver",
+            "range"
+          ],
+          "effects": {
+            "reads": [],
+            "writes": [
+              "HEAP[?]",
+              "HEAP[?]"
+            ],
+            "flags": {
+              "exception": true
+            }
+          }
+        },
+        {
+          "nid": 1,
+          "kind": "BasicBlock",
+          "lineno": -1,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {}
+        },
+        {
+          "nid": 2,
+          "kind": "BasicBlock",
+          "lineno": -1,
+          "reads": [
+            "i",
+            "print",
+            "solver"
+          ],
+          "writes": [
+            "i"
+          ],
+          "calls": [
+            "i"
+          ],
+          "effects": {
+            "reads": [],
+            "writes": [
+              "HEAP[?]"
+            ],
+            "flags": {
+              "exception": true
+            }
+          }
+        },
+        {
+          "nid": 3,
+          "kind": "BasicBlock",
+          "lineno": 21,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {}
+        },
+        {
+          "nid": 4,
+          "kind": "BasicBlock",
+          "lineno": -1,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {}
+        },
+        {
+          "nid": 5,
+          "kind": "RES_HEAP_WRITE",
+          "lineno": 0,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {
+            "resource": "HEAP[?]",
+            "tag": "WRITE"
+          }
+        },
+        {
+          "nid": 6,
+          "kind": "RES_FLAG_EXCEPTION",
+          "lineno": 0,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {
+            "resource": "FLAG:exception",
+            "tag": "FLAG"
+          }
+        }
+      ],
+      "cfg": {
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ]
+        ]
+      },
+      "pdg": {
+        "data_edges": [
+          [
+            2,
+            2,
+            "i"
+          ],
+          [
+            0,
+            2,
+            "solver"
+          ]
+        ],
+        "control_edges": [
+          [
+            1,
+            2,
+            "CTRL_DEP"
+          ]
+        ],
+        "effect_edges": [
+          [
+            0,
+            5
+          ],
+          [
+            0,
+            6
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            2,
+            6
+          ]
+        ],
+        "effect_raw": [
+          [
+            0,
+            "HEAP[?]",
+            "WRITE"
+          ],
+          [
+            0,
+            "HEAP[?]",
+            "WRITE"
+          ],
+          [
+            0,
+            "FLAG:exception",
+            "FLAG"
+          ],
+          [
+            2,
+            "HEAP[?]",
+            "WRITE"
+          ],
+          [
+            2,
+            "FLAG:exception",
+            "FLAG"
+          ]
+        ]
+      },
+      "dfg_edges": [],
+      "ast_edges": [],
+      "effect_signature": {
+        "counts": {
+          "R_STACK": 0,
+          "W_STACK": 0,
+          "R_GLOBAL": 0,
+          "W_GLOBAL": 0,
+          "R_HEAP": 0,
+          "W_HEAP": 3,
+          "FILE_IO": 0,
+          "NET_IO": 0,
+          "DB_IO": 0,
+          "ENV": 0,
+          "RNG": 0,
+          "TIME": 0,
+          "EXC": 2
+        },
+        "flags": []
+      },
+      "tokens_norm": [
+        "LOAD_GLOBAL",
+        "CALL_FUNC",
+        "STORE_FAST",
+        "LOAD_GLOBAL",
+        "LOAD_CONST_INT_SMALL",
+        "CALL_FUNC",
+        "GET_ITER",
+        "FOR_ITER",
+        "STORE_FAST",
+        "LOAD_GLOBAL@print",
+        "LOAD_FAST",
+        "LOAD_FAST",
+        "LOAD_METHOD",
+        "LOAD_FAST",
+        "CALL_FUNC",
+        "CALL_FUNC",
+        "POP_TOP",
+        "JUMP_BACKWARD",
+        "LOAD_CONST_OTHER",
+        "RETURN_VALUE"
+      ],
+      "dbg_called_funcs": [
+        "FibSolver",
+        "i",
+        "range"
+      ],
+      "dbg_modules": [],
+      "dbg_op_category_counts": {
+        "BasicBlock": 5,
+        "RES_HEAP_WRITE": 1,
+        "RES_FLAG_EXCEPTION": 1
+      },
+      "called_funcs": [
+        "FibSolver",
+        "i",
+        "range"
+      ],
+      "modules": [],
+      "op_category_counts": {
+        "BasicBlock": 5,
+        "RES_HEAP_WRITE": 1,
+        "RES_FLAG_EXCEPTION": 1
+      }
+    }
+  ]
+}
