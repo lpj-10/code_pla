@@ -1,0 +1,1998 @@
+{
+  "file": "/home/lpj/temp/experiment_data/all_code/word_freq_while_loop.py",
+  "py_version": "3.13.9",
+  "functions": [
+    {
+      "id": "/home/lpj/temp/experiment_data/all_code/word_freq_while_loop.py::<module>@1",
+      "name": "<module>",
+      "first_lineno": 1,
+      "nodes": [
+        {
+          "nid": 15,
+          "kind": "FunctionDef",
+          "lineno": 1,
+          "reads": [
+            "freq",
+            "idx",
+            "len",
+            "text",
+            "w",
+            "words"
+          ],
+          "writes": [
+            "freq",
+            "idx",
+            "w",
+            "words"
+          ],
+          "calls": [
+            "<expr>.split",
+            "text.lower",
+            "len",
+            "<expr>.strip",
+            "freq.get"
+          ],
+          "effects": {
+            "reads": [
+              "HEAP[*]",
+              "HEAP[*]",
+              "HEAP[*]",
+              "HEAP[*]",
+              "HEAP[*]"
+            ],
+            "writes": [
+              "HEAP[*]",
+              "HEAP[*]",
+              "HEAP[*]",
+              "HEAP[*]",
+              "HEAP[*]"
+            ],
+            "flags": {
+              "unknown": true,
+              "impure": true,
+              "exception_may_raise": true,
+              "nondeterministic": true,
+              "io_file": false,
+              "io_net": false,
+              "db": false,
+              "rng": false,
+              "time": false,
+              "env": false
+            }
+          }
+        },
+        {
+          "nid": 16,
+          "kind": "FunctionDef",
+          "lineno": 14,
+          "reads": [
+            "cnt",
+            "counts",
+            "print",
+            "sample",
+            "sorted",
+            "word",
+            "word_frequency"
+          ],
+          "writes": [
+            "cnt",
+            "counts",
+            "sample",
+            "word"
+          ],
+          "calls": [
+            "word_frequency",
+            "sorted",
+            "counts.items",
+            "print"
+          ],
+          "effects": {
+            "reads": [
+              "HEAP[*]",
+              "HEAP[*]",
+              "HEAP[*]",
+              "HEAP[*]"
+            ],
+            "writes": [
+              "HEAP[*]",
+              "HEAP[*]",
+              "HEAP[*]",
+              "HEAP[*]"
+            ],
+            "flags": {
+              "unknown": true,
+              "impure": true,
+              "exception_may_raise": true,
+              "nondeterministic": true,
+              "io_file": false,
+              "io_net": false,
+              "db": false,
+              "rng": false,
+              "time": false,
+              "env": false
+            }
+          }
+        },
+        {
+          "nid": 17,
+          "kind": "If",
+          "lineno": 21,
+          "reads": [
+            "__name__"
+          ],
+          "writes": [],
+          "calls": [],
+          "effects": {}
+        },
+        {
+          "nid": 18,
+          "kind": "Expr",
+          "lineno": 22,
+          "reads": [
+            "main"
+          ],
+          "writes": [],
+          "calls": [
+            "main"
+          ],
+          "effects": {
+            "reads": [
+              "HEAP[*]"
+            ],
+            "writes": [
+              "HEAP[*]"
+            ],
+            "flags": {
+              "unknown": true,
+              "impure": true,
+              "exception_may_raise": true,
+              "nondeterministic": true,
+              "io_file": false,
+              "io_net": false,
+              "db": false,
+              "rng": false,
+              "time": false,
+              "env": false
+            }
+          }
+        },
+        {
+          "nid": 19,
+          "kind": "RES_HEAP_READ",
+          "lineno": 0,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {
+            "resource": "HEAP[*]",
+            "tag": "READ"
+          }
+        },
+        {
+          "nid": 20,
+          "kind": "RES_HEAP_WRITE",
+          "lineno": 0,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {
+            "resource": "HEAP[*]",
+            "tag": "WRITE"
+          }
+        },
+        {
+          "nid": 21,
+          "kind": "RES_FLAG_UNKNOWN",
+          "lineno": 0,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {
+            "resource": "FLAG:unknown",
+            "tag": "FLAG"
+          }
+        },
+        {
+          "nid": 22,
+          "kind": "RES_FLAG_IMPURE",
+          "lineno": 0,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {
+            "resource": "FLAG:impure",
+            "tag": "FLAG"
+          }
+        },
+        {
+          "nid": 23,
+          "kind": "RES_FLAG_EXCEPTION_MAY_RAISE",
+          "lineno": 0,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {
+            "resource": "FLAG:exception_may_raise",
+            "tag": "FLAG"
+          }
+        },
+        {
+          "nid": 24,
+          "kind": "RES_FLAG_NONDETERMINISTIC",
+          "lineno": 0,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {
+            "resource": "FLAG:nondeterministic",
+            "tag": "FLAG"
+          }
+        }
+      ],
+      "cfg": {
+        "edges": [
+          [
+            15,
+            16
+          ],
+          [
+            17,
+            18
+          ],
+          [
+            16,
+            17
+          ]
+        ]
+      },
+      "pdg": {
+        "data_edges": [],
+        "control_edges": [
+          [
+            17,
+            18,
+            "IF_TRUE"
+          ]
+        ],
+        "effect_edges": [
+          [
+            15,
+            19
+          ],
+          [
+            15,
+            20
+          ],
+          [
+            15,
+            21
+          ],
+          [
+            15,
+            22
+          ],
+          [
+            15,
+            23
+          ],
+          [
+            15,
+            24
+          ],
+          [
+            16,
+            19
+          ],
+          [
+            16,
+            20
+          ],
+          [
+            16,
+            21
+          ],
+          [
+            16,
+            22
+          ],
+          [
+            16,
+            23
+          ],
+          [
+            16,
+            24
+          ],
+          [
+            18,
+            19
+          ],
+          [
+            18,
+            20
+          ],
+          [
+            18,
+            21
+          ],
+          [
+            18,
+            22
+          ],
+          [
+            18,
+            23
+          ],
+          [
+            18,
+            24
+          ]
+        ],
+        "effect_raw": [
+          [
+            15,
+            "HEAP[*]",
+            "READ"
+          ],
+          [
+            15,
+            "HEAP[*]",
+            "READ"
+          ],
+          [
+            15,
+            "HEAP[*]",
+            "READ"
+          ],
+          [
+            15,
+            "HEAP[*]",
+            "READ"
+          ],
+          [
+            15,
+            "HEAP[*]",
+            "READ"
+          ],
+          [
+            15,
+            "HEAP[*]",
+            "WRITE"
+          ],
+          [
+            15,
+            "HEAP[*]",
+            "WRITE"
+          ],
+          [
+            15,
+            "HEAP[*]",
+            "WRITE"
+          ],
+          [
+            15,
+            "HEAP[*]",
+            "WRITE"
+          ],
+          [
+            15,
+            "HEAP[*]",
+            "WRITE"
+          ],
+          [
+            15,
+            "FLAG:unknown",
+            "FLAG"
+          ],
+          [
+            15,
+            "FLAG:impure",
+            "FLAG"
+          ],
+          [
+            15,
+            "FLAG:exception_may_raise",
+            "FLAG"
+          ],
+          [
+            15,
+            "FLAG:nondeterministic",
+            "FLAG"
+          ],
+          [
+            16,
+            "HEAP[*]",
+            "READ"
+          ],
+          [
+            16,
+            "HEAP[*]",
+            "READ"
+          ],
+          [
+            16,
+            "HEAP[*]",
+            "READ"
+          ],
+          [
+            16,
+            "HEAP[*]",
+            "READ"
+          ],
+          [
+            16,
+            "HEAP[*]",
+            "WRITE"
+          ],
+          [
+            16,
+            "HEAP[*]",
+            "WRITE"
+          ],
+          [
+            16,
+            "HEAP[*]",
+            "WRITE"
+          ],
+          [
+            16,
+            "HEAP[*]",
+            "WRITE"
+          ],
+          [
+            16,
+            "FLAG:unknown",
+            "FLAG"
+          ],
+          [
+            16,
+            "FLAG:impure",
+            "FLAG"
+          ],
+          [
+            16,
+            "FLAG:exception_may_raise",
+            "FLAG"
+          ],
+          [
+            16,
+            "FLAG:nondeterministic",
+            "FLAG"
+          ],
+          [
+            18,
+            "HEAP[*]",
+            "READ"
+          ],
+          [
+            18,
+            "HEAP[*]",
+            "WRITE"
+          ],
+          [
+            18,
+            "FLAG:unknown",
+            "FLAG"
+          ],
+          [
+            18,
+            "FLAG:impure",
+            "FLAG"
+          ],
+          [
+            18,
+            "FLAG:exception_may_raise",
+            "FLAG"
+          ],
+          [
+            18,
+            "FLAG:nondeterministic",
+            "FLAG"
+          ]
+        ]
+      },
+      "dfg_edges": [],
+      "ast_edges": [
+        [
+          17,
+          18
+        ]
+      ],
+      "effect_signature": {
+        "counts": {
+          "R_STACK": 0,
+          "W_STACK": 0,
+          "R_GLOBAL": 0,
+          "W_GLOBAL": 0,
+          "R_HEAP": 10,
+          "W_HEAP": 10,
+          "FILE_IO": 0,
+          "NET_IO": 0,
+          "DB_IO": 0,
+          "ENV": 0,
+          "RNG": 0,
+          "TIME": 0,
+          "EXC": 3
+        },
+        "flags": [
+          "exception_may_raise",
+          "impure",
+          "nondeterministic",
+          "unknown"
+        ]
+      },
+      "tokens_norm": [
+        "LOAD_CONST_OTHER",
+        "MAKE_FUNCTION",
+        "STORE_NAME",
+        "LOAD_CONST_OTHER",
+        "MAKE_FUNCTION",
+        "STORE_NAME",
+        "LOAD_NAME",
+        "LOAD_CONST_STR_S",
+        "COMPARE_OP",
+        "POP_JUMP_IF_FALSE",
+        "LOAD_NAME",
+        "PUSH_NULL",
+        "CALL_FUNC",
+        "POP_TOP",
+        "RETURN_CONST",
+        "RETURN_CONST"
+      ],
+      "dbg_called_funcs": [
+        "<expr>.split",
+        "<expr>.strip",
+        "counts.items",
+        "freq.get",
+        "len",
+        "main",
+        "print",
+        "sorted",
+        "text.lower",
+        "word_frequency"
+      ],
+      "dbg_modules": [
+        "<expr>",
+        "counts",
+        "freq",
+        "text"
+      ],
+      "dbg_op_category_counts": {
+        "FunctionDef": 2,
+        "If": 1,
+        "Expr": 1,
+        "RES_HEAP_READ": 1,
+        "RES_HEAP_WRITE": 1,
+        "RES_FLAG_UNKNOWN": 1,
+        "RES_FLAG_IMPURE": 1,
+        "RES_FLAG_EXCEPTION_MAY_RAISE": 1,
+        "RES_FLAG_NONDETERMINISTIC": 1
+      },
+      "called_funcs": [
+        "<expr>.split",
+        "<expr>.strip",
+        "counts.items",
+        "freq.get",
+        "len",
+        "main",
+        "print",
+        "sorted",
+        "text.lower",
+        "word_frequency"
+      ],
+      "modules": [
+        "<expr>",
+        "counts",
+        "freq",
+        "text"
+      ],
+      "op_category_counts": {
+        "FunctionDef": 2,
+        "If": 1,
+        "Expr": 1,
+        "RES_HEAP_READ": 1,
+        "RES_HEAP_WRITE": 1,
+        "RES_FLAG_UNKNOWN": 1,
+        "RES_FLAG_IMPURE": 1,
+        "RES_FLAG_EXCEPTION_MAY_RAISE": 1,
+        "RES_FLAG_NONDETERMINISTIC": 1
+      }
+    },
+    {
+      "id": "/home/lpj/temp/experiment_data/all_code/word_freq_while_loop.py::word_frequency@1",
+      "name": "word_frequency",
+      "first_lineno": 1,
+      "nodes": [
+        {
+          "nid": 1,
+          "kind": "Expr",
+          "lineno": 2,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {}
+        },
+        {
+          "nid": 2,
+          "kind": "Assign",
+          "lineno": 3,
+          "reads": [
+            "text"
+          ],
+          "writes": [
+            "words"
+          ],
+          "calls": [
+            "<expr>.split",
+            "text.lower"
+          ],
+          "effects": {
+            "reads": [
+              "HEAP[*]",
+              "HEAP[*]"
+            ],
+            "writes": [
+              "HEAP[*]",
+              "HEAP[*]"
+            ],
+            "flags": {
+              "unknown": true,
+              "impure": true,
+              "exception_may_raise": true,
+              "nondeterministic": true,
+              "io_file": false,
+              "io_net": false,
+              "db": false,
+              "rng": false,
+              "time": false,
+              "env": false
+            }
+          }
+        },
+        {
+          "nid": 3,
+          "kind": "Assign",
+          "lineno": 4,
+          "reads": [],
+          "writes": [
+            "freq"
+          ],
+          "calls": [],
+          "effects": {}
+        },
+        {
+          "nid": 4,
+          "kind": "Assign",
+          "lineno": 5,
+          "reads": [],
+          "writes": [
+            "idx"
+          ],
+          "calls": [],
+          "effects": {}
+        },
+        {
+          "nid": 5,
+          "kind": "While",
+          "lineno": 6,
+          "reads": [
+            "idx",
+            "len",
+            "words"
+          ],
+          "writes": [],
+          "calls": [
+            "len"
+          ],
+          "effects": {
+            "reads": [
+              "HEAP[*]"
+            ],
+            "writes": [
+              "HEAP[*]"
+            ],
+            "flags": {
+              "unknown": true,
+              "impure": true,
+              "exception_may_raise": true,
+              "nondeterministic": true,
+              "io_file": false,
+              "io_net": false,
+              "db": false,
+              "rng": false,
+              "time": false,
+              "env": false
+            }
+          }
+        },
+        {
+          "nid": 6,
+          "kind": "Assign",
+          "lineno": 7,
+          "reads": [
+            "idx",
+            "words"
+          ],
+          "writes": [
+            "w"
+          ],
+          "calls": [
+            "<expr>.strip"
+          ],
+          "effects": {
+            "reads": [
+              "HEAP[*]"
+            ],
+            "writes": [
+              "HEAP[*]"
+            ],
+            "flags": {
+              "unknown": true,
+              "impure": true,
+              "exception_may_raise": true,
+              "nondeterministic": true,
+              "io_file": false,
+              "io_net": false,
+              "db": false,
+              "rng": false,
+              "time": false,
+              "env": false
+            }
+          }
+        },
+        {
+          "nid": 7,
+          "kind": "If",
+          "lineno": 8,
+          "reads": [
+            "w"
+          ],
+          "writes": [],
+          "calls": [],
+          "effects": {}
+        },
+        {
+          "nid": 8,
+          "kind": "Assign",
+          "lineno": 9,
+          "reads": [
+            "freq",
+            "w"
+          ],
+          "writes": [],
+          "calls": [
+            "freq.get"
+          ],
+          "effects": {
+            "reads": [
+              "HEAP[*]"
+            ],
+            "writes": [
+              "HEAP[*]"
+            ],
+            "flags": {
+              "unknown": true,
+              "impure": true,
+              "exception_may_raise": true,
+              "nondeterministic": true,
+              "io_file": false,
+              "io_net": false,
+              "db": false,
+              "rng": false,
+              "time": false,
+              "env": false
+            }
+          }
+        },
+        {
+          "nid": 9,
+          "kind": "Assign",
+          "lineno": 10,
+          "reads": [
+            "idx"
+          ],
+          "writes": [
+            "idx"
+          ],
+          "calls": [],
+          "effects": {}
+        },
+        {
+          "nid": 10,
+          "kind": "Return",
+          "lineno": 11,
+          "reads": [
+            "freq"
+          ],
+          "writes": [],
+          "calls": [],
+          "effects": {}
+        },
+        {
+          "nid": 11,
+          "kind": "RES_HEAP_READ",
+          "lineno": 0,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {
+            "resource": "HEAP[*]",
+            "tag": "READ"
+          }
+        },
+        {
+          "nid": 12,
+          "kind": "RES_HEAP_WRITE",
+          "lineno": 0,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {
+            "resource": "HEAP[*]",
+            "tag": "WRITE"
+          }
+        },
+        {
+          "nid": 13,
+          "kind": "RES_FLAG_UNKNOWN",
+          "lineno": 0,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {
+            "resource": "FLAG:unknown",
+            "tag": "FLAG"
+          }
+        },
+        {
+          "nid": 14,
+          "kind": "RES_FLAG_IMPURE",
+          "lineno": 0,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {
+            "resource": "FLAG:impure",
+            "tag": "FLAG"
+          }
+        },
+        {
+          "nid": 15,
+          "kind": "RES_FLAG_EXCEPTION_MAY_RAISE",
+          "lineno": 0,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {
+            "resource": "FLAG:exception_may_raise",
+            "tag": "FLAG"
+          }
+        },
+        {
+          "nid": 16,
+          "kind": "RES_FLAG_NONDETERMINISTIC",
+          "lineno": 0,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {
+            "resource": "FLAG:nondeterministic",
+            "tag": "FLAG"
+          }
+        }
+      ],
+      "cfg": {
+        "edges": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            8,
+            9
+          ],
+          [
+            7,
+            9
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            9,
+            5
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            10
+          ]
+        ]
+      },
+      "pdg": {
+        "data_edges": [
+          [
+            9,
+            5,
+            "idx"
+          ],
+          [
+            4,
+            5,
+            "idx"
+          ],
+          [
+            2,
+            5,
+            "words"
+          ],
+          [
+            9,
+            6,
+            "idx"
+          ],
+          [
+            4,
+            6,
+            "idx"
+          ],
+          [
+            2,
+            6,
+            "words"
+          ],
+          [
+            6,
+            7,
+            "w"
+          ],
+          [
+            3,
+            8,
+            "freq"
+          ],
+          [
+            6,
+            8,
+            "w"
+          ],
+          [
+            9,
+            9,
+            "idx"
+          ],
+          [
+            4,
+            9,
+            "idx"
+          ],
+          [
+            3,
+            10,
+            "freq"
+          ]
+        ],
+        "control_edges": [
+          [
+            5,
+            6,
+            "LOOP_BODY"
+          ],
+          [
+            5,
+            7,
+            "LOOP_BODY"
+          ],
+          [
+            7,
+            8,
+            "IF_TRUE"
+          ],
+          [
+            5,
+            9,
+            "LOOP_BODY"
+          ]
+        ],
+        "effect_edges": [
+          [
+            2,
+            11
+          ],
+          [
+            2,
+            12
+          ],
+          [
+            2,
+            13
+          ],
+          [
+            2,
+            14
+          ],
+          [
+            2,
+            15
+          ],
+          [
+            2,
+            16
+          ],
+          [
+            5,
+            11
+          ],
+          [
+            5,
+            12
+          ],
+          [
+            5,
+            13
+          ],
+          [
+            5,
+            14
+          ],
+          [
+            5,
+            15
+          ],
+          [
+            5,
+            16
+          ],
+          [
+            6,
+            11
+          ],
+          [
+            6,
+            12
+          ],
+          [
+            6,
+            13
+          ],
+          [
+            6,
+            14
+          ],
+          [
+            6,
+            15
+          ],
+          [
+            6,
+            16
+          ],
+          [
+            8,
+            11
+          ],
+          [
+            8,
+            12
+          ],
+          [
+            8,
+            13
+          ],
+          [
+            8,
+            14
+          ],
+          [
+            8,
+            15
+          ],
+          [
+            8,
+            16
+          ]
+        ],
+        "effect_raw": [
+          [
+            2,
+            "HEAP[*]",
+            "READ"
+          ],
+          [
+            2,
+            "HEAP[*]",
+            "READ"
+          ],
+          [
+            2,
+            "HEAP[*]",
+            "WRITE"
+          ],
+          [
+            2,
+            "HEAP[*]",
+            "WRITE"
+          ],
+          [
+            2,
+            "FLAG:unknown",
+            "FLAG"
+          ],
+          [
+            2,
+            "FLAG:impure",
+            "FLAG"
+          ],
+          [
+            2,
+            "FLAG:exception_may_raise",
+            "FLAG"
+          ],
+          [
+            2,
+            "FLAG:nondeterministic",
+            "FLAG"
+          ],
+          [
+            5,
+            "HEAP[*]",
+            "READ"
+          ],
+          [
+            5,
+            "HEAP[*]",
+            "WRITE"
+          ],
+          [
+            5,
+            "FLAG:unknown",
+            "FLAG"
+          ],
+          [
+            5,
+            "FLAG:impure",
+            "FLAG"
+          ],
+          [
+            5,
+            "FLAG:exception_may_raise",
+            "FLAG"
+          ],
+          [
+            5,
+            "FLAG:nondeterministic",
+            "FLAG"
+          ],
+          [
+            6,
+            "HEAP[*]",
+            "READ"
+          ],
+          [
+            6,
+            "HEAP[*]",
+            "WRITE"
+          ],
+          [
+            6,
+            "FLAG:unknown",
+            "FLAG"
+          ],
+          [
+            6,
+            "FLAG:impure",
+            "FLAG"
+          ],
+          [
+            6,
+            "FLAG:exception_may_raise",
+            "FLAG"
+          ],
+          [
+            6,
+            "FLAG:nondeterministic",
+            "FLAG"
+          ],
+          [
+            8,
+            "HEAP[*]",
+            "READ"
+          ],
+          [
+            8,
+            "HEAP[*]",
+            "WRITE"
+          ],
+          [
+            8,
+            "FLAG:unknown",
+            "FLAG"
+          ],
+          [
+            8,
+            "FLAG:impure",
+            "FLAG"
+          ],
+          [
+            8,
+            "FLAG:exception_may_raise",
+            "FLAG"
+          ],
+          [
+            8,
+            "FLAG:nondeterministic",
+            "FLAG"
+          ]
+        ]
+      },
+      "dfg_edges": [
+        [
+          9,
+          5,
+          "idx"
+        ],
+        [
+          4,
+          5,
+          "idx"
+        ],
+        [
+          2,
+          5,
+          "words"
+        ],
+        [
+          9,
+          6,
+          "idx"
+        ],
+        [
+          4,
+          6,
+          "idx"
+        ],
+        [
+          2,
+          6,
+          "words"
+        ],
+        [
+          6,
+          7,
+          "w"
+        ],
+        [
+          3,
+          8,
+          "freq"
+        ],
+        [
+          6,
+          8,
+          "w"
+        ],
+        [
+          9,
+          9,
+          "idx"
+        ],
+        [
+          4,
+          9,
+          "idx"
+        ],
+        [
+          3,
+          10,
+          "freq"
+        ]
+      ],
+      "ast_edges": [
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          5,
+          9
+        ]
+      ],
+      "effect_signature": {
+        "counts": {
+          "R_STACK": 0,
+          "W_STACK": 0,
+          "R_GLOBAL": 0,
+          "W_GLOBAL": 0,
+          "R_HEAP": 5,
+          "W_HEAP": 5,
+          "FILE_IO": 0,
+          "NET_IO": 0,
+          "DB_IO": 0,
+          "ENV": 0,
+          "RNG": 0,
+          "TIME": 0,
+          "EXC": 4
+        },
+        "flags": [
+          "exception_may_raise",
+          "impure",
+          "nondeterministic",
+          "unknown"
+        ]
+      },
+      "tokens_norm": [
+        "LOAD_FAST",
+        "LOAD_ATTR@lower",
+        "CALL_FUNC",
+        "LOAD_ATTR@split",
+        "CALL_FUNC",
+        "STORE_FAST",
+        "BUILD_MAP",
+        "STORE_FAST",
+        "LOAD_CONST_INT_SMALL",
+        "STORE_FAST",
+        "LOAD_FAST",
+        "LOAD_GLOBAL",
+        "LOAD_FAST",
+        "CALL_FUNC",
+        "COMPARE_OP",
+        "POP_JUMP_IF_FALSE",
+        "LOAD_FAST_LOAD_FAST",
+        "BINARY_SUBSCR",
+        "LOAD_ATTR@strip",
+        "LOAD_CONST_STR_M",
+        "CALL_FUNC",
+        "STORE_FAST",
+        "LOAD_FAST",
+        "TO_BOOL",
+        "POP_JUMP_IF_FALSE",
+        "LOAD_FAST",
+        "LOAD_ATTR",
+        "LOAD_FAST",
+        "LOAD_CONST_INT_SMALL",
+        "CALL_FUNC",
+        "LOAD_CONST_INT_SMALL",
+        "BINARY_OP",
+        "LOAD_FAST_LOAD_FAST",
+        "STORE_SUBSCR",
+        "LOAD_FAST",
+        "LOAD_CONST_INT_SMALL",
+        "BINARY_OP",
+        "STORE_FAST",
+        "LOAD_FAST",
+        "LOAD_GLOBAL",
+        "LOAD_FAST",
+        "CALL_FUNC",
+        "COMPARE_OP",
+        "POP_JUMP_IF_FALSE",
+        "JUMP_BACKWARD",
+        "LOAD_FAST",
+        "RETURN_VALUE"
+      ],
+      "dbg_called_funcs": [
+        "<expr>.split",
+        "<expr>.strip",
+        "freq.get",
+        "len",
+        "text.lower"
+      ],
+      "dbg_modules": [
+        "<expr>",
+        "freq",
+        "text"
+      ],
+      "dbg_op_category_counts": {
+        "Expr": 1,
+        "Assign": 6,
+        "While": 1,
+        "If": 1,
+        "Return": 1,
+        "RES_HEAP_READ": 1,
+        "RES_HEAP_WRITE": 1,
+        "RES_FLAG_UNKNOWN": 1,
+        "RES_FLAG_IMPURE": 1,
+        "RES_FLAG_EXCEPTION_MAY_RAISE": 1,
+        "RES_FLAG_NONDETERMINISTIC": 1
+      },
+      "called_funcs": [
+        "<expr>.split",
+        "<expr>.strip",
+        "freq.get",
+        "len",
+        "text.lower"
+      ],
+      "modules": [
+        "<expr>",
+        "freq",
+        "text"
+      ],
+      "op_category_counts": {
+        "Expr": 1,
+        "Assign": 6,
+        "While": 1,
+        "If": 1,
+        "Return": 1,
+        "RES_HEAP_READ": 1,
+        "RES_HEAP_WRITE": 1,
+        "RES_FLAG_UNKNOWN": 1,
+        "RES_FLAG_IMPURE": 1,
+        "RES_FLAG_EXCEPTION_MAY_RAISE": 1,
+        "RES_FLAG_NONDETERMINISTIC": 1
+      }
+    },
+    {
+      "id": "/home/lpj/temp/experiment_data/all_code/word_freq_while_loop.py::main@14",
+      "name": "main",
+      "first_lineno": 14,
+      "nodes": [
+        {
+          "nid": 11,
+          "kind": "Assign",
+          "lineno": 15,
+          "reads": [],
+          "writes": [
+            "sample"
+          ],
+          "calls": [],
+          "effects": {}
+        },
+        {
+          "nid": 12,
+          "kind": "Assign",
+          "lineno": 16,
+          "reads": [
+            "sample",
+            "word_frequency"
+          ],
+          "writes": [
+            "counts"
+          ],
+          "calls": [
+            "word_frequency"
+          ],
+          "effects": {
+            "reads": [
+              "HEAP[*]"
+            ],
+            "writes": [
+              "HEAP[*]"
+            ],
+            "flags": {
+              "unknown": true,
+              "impure": true,
+              "exception_may_raise": true,
+              "nondeterministic": true,
+              "io_file": false,
+              "io_net": false,
+              "db": false,
+              "rng": false,
+              "time": false,
+              "env": false
+            }
+          }
+        },
+        {
+          "nid": 13,
+          "kind": "For",
+          "lineno": 17,
+          "reads": [
+            "counts",
+            "sorted"
+          ],
+          "writes": [
+            "cnt",
+            "word"
+          ],
+          "calls": [
+            "sorted",
+            "counts.items"
+          ],
+          "effects": {
+            "reads": [
+              "HEAP[*]",
+              "HEAP[*]"
+            ],
+            "writes": [
+              "HEAP[*]",
+              "HEAP[*]"
+            ],
+            "flags": {
+              "unknown": true,
+              "impure": true,
+              "exception_may_raise": true,
+              "nondeterministic": true,
+              "io_file": false,
+              "io_net": false,
+              "db": false,
+              "rng": false,
+              "time": false,
+              "env": false
+            }
+          }
+        },
+        {
+          "nid": 14,
+          "kind": "Expr",
+          "lineno": 18,
+          "reads": [
+            "cnt",
+            "print",
+            "word"
+          ],
+          "writes": [],
+          "calls": [
+            "print"
+          ],
+          "effects": {
+            "reads": [
+              "HEAP[*]"
+            ],
+            "writes": [
+              "HEAP[*]"
+            ],
+            "flags": {
+              "unknown": true,
+              "impure": true,
+              "exception_may_raise": true,
+              "nondeterministic": true,
+              "io_file": false,
+              "io_net": false,
+              "db": false,
+              "rng": false,
+              "time": false,
+              "env": false
+            }
+          }
+        },
+        {
+          "nid": 15,
+          "kind": "RES_HEAP_READ",
+          "lineno": 0,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {
+            "resource": "HEAP[*]",
+            "tag": "READ"
+          }
+        },
+        {
+          "nid": 16,
+          "kind": "RES_HEAP_WRITE",
+          "lineno": 0,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {
+            "resource": "HEAP[*]",
+            "tag": "WRITE"
+          }
+        },
+        {
+          "nid": 17,
+          "kind": "RES_FLAG_UNKNOWN",
+          "lineno": 0,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {
+            "resource": "FLAG:unknown",
+            "tag": "FLAG"
+          }
+        },
+        {
+          "nid": 18,
+          "kind": "RES_FLAG_IMPURE",
+          "lineno": 0,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {
+            "resource": "FLAG:impure",
+            "tag": "FLAG"
+          }
+        },
+        {
+          "nid": 19,
+          "kind": "RES_FLAG_EXCEPTION_MAY_RAISE",
+          "lineno": 0,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {
+            "resource": "FLAG:exception_may_raise",
+            "tag": "FLAG"
+          }
+        },
+        {
+          "nid": 20,
+          "kind": "RES_FLAG_NONDETERMINISTIC",
+          "lineno": 0,
+          "reads": [],
+          "writes": [],
+          "calls": [],
+          "effects": {
+            "resource": "FLAG:nondeterministic",
+            "tag": "FLAG"
+          }
+        }
+      ],
+      "cfg": {
+        "edges": [
+          [
+            11,
+            12
+          ],
+          [
+            13,
+            14
+          ],
+          [
+            14,
+            13
+          ],
+          [
+            12,
+            13
+          ]
+        ]
+      },
+      "pdg": {
+        "data_edges": [
+          [
+            11,
+            12,
+            "sample"
+          ],
+          [
+            12,
+            13,
+            "counts"
+          ],
+          [
+            13,
+            14,
+            "cnt"
+          ],
+          [
+            13,
+            14,
+            "word"
+          ]
+        ],
+        "control_edges": [
+          [
+            13,
+            14,
+            "LOOP_BODY"
+          ]
+        ],
+        "effect_edges": [
+          [
+            12,
+            15
+          ],
+          [
+            12,
+            16
+          ],
+          [
+            12,
+            17
+          ],
+          [
+            12,
+            18
+          ],
+          [
+            12,
+            19
+          ],
+          [
+            12,
+            20
+          ],
+          [
+            13,
+            15
+          ],
+          [
+            13,
+            16
+          ],
+          [
+            13,
+            17
+          ],
+          [
+            13,
+            18
+          ],
+          [
+            13,
+            19
+          ],
+          [
+            13,
+            20
+          ],
+          [
+            14,
+            15
+          ],
+          [
+            14,
+            16
+          ],
+          [
+            14,
+            17
+          ],
+          [
+            14,
+            18
+          ],
+          [
+            14,
+            19
+          ],
+          [
+            14,
+            20
+          ]
+        ],
+        "effect_raw": [
+          [
+            12,
+            "HEAP[*]",
+            "READ"
+          ],
+          [
+            12,
+            "HEAP[*]",
+            "WRITE"
+          ],
+          [
+            12,
+            "FLAG:unknown",
+            "FLAG"
+          ],
+          [
+            12,
+            "FLAG:impure",
+            "FLAG"
+          ],
+          [
+            12,
+            "FLAG:exception_may_raise",
+            "FLAG"
+          ],
+          [
+            12,
+            "FLAG:nondeterministic",
+            "FLAG"
+          ],
+          [
+            13,
+            "HEAP[*]",
+            "READ"
+          ],
+          [
+            13,
+            "HEAP[*]",
+            "READ"
+          ],
+          [
+            13,
+            "HEAP[*]",
+            "WRITE"
+          ],
+          [
+            13,
+            "HEAP[*]",
+            "WRITE"
+          ],
+          [
+            13,
+            "FLAG:unknown",
+            "FLAG"
+          ],
+          [
+            13,
+            "FLAG:impure",
+            "FLAG"
+          ],
+          [
+            13,
+            "FLAG:exception_may_raise",
+            "FLAG"
+          ],
+          [
+            13,
+            "FLAG:nondeterministic",
+            "FLAG"
+          ],
+          [
+            14,
+            "HEAP[*]",
+            "READ"
+          ],
+          [
+            14,
+            "HEAP[*]",
+            "WRITE"
+          ],
+          [
+            14,
+            "FLAG:unknown",
+            "FLAG"
+          ],
+          [
+            14,
+            "FLAG:impure",
+            "FLAG"
+          ],
+          [
+            14,
+            "FLAG:exception_may_raise",
+            "FLAG"
+          ],
+          [
+            14,
+            "FLAG:nondeterministic",
+            "FLAG"
+          ]
+        ]
+      },
+      "dfg_edges": [
+        [
+          11,
+          12,
+          "sample"
+        ],
+        [
+          12,
+          13,
+          "counts"
+        ],
+        [
+          13,
+          14,
+          "cnt"
+        ],
+        [
+          13,
+          14,
+          "word"
+        ]
+      ],
+      "ast_edges": [
+        [
+          13,
+          14
+        ]
+      ],
+      "effect_signature": {
+        "counts": {
+          "R_STACK": 0,
+          "W_STACK": 0,
+          "R_GLOBAL": 0,
+          "W_GLOBAL": 0,
+          "R_HEAP": 4,
+          "W_HEAP": 4,
+          "FILE_IO": 0,
+          "NET_IO": 0,
+          "DB_IO": 0,
+          "ENV": 0,
+          "RNG": 0,
+          "TIME": 0,
+          "EXC": 3
+        },
+        "flags": [
+          "exception_may_raise",
+          "impure",
+          "nondeterministic",
+          "unknown"
+        ]
+      },
+      "tokens_norm": [
+        "LOAD_CONST_STR_M",
+        "STORE_FAST",
+        "LOAD_GLOBAL",
+        "LOAD_FAST",
+        "CALL_FUNC",
+        "STORE_FAST",
+        "LOAD_GLOBAL",
+        "LOAD_FAST",
+        "LOAD_ATTR",
+        "CALL_FUNC",
+        "CALL_FUNC",
+        "GET_ITER",
+        "FOR_ITER",
+        "UNPACK_SEQUENCE",
+        "STORE_FAST_STORE_FAST",
+        "LOAD_GLOBAL@print",
+        "LOAD_FAST",
+        "FORMAT_SIMPLE",
+        "LOAD_CONST_STR_S",
+        "LOAD_FAST",
+        "FORMAT_SIMPLE",
+        "BUILD_STRING",
+        "CALL_FUNC",
+        "POP_TOP",
+        "JUMP_BACKWARD",
+        "END_FOR",
+        "POP_TOP",
+        "RETURN_CONST"
+      ],
+      "dbg_called_funcs": [
+        "counts.items",
+        "print",
+        "sorted",
+        "word_frequency"
+      ],
+      "dbg_modules": [
+        "counts"
+      ],
+      "dbg_op_category_counts": {
+        "Assign": 2,
+        "For": 1,
+        "Expr": 1,
+        "RES_HEAP_READ": 1,
+        "RES_HEAP_WRITE": 1,
+        "RES_FLAG_UNKNOWN": 1,
+        "RES_FLAG_IMPURE": 1,
+        "RES_FLAG_EXCEPTION_MAY_RAISE": 1,
+        "RES_FLAG_NONDETERMINISTIC": 1
+      },
+      "called_funcs": [
+        "counts.items",
+        "print",
+        "sorted",
+        "word_frequency"
+      ],
+      "modules": [
+        "counts"
+      ],
+      "op_category_counts": {
+        "Assign": 2,
+        "For": 1,
+        "Expr": 1,
+        "RES_HEAP_READ": 1,
+        "RES_HEAP_WRITE": 1,
+        "RES_FLAG_UNKNOWN": 1,
+        "RES_FLAG_IMPURE": 1,
+        "RES_FLAG_EXCEPTION_MAY_RAISE": 1,
+        "RES_FLAG_NONDETERMINISTIC": 1
+      }
+    }
+  ]
+}

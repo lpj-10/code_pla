@@ -1615,7 +1615,24 @@ def main():
         tmpl_weights = _load_template_weights(template_weights_path)
         if tmpl_weights:
             print(f"[dacd] Loaded {len(tmpl_weights)} template function weights from {template_weights_path}")
-            eff_func_len = _apply_template_weights(func_len, tmpl_weights)
+            # Remap cluster-member keys to func_meta fids.
+            # Cluster members: "/path/to/source.py::funcname@lineno"
+            # func_meta fids:   "path/to/json.epdg.json::fN" with values (source_path, func_name, first_lineno)
+            _remapped: Dict[str, float] = {}
+            _remap_count = 0
+            for fid, (src_path, func_name, first_lineno) in func_meta.items():
+                # Build the cluster-member-style key: source_path::func_name@first_lineno
+                cluster_key = f"{src_path}::{func_name}@{first_lineno}"
+                w = tmpl_weights.get(cluster_key)
+                if w is not None:
+                    _remapped[fid] = w
+                    _remap_count += 1
+            if _remap_count > 0:
+                print(f"[dacd] Remapped {_remap_count} template weights to func_meta fids")
+                eff_func_len = _apply_template_weights(func_len, _remapped)
+            else:
+                print("[dacd] WARNING: could not remap any template weights — key formats may differ")
+                eff_func_len = {k: float(v) for k, v in func_len.items()}
         else:
             eff_func_len = {k: float(v) for k, v in func_len.items()}
     else:
